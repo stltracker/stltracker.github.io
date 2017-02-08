@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs
+        width="780"
+        scaling="false"
+        author="Sumus Technology Limited"
+        author_email="info@stltracker.com">
+        <Require feature="dynamic-height"/>
+    </ModulePrefs>
+    <Content type="html">
+    <![CDATA[    
+      <style>
+	@import url("https://sites.google.com/a/stltracker.com/online/home/Widgets/widgets.css");
+	#cesiumContainer {
+          width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+        }
+      </style>
+        <script type="text/javascript" src="https://sites.google.com/a/stltracker.com/online/home/Cesium.js"> </script>
+        <script>
+        function loaded() {
+        }
+	</script>
+      <div id="cesiumContainer"></div>
+      <script>
+          var viewer = new Cesium.Viewer("cesiumContainer");
+      </script>
+
+      <script type="application/x-javascript"> 
+          gadgets.util.registerOnLoadHandler(loaded);
+          gadgets.window.adjustHeight();
+      </script>
+     ]]>
+    </Content>
+</Module>
+
+
+
