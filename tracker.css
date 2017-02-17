@@ -1,0 +1,87 @@
+:root {
+  --main-button-color: #000000;
+  --main-button-border-color: #af0000;
+  --main-button-hover-color: #777777;
+  --main-button-hover-border-color: #007f00;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    z-index: -1;
+    background-color: #000000;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    left: 0px; 
+    top: 0px;
+}
+
+.button {
+    border: 3px solid;
+    border-color: var(--main-button-border-color);
+    border-radius: 10px;
+    width: 42px;
+    height: 42px;
+    outline: none;
+    padding: 0;
+    margin-left: 10px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    float: left;
+    position: relative;
+    z-index: 1000;
+}
+
+.button:hover {
+    border-color: var(--main-button-hover-border-color);
+}
+
+.button#satellite {
+    background: url("Buttons/Satellite.png") no-repeat scroll center;
+    background-color: var(--main-button-color);
+}
+
+.button#satellite:hover {
+    background-color: var(--main-button-hover-color);
+}
+
+.button#projection {
+    background: url("Buttons/Projection.png") no-repeat scroll center; 
+    background-color: var(--main-button-color);
+}
+
+.button#projection:hover {
+    background-color: var(--main-button-hover-color);
+}
+
+.button#fullscreen {
+    background: url("Buttons/Fullscreen.png") no-repeat scroll center; 
+    background-color: var(--main-button-color);
+}
+
+.button#fullscreen:hover {
+    background-color: var(--main-button-hover-color);
+}
+
+.button#refresh {
+    background: url("Buttons/Refresh.png") no-repeat scroll center; 
+    background-color: var(--main-button-color);
+}
+
+.button#refresh:hover {
+    background-color: var(--main-button-hover-color);
+}
+
+.button#information {
+    background: url("Buttons/Information.png") no-repeat scroll center;
+    background-color: var(--main-button-color);
+}
+
+.button#information:hover {
+    background-color: var(--main-button-hover-color);
+}
