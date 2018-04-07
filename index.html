@@ -1,7 +1,7 @@
 <!doctype html> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"> <head> <title>STL Tracker Live - live online satellite tracking</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="theme-color" content="#A51818"/> <link rel="shortcut icon" href="favicon.ico"> <link rel="manifest" href="tracker.webmanifest"> <script>
             function initMapObserver() {
             }
-        </script> <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYBleTtN1Fc3Z-WMGDXzayLIxqxJSoPAY&callback=initMapObserver"></script> <script type="text/javascript" src="./gl-matrix-min.js"> </script> <script async defer type="text/javascript" src="./stellar-data.js"> </script> <link rel="stylesheet" type="text/css" href="tracker.css" /> <script type="text/javascript" src="./tracker.js"></script> <script id="shader-fs-symbol" type="x-shader/x-fragment">
+        </script> <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYBleTtN1Fc3Z-WMGDXzayLIxqxJSoPAY&callback=initMapObserver"></script> <script type="text/javascript" src="./gl-matrix-min.js"> </script> <script async defer type="text/javascript" src="./stellar-data.js"> </script> <link rel="import" href="tracker-css.html"> <link rel="import" href="tracker-js.html"> <script id="shader-fs-symbol" type="x-shader/x-fragment">
             precision mediump float;
 
             uniform vec4 uColor;
