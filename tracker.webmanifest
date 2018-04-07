@@ -1,0 +1,9 @@
+{
+  "name": "Tracker Online",
+  "short_name": "Tracker",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#A51818",
+  "description": "Online satellite tracking."
+}
