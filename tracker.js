@@ -1,279 +1,2906 @@
-var ca="function"==typeof Object.defineProperties?Object.defineProperty:function(a,c,d){a!=Array.prototype&&a!=Object.prototype&&(a[c]=d.value)},da="undefined"!=typeof window&&window===this?this:"undefined"!=typeof global&&null!=global?global:this;function ea(a,c){if(c){var d=da;a=a.split(".");for(var e=0;e<a.length-1;e++){var g=a[e];g in d||(d[g]={});d=d[g]}a=a[a.length-1];e=d[a];c=c(e);c!=e&&null!=c&&ca(d,a,{configurable:!0,writable:!0,value:c})}}
-ea("Object.is",function(a){return a?a:function(a,d){return a===d?0!==a||1/a===1/d:a!==a&&d!==d}});var fa="function"==typeof Object.assign?Object.assign:function(a,c){for(var d=1;d<arguments.length;d++){var e=arguments[d];if(e)for(var g in e)Object.prototype.hasOwnProperty.call(e,g)&&(a[g]=e[g])}return a};ea("Object.assign",function(a){return a||fa});function ha(a,c){if(null==a)throw new TypeError("The 'this' value for String.prototype."+c+" must not be null or undefined");return a+""}
-ea("String.prototype.repeat",function(a){return a?a:function(a){var c=ha(this,"repeat");if(0>a||1342177279<a)throw new RangeError("Invalid count value");a|=0;for(var e="";a;)if(a&1&&(e+=c),a>>>=1)c+=c;return e}});ea("String.prototype.padStart",function(a){return a?a:function(a,d){var c=ha(this,"padStart");a-=c.length;d=void 0!==d?String(d):" ";return(0<a&&d?d.repeat(Math.ceil(a/d.length)).substring(0,a):"")+c}});
-var ja="projectionPerspective projectionCylindrical projectionRobinson projectionElliptical projectionSinusoidal projectionRadar projectionTextual".split(" "),ma="shapeNone shapeCircle shapeSquare shapeTriangle shapeInvertedTriangle shapeCross shapePlus shapeDiamond shapeAsterisk shapeLeftTriangle shapeRightTriangle".split(" "),qa=[{I:"<div style='white-space: nowrap;'><input type='checkbox' class='tableSelect' id='selectAllNone'><label for='selectAllNone'>Display</label></div>",title:"Display"},
-{I:"Name"},{I:"NORAD Id/Catalog number"},{I:"International designator"},{I:"Launch date"},{I:"Launch site"},{I:"Owner/ Source"},{I:"Decay date"}],ua=[{title:"Name",id:"Name",Y:"MMMMMMMMMMMM",V:!0},{title:"NORAD Id/Catalog number",id:"Id",Y:"88888",V:!0},{title:"Longitude",id:"Longitude",Y:"888D88M W",V:!1},{title:"Latitude",id:"Latitude",Y:"88D88M N",V:!1},{title:"Altitude (km)",id:"Altitude",Y:"88888",V:!1},{title:"Azimuth (&deg;)",id:"Azimuth",Y:"888.88",V:!1},{title:"Elevation (&deg;)",id:"Elevation",
-Y:"-88.88",V:!1},{title:"Range (km)",id:"Range",Y:"88888",V:!1},{title:"Range Rate (km/s)",id:"RangeRate",Y:"-8888.88",V:!1},{title:"Eclipse",id:"Eclipse",Y:"Penumbral",V:!1}],za=Object.freeze({Nc:0,ja:1,ka:2,Zb:3,Pc:4,Qc:5,Rc:6,Oc:7}),Aa=4,Ba=1,Ca=new XMLHttpRequest,Fa=new XMLHttpRequest,Ga,Ha,La=[],Sa=!0,Ta=!1,eb=!1,gb=!1,hb=!1,qb=!1,rb=!1,Ab=!1,Bb=[za.ja,za.ka],Cb=[za.ja,za.ka],Jb=-1,Kb=0,Lb,Nb,Ob=!1,b,Vb,m=ja[0],Wb=!1,Xb=0,Yb=0,ac=[],nc,oc,pc;var qc=Math.PI/180,rc=2*Math.PI,sc=2/3;
-function tc(a,c,d,e,g,h,p,q,n,P,D,x,Y,sb,ib,na,H,k,f,ia,F,ka,I,u,oa,y,ba,Z,l,va,Q,N,t,R,Ia,K,L,S,w){var U=N+1.19459E-5*ia;"y"==t&&(U=N);N=U+.0335*Math.sin(U);var wa=Math.sin(N);U=.5*wa*wa-.25;N=-.5*wa*Math.cos(N);q=q*U+n*N;ib=ib*U+na*N;H=H*U+k*N+f*wa;P=P*U+D*N+x*wa;Y=Y*U+sb*N;U=Q+1.5835218E-4*ia;"y"==t&&(U=Q);N=U+.1098*Math.sin(U);wa=Math.sin(N);U=.5*wa*wa-.25;N=-.5*wa*Math.cos(N);"n"==t&&(h=ib+(y*U+ba*N)-h,p=H+(Z*U+l*N+va*wa)-p,e=P+(F*U+ka*N+I*wa)-e,g=Y+(u*U+oa*N)-g,Ia+=h,R+=q+(c*U+a*N)-d,u=Math.sin(Ia),
-c=Math.cos(Ia),.2<=Ia?(g/=u,L+=e-c*g,K+=g,S+=p):(oa=Math.sin(K),d=Math.cos(K),a=u*oa+(g*d+h*c*oa),d=u*d+(-g*oa+h*c*d),K%=rc,0>K&&"a"==w&&(K+=rc),g=p+e-h*K*u,L=S+L+c*K+g,g=K,K=Math.atan2(a,d),0>K&&"a"==w&&(K+=rc),Math.abs(g-K)>Math.PI&&(K<g?K+=rc:K-=rc),S+=p,L=L-S-c*K));return{fc:R,gc:Ia,pc:K,ac:L,lc:S}}
-function uc(a,c,d){var e=0,g,h=0,p=0,q;"number"===typeof d&&(d=vc(d));var n=d.rc;var P=d.Qb;var D=d.kb;var x=d.jc;var Y=n*P/60;a.t=c;a.error=0;a.la=null;var sb=a.U+a.lb*a.t;var ib=a.M+a.ua*a.t;var na=a.X+a.Da*a.t;var H=ib;var k=sb;var f=a.t*a.t;var ia=na+a.oc*f;var F=1-a.S*a.t;var ka=a.ba*a.bc*a.t;var I=a.vc*f;if(1!=a.ma){var u=a.qc*a.t;var oa=1+a.da*Math.cos(sb);var y=a.Wb*(oa*oa*oa-a.dc);var ba=u+y;k=sb+ba;H=ib-ba;var Z=f*a.t;var l=Z*a.t;F=F-a.Z*f-a.ya*Z-a.Qa*l;ka+=a.ba*a.cc*(Math.sin(k)-a.uc);
-I=I+a.wc*Z+l*(a.xc+a.t*a.yc)}var va=a.j;var Q=a.F;var N=a.T;if("d"==a.method){var t=a.t;var R=a.ic,Ia=a.Ma,K=a.Na,L=a.Oa,S=a.Pa,w=a.Ra,U=a.Sa,wa=a.Ta,xa=a.Ua,Pb=a.Va,Ua=a.Wa,bc=a.Ya,tb=a.Za,Qb=a.$a,Va=a.t,ub=a.Ib,Wa=a.j,Da=a.va,cc=H,T=a.Ha,Rb=k,jb=a.Ia,Db=ia,Ya=va,Eb,kb=0,Za=0,Ma=0;var Ea=0;var la=(a.jb+.0043752690880113*t)%rc;cc+=a.eb*Va;Db+=a.cb*Va;Rb+=a.bb*Va;var ra=0;if(0!=R){if(0==Da||0>=Va*Da||Math.abs(Va)<Math.abs(Da))Da=0,jb=Wa,T=a.Ub;var Fb=0<Va?720:-720;for(Eb=381;381==Eb;){if(2!=R)Ma=bc*
-Math.sin(T-.13130908)+tb*Math.sin(2*(T-2.8843198))+Qb*Math.sin(3*(T-.37448087)),kb=jb+ub,Za=bc*Math.cos(T-.13130908)+2*tb*Math.cos(2*(T-2.8843198))+3*Qb*Math.cos(3*(T-.37448087));else{var sa=a.M+a.ua*Da;var $a=sa+sa;var Na=T+T;Ma=Ia*Math.sin($a+T-5.7686396)+K*Math.sin(T-5.7686396)+L*Math.sin(sa+T-.95240898)+S*Math.sin(-sa+T-.95240898)+w*Math.sin($a+Na-1.8014998)+U*Math.sin(Na-1.8014998)+wa*Math.sin(sa+T-1.050833)+xa*Math.sin(-sa+T-1.050833)+Pb*Math.sin(sa+Na-4.4108898)+Ua*Math.sin(-sa+Na-4.4108898);
-kb=jb+ub;Za=Ia*Math.cos($a+T-5.7686396)+K*Math.cos(T-5.7686396)+L*Math.cos(sa+T-.95240898)+S*Math.cos(-sa+T-.95240898)+wa*Math.cos(sa+T-1.050833)+xa*Math.cos(-sa+T-1.050833)+2*(w*Math.cos($a+Na-1.8014998)+U*Math.cos(Na-1.8014998)+Pb*Math.cos(sa+Na-4.4108898)+Ua*Math.cos(-sa+Na-4.4108898))}Za*=kb;720<=Math.abs(Va-Da)?Eb=381:(ra=Va-Da,Eb=0);381==Eb&&(T=T+kb*Fb+259200*Ma,jb=jb+Ma*Fb+259200*Za,Da+=Fb)}var dc=T+kb*ra+Ma*ra*ra*.5;Rb=1!=R?dc-2*Db+2*la:dc-Db-cc+la;Ea=jb+Ma*ra+Za*ra*ra*.5-Wa;Ya=Wa+Ea}var ec=
-Da;var fc=Q+a.Xa*Va;var zc=cc;var Vc=N+a.ab*Va;var Ac=T;var gc=Rb;var Bc=jb;var hc=Db;var ic=Ya;a.va=ec;Q=fc;H=zc;N=Vc;a.Ha=Ac;k=gc;a.Ia=Bc;ia=hc;va=ic}if(0>=va)return a.la="mean motion "+va+" is less than zero",a.error=2,[!1,!1];var lb=Math.pow(P/va,sc)*F*F;va=P/Math.pow(lb,1.5);Q-=ka;if(1<=Q||-.001>Q)return a.la="mean eccentricity "+Q+" not within range 0.0 <= e < 1.0",a.error=1,[!1,!1];1E-6>Q&&(Q=1E-6);k+=a.j*I;var jc=k+H+ia;ba=1-Q*Q;ia%=rc;H%=rc;jc%=rc;k=(jc-H-ia)%rc;var vb=Math.sin(N);var wb=
-Math.cos(N);var Ja=Q;var Oa=N;var ab=H;var Xa=ia;var z=k;var A=vb;var J=wb;if("d"==a.method){var ta=tc(a.fb,a.gb,a.nb,a.ob,a.pb,a.qb,a.rb,a.tb,a.ub,a.vb,a.wb,a.xb,a.yb,a.zb,a.Ab,a.Bb,a.Cb,a.Db,a.Eb,a.t,a.Jb,a.Kb,a.Lb,a.Mb,a.Nb,a.Ob,a.Pb,a.Rb,a.Sb,a.Tb,a.Xb,a.Yb,"n",Ja,Oa,Xa,ab,z,a.mb);Ja=ta.fc;Oa=ta.gc;Xa=ta.pc;ab=ta.ac;z=ta.lc;0>Oa&&(Oa=-Oa,Xa+=Math.PI,ab-=Math.PI);if(0>Ja||1<Ja)return a.la="perturbed eccentricity "+Ja+" not within range 0.0 <= e <= 1.0",a.error=3,[!1,!1]}"d"==a.method&&(A=Math.sin(Oa),
-J=Math.cos(Oa),a.Ja=-.5*x*A,a.Vb=1.5E-12<Math.abs(J+1)?-.25*x*A*(3+5*J)/(1+J):-.25*x*A*(3+5*J)/1.5E-12);var Pa=Ja*Math.cos(ab);ba=1/(lb*(1-Ja*Ja));var mb=Ja*Math.sin(ab)+ba*a.Ja;var Gb=g=(z+ab+Xa+ba*a.Vb*Pa-Xa)%rc;var bb=9999.9;for(q=1;1E-12<=Math.abs(bb)&&10>=q;)h=Math.sin(Gb),p=Math.cos(Gb),bb=1-p*Pa-h*mb,bb=(g-mb*p+Pa*h-Gb)/bb,.95<=Math.abs(bb)&&(bb=0<bb?.95:-.95),Gb+=bb,q+=1;var Cc=Pa*h-mb*p;var Dc=Pa*Pa+mb*mb;var Hb=lb*(1-Dc);if(0>Hb)return a.la="semilatus rectum "+Hb+" is less than zero",a.error=
-4,[!1,!1];var cb=lb*(1-(Pa*p+mb*h));var xb=Math.sqrt(lb)*Cc/cb;var Sb=Math.sqrt(Hb)/cb;var Wc=Math.sqrt(1-Dc);ba=Cc/(1+Wc);var Qa=lb/cb*(h-mb-Pa*ba);var Ra=lb/cb*(p-Pa+mb*ba);var Xc=Math.atan2(Qa,Ra);var pa=(Ra+Ra)*Qa;var ya=1-2*Qa*Qa;ba=1/Hb;var db=.5*D*ba;var Ec=db*ba;if("d"==a.method){var kc=J*J;a.ca=3*kc-1;a.ia=1-kc;a.Hb=7*kc-1}e=cb*(1-1.5*Ec*Wc*a.ca)+.5*db*a.ia*ya;Xc-=.25*Ec*a.Hb*pa;var Fc=Xa+1.5*Ec*J*pa;var Rd=Oa+1.5*Ec*J*A*ya;var Sd=xb-va*db*a.ia*pa/P;var Ib=Sb+va*db*(a.ia*ya+1.5*a.ca)/P;var nb=
-Math.sin(Xc);var Gc=Math.cos(Xc);var md=Math.sin(Fc);var nd=Math.cos(Fc);var Td=Math.sin(Rd);var Tb=Math.cos(Rd);var Ub=-md*Tb;var lc=nd*Tb;var mc=Ub*nb+nd*Gc;var ob=lc*nb+md*Gc;var pb=Td*nb;var yb={x:e*mc*n,y:e*ob*n,z:e*pb*n};var zb={x:(Sd*mc+Ib*(Ub*Gc-nd*nb))*Y,y:(Sd*ob+Ib*(lc*Gc-md*nb))*Y,z:(Sd*pb+Ib*Td*Gc)*Y};return 1>e?(a.la="mrt "+e+" is less than 1.0 indicating the satellite has decayed",a.error=6,[!1,!1]):{position:yb,bd:zb}}
-function vc(a){switch(a){case 0:var c=398600.79964;var d=6378.135;var e=.0743669161;var g=1/e;var h=.001082616;var p=-2.53881E-6;var q=-1.65597E-6;var n=p/h;break;case 1:c=398600.8;d=6378.135;e=60/Math.sqrt(d*d*d/c);g=1/e;h=.001082616;p=-2.53881E-6;q=-1.65597E-6;n=p/h;break;case 2:c=398600.5,d=6378.137,e=60/Math.sqrt(d*d*d/c),g=1/e,h=.00108262998905,p=-2.53215306E-6,q=-1.61098761E-6,n=p/h}return{Mc:g,Zc:c,rc:d,Qb:e,kb:h,Wc:p,Dc:q,jc:n}};var wc=6378.137*(1-1/298.257223563),xc=wc/6378.137,yc=1/298.257223563*(2-1/298.257223563),Hc=250/6378.137,Ic=Math.sin(Math.acos(xc)),r,v,Jc,Kc,Lc=mat4.create(),Mc=mat4.create(),Nc=mat4.create(),Oc=mat4.create(),Pc=mat4.create(),Qc={},Rc,Tc,Uc,Yc,Zc,$c,ad,bd,cd,dd,ed,fd,gd,jd,kd,ld,B,C,E,od,pd,qd,rd,sd,td,ud,vd,wd,xd,yd,zd=0,Ad,Bd=!1,Cd,Dd=!1,Ed=!0,Md=(6378.137+1E4)/6378.137,Nd=[1,0,0],Od=[0,1,0],Pd=[1,.5,.5],Qd=[0,0,0],Ud=[0,1,0],Vd=[0,0,1],Wd=[1,1,1],Xd=[0,0,0],Yd=5,Zd=5,$d=6,ae=null,be=null,ce=
-0,de=0,ee=3E7,fe=0,ge=0,G={names:[]};G.names[0]="";G.title="";G.longitude=0;G.latitude=0;G.altitude=0;G.element="observer";G.hb="observerShape";G.O=[];G.O.width=0;G.O.height=0;G.O.La="";G.c=he(0,0,0);G.b={};G.b.label=!0;G.b.color=ie("#ffffff",1);G.b.o=!0;G.b.l=ie("#000000",1);G.b.symbol=1;var M={symbol:2,label:!0};M.color=ie("#ff0000",1);M.o=!0;M.l=ie("#00ff00",1);M.v=.5;M.u=.5;M.D="orbits";M.h="aerial";M.A=!0;M.B=!0;M.H="0";M.w=[];M.G=.4;var je=new Date,le=ke();
-function me(a){var c;if(c=document.getElementById("notification"))c.innerHTML=a,c.style.color="Black",c.style.backgroundColor="Red"}function ie(a,c){if("#"===a.slice(0,1)&&7===a.length){var d=parseInt(a.slice(1,3),16)/255;var e=parseInt(a.slice(3,5),16)/255;a=parseInt(a.slice(5,7),16)/255}else a=e=d=1;return[d,e,a,c]}function O(a){return"#"+("0"+Math.round(255*a[0]).toString(16)).slice(-2)+("0"+Math.round(255*a[1]).toString(16)).slice(-2)+("0"+Math.round(255*a[2]).toString(16)).slice(-2)}
-function ve(a,c,d){if(d)var e=c;else if(void 0!==a&&void 0!==c&&c.length===a.length){d=c.length;for(var g=0;g<d&&c[g]===a[g];g++);g===c.length&&(e=c)}return e}function we(a,c,d){if(d||c===a)var e=c;return e}function xe(a){r.useProgram(a);r.uniform1i(a.Gc,4);r.uniform1i(a.ea,1024)}function ye(a,c,d){Qc[c]=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Qc[c]);r.bufferData(r.ARRAY_BUFFER,new Float32Array(a),r.STATIC_DRAW);Qc[c].f=2;Qc[c].g=a.length/Qc[c].f;Qc[c].style=d}
-function ze(a){var c=r;a=document.getElementById(a);var d=null;if(a){for(var e="",g=a.firstChild;g;)3===g.nodeType&&(e+=g.textContent),g=g.nextSibling;"x-shader/x-fragment"===a.type?d=c.createShader(c.FRAGMENT_SHADER):"x-shader/x-vertex"===a.type&&(d=c.createShader(c.VERTEX_SHADER));d&&(c.shaderSource(d,e),c.compileShader(d),c.getShaderParameter(d,c.COMPILE_STATUS)||(d=null))}return d}
-function Ae(a){var c={};a=vec3.fromValues(-a[0]+G.c[0],a[2]-G.c[2],a[1]-G.c[1]);vec3.rotateZ(a,a,[0,0,0],-G.longitude);vec3.rotateY(a,a,[0,0,0],Math.PI/2+G.latitude);c.zc=a[0]*a[0]+a[1]*a[1];c.dd=a[2]*a[2];c.ha=-Math.atan2(a[2],Math.sqrt(c.zc));c.R=0<c.zc?Math.atan2(a[1],a[0]):0;return c}
-function Be(a,c){var d=0,e=0;if("projectionCylindrical"===m)d=(a-fe+5*Math.PI)%(2*Math.PI)/Math.PI-1,e=2*c/Math.PI;else if("projectionRobinson"===m){e=180*c/Math.PI;var g=Math.floor(Math.abs(e/Ce));g>=V.length-2&&(g=V.length-2);d=((Math.abs(e)-V[g][0])*V[g+1][1]+(V[g+1][0]-Math.abs(e))*V[g][1])/(V[g+1][0]-V[g][0]);d*=((a-fe)/Math.PI+5)%2-1;e=((Math.abs(e)-V[g][0])*V[g+1][2]+(V[g+1][0]-Math.abs(e))*V[g][2])/(V[g+1][0]-V[g][0]);0>c&&(e*=-1)}else if("projectionSinusoidal"===m)d=((a-fe+5*Math.PI)%(2*
-Math.PI)/Math.PI-1)*Math.cos(c),e=2*c/Math.PI;else if("projectionElliptical"===m){a=(a-fe+3*Math.PI)%(2*Math.PI)/Math.PI-1;c=2*c/Math.PI;e=2*Math.asin(c);if(e<Math.PI-5E-5&&e>-Math.PI+5E-5){for(g=0;500>g&&!(d=e,e-=(e+Math.sin(e)-Math.PI*Math.sin(.5*c*Math.PI))/(1+Math.cos(e)),1E-4>Math.abs(e-d));g++);e/=2;c=Math.cos(e)}else e/=2,c=5E-5;d=a*c;e=Math.sin(e)}return{x:d,y:e}}
-function De(a,c){var d=uc(a.a.s,c,1),e=null;try{e=vec3.fromValues(-d.position.x/6378.137,d.position.z/6378.137,d.position.y/6378.137),vec3.rotateY(e,e,[0,0,0],-Ee(a.a.s.oa+c/1440))}catch(g){}return e}function he(a,c,d){var e=Math.sin(c),g=6378.137/Math.sqrt(1-e*Ic*e*Ic);c=(g+d)*Math.cos(c);return vec3.fromValues(-c*Math.cos(a)/6378.137,(xc*xc*g+d)*e/6378.137,c*Math.sin(a)/6378.137)}
-function Fe(a,c){var d=Math.sqrt(c[0]*c[0]+c[2]*c[2]);if(0<d){var e=0;a.latitude=Math.atan(c[1]/(d*(1-yc)));do{var g=a.latitude;var h=Math.sin(a.latitude);var p=Math.cos(a.latitude);var q=yc/Math.sqrt(1-h*h*yc);h=c[1]+q*h*h*h;p=d-q*p*p*p;a.latitude=Math.atan(h/p);e++}while(1E-9<Math.abs(g-a.latitude)&&10>e);a.longitude=Math.atan2(c[2],-c[0]);a.altitude=d/Math.cos(a.latitude)-1/Math.sqrt(1-yc*Math.sin(a.latitude)*Math.sin(a.latitude))}else a.longitude=0,a.latitude=Math.atan2(c[1],0),a.altitude=c[1]/
-Math.sin(a.latitude)-wc/6378.137}function Ge(a,c,d){a%=360;-180>a&&(a+=360);180<a&&(a-=360);if(c){var e=Math.round(Math.abs(3600*a));var g="00"+e%60;var h="00"+Math.floor(e/60%60);e="   "+Math.floor(e/3600)}else e=Math.round(Math.abs(60*a)),h="00"+e%60,e="   "+Math.floor(e/60);h=e.substr(e.length-3)+"&deg;"+h.substr(h.length-2)+"&prime;";c&&(h+=g.substr(g.length-2)+"&Prime;");h=0<=a?h+" E":h+" W";return h=d?h.replace(/\s/g,"&nbsp;"):h.trim()}
-function He(a,c,d){var e="",g=0;if(90>=a||-90<=a){if(c){var h=Math.round(Math.abs(3600*a));g="00"+h%60;e="00"+Math.floor(h/60%60);h="  "+Math.floor(h/3600)}else h=Math.round(Math.abs(60*a)),e="00"+Math.floor(h%60),h="  "+Math.floor(h/60);e=h.substr(h.length-2)+"&deg;"+e.substr(e.length-2)+"&prime;";c&&(e+=g.substr(g.length-2)+"&Prime;");e=0<=a?e+" N":e+" S"}return e=d?e.replace(/\s/g,"&nbsp;"):e.trim()}function Ie(a){a="   "+a.toFixed(2);a=a.substr(a.length-6);return a=a.replace(/\s/g,"&nbsp;")}
-function Je(a){a="   "+a.toFixed(2);a=a.substr(a.length-6);return a=a.replace(/\s/g,"&nbsp;")}function Ke(a,c,d){var e=Ad;d=Math.floor(672946987*d);a=4*(8*a+c);e[a]=255&d>>24;e[a+1]=255&d>>16;e[a+2]=255&d>>8;e[a+3]=255&d>>0}function Le(a,c){var d=0;if(Ed){var e=c,g=0;0>c&&(c=0);c<=glMatrix.toRadian(89.89)&&(g=1013.25/1010*(283/273)*glMatrix.toRadian(1.02/(60*Math.tan(c+10.3/(c+5.11)))));c=e-g}0<a&&(d=Math.acos(Math.cos(c)/(1+a))-c);return d}
-function ke(){var a=je,c=a.getUTCFullYear(),d=a.getUTCMonth()+1,e=a.getUTCDate(),g=a.getUTCHours(),h=Math.ceil((d-14)/12);g+=a.getUTCMinutes()/60+a.getUTCSeconds()/3600+a.getUTCMilliseconds()/36E5;return e-32075+Math.floor(1461*(c+4800+h)/4)+Math.floor(367*(d-2-12*h)/12)-3*Math.floor(Math.floor((c+4900+h)/100)/4)+(g/24-.5)}function Me(){Yd=Math.round(9+r.drawingBufferWidth/400);Zd=Math.round(9+r.drawingBufferWidth/400);1>Yd&&(Yd=1);1>Zd&&(Zd=1)}
-function Ne(){$d=Math.round(8+r.drawingBufferWidth/400);6>$d&&($d=6)}function Oe(){}function Pe(a){if(-1===La.indexOf(a)){var c;if(c=Ga["S"+a])if(Qe(c,a))La.push(a);else try{delete c.a}catch(d){}}}
-function Re(a,c,d){if(c&&c.firstChild&&c.firstChild.firstChild){c=c.firstChild.firstChild.childNodes;var e;for(e=0;e<c.length;e++)if(a.target===c[e]){if(Math.abs(d[0])===e)d[0]=-d[0];else{for(a=0;a<d.length;a++)if(Math.abs(d[a])===e){d.splice(a,1);break}d.unshift(e)}for(a=0;a<c.length;a++)e=a===Math.abs(d[0])?0>d[0]||Object.is(d[0],-0)?"url('Sort/Up.png')":"url('Sort/Down.png')":"url('Sort/UpDownGray.png')",c[a].style.backgroundImage!==e&&(c[a].style.backgroundImage=e);break}}}
-function Se(a){var c=-1;a.firstElementChild&&"checkbox"===a.firstElementChild.type?c=a.firstElementChild.checked?1:0:c=a.innerText;return c}
-function Te(a,c,d){var e=document.getElementById(a);if(e){var g=document.createElement("tbody"),h;c.sort(function(a,c){for(h=0;h<d.length;h++){var e=d[h],g=Math.abs(e),p=Se(a.childNodes[g]),q=Se(c.childNodes[g]);0===g&&(e=Object.is(e,-0)?-1:1);if(p>q)return e;if(p<q)return-e}return 0});g.setAttribute("id",a);for(h=0;h<c.length;h++)g.appendChild(c[h]);e.parentNode.replaceChild(g,e)}}
-function Ue(a,c){var d=document.getElementById(a);d&&(500<d.childNodes.length&&(document.getElementById("loading").style.visibility="visible"),setTimeout(function(){Te(a,Array.prototype.slice.call(d.childNodes,0),c);document.getElementById("loading").style.visibility="hidden"},0))}
-function Ve(a,c){c=document.getElementById(c);a=document.getElementById(a);if(c&&a)try{var d=c.firstElementChild.firstElementChild.childNodes,e=a.firstElementChild.firstElementChild.childNodes,g;for(g=0;g<d.length;g++)e[g].style.width=d[g].getBoundingClientRect().width+"px"}catch(h){}}
-function We(){r.useProgram(yd);r.uniform3f(yd.Ec,G.longitude,G.latitude,G.altitude/1E3);r.useProgram(B);r.uniform1f(B.longitude,G.longitude);r.uniform1f(B.latitude,G.latitude);r.useProgram(C);r.uniform1f(C.longitude,G.longitude);r.uniform1f(C.latitude,G.latitude)}
-function Xe(){G.longitude%=2*Math.PI;G.longitude>Math.PI?G.longitude-=2*Math.PI:G.longitude<-Math.PI&&(G.longitude+=2*Math.PI);G.latitude=Math.max(G.latitude,-Math.PI/2);G.latitude=Math.min(G.latitude,Math.PI/2);G.c=he(G.longitude,G.latitude,G.altitude);if(0<G.title.length)G.names[0]=G.title,document.getElementById("radarCenter").innerHTML=G.title;else{var a;var c=Ge(180*G.longitude/Math.PI,!1,!0)+"&nbsp;&nbsp;";c+=He(180*G.latitude/Math.PI,!1,!0);G.names[0]=c;if(a=document.getElementById("radarCenter"))a.innerHTML=
-c}We();mf()}function nf(a,c){G.longitude=glMatrix.toRadian(a);G.latitude=glMatrix.toRadian(c);G.altitude=0;Xe()};function of(a){r.useProgram(a);r.activeTexture(r.TEXTURE0+0);r.bindTexture(r.TEXTURE_2D,$c);r.activeTexture(r.TEXTURE0+1);r.bindTexture(r.TEXTURE_2D,ad);r.activeTexture(r.TEXTURE0+2);r.bindTexture(r.TEXTURE_2D,bd);r.activeTexture(r.TEXTURE0+3);r.bindTexture(r.TEXTURE_2D,cd);Bd&&(r.activeTexture(r.TEXTURE0+4),r.bindTexture(r.TEXTURE_2D,dd));r.bindBuffer(r.ARRAY_BUFFER,Zc);r.vertexAttribPointer(a.Ga,Zc.f,r.FLOAT,!1,0,0);r.enableVertexAttribArray(a.Ga);r.bindBuffer(r.ELEMENT_ARRAY_BUFFER,Yc);r.drawElements(r.TRIANGLES,
-Yc.g,r.UNSIGNED_SHORT,0);r.bindBuffer(r.ELEMENT_ARRAY_BUFFER,null);r.bindTexture(r.TEXTURE_2D,null)};function Ee(a){var c=(a+.5)%1;a=(a-c-2451545)/36525;c=(24110.54841+a*(8640184.812866+a*(.093104-6.2E-6*a))+86636.555366976*c)%86400;0>c&&(c+=86400);return 2*Math.PI*c/86400};window.addEventListener("load",pf);window.addEventListener("resize",qf);function rf(){if(document.Ka&&null!==document.Ka||document.mozFullScreen||document.webkitIsFullScreen){var a=document,c=a.Uc||a.webkitCancelFullScreen||a.mozCancelFullScreen||a.exitFullscreen;c&&c.call(a)}else a=document.body,(c=a.$c||a.webkitRequestFullScreen||a.mozRequestFullScreen||a.msRequestFullscreen)&&c.call(a)}
-function sf(a,c,d){a=document.getElementById(a);c=document.getElementById(c);d?(c&&(c.style.backgroundColor="#007f00"),a&&"block"!==a.style.display&&Object.assign(a.style,{display:"block",pointerEvents:"auto"})):(c&&(c.style.backgroundColor="#000000"),a&&"none"!==a.style.display&&Object.assign(a.style,{display:"none",pointerEvents:"none"}))}
-function tf(){sf("itemFindSatellite","buttonSatellite",Ta);sf("itemSelectObserver","buttonObserver",eb);sf("itemSelectProjection","buttonProjection",gb);sf("itemInformation","buttonInformation",hb);sf("itemSettings","buttonSettings",qb);var a=document.getElementById(G.element);"projectionRadar"===m?(a&&(a.style.display="none"),document.getElementById("radarText").style.display="block"):(a&&(a.style.display="block"),document.getElementById("radarText").style.display="none");"projectionTextual"===m?
-(document.getElementById("divTableTextualOuter").style.visibility="visible",document.getElementById("container").style.visibility="hidden",document.getElementById("labelContainer").style.display="none",document.getElementById("lonandlat").style.display="none",document.getElementById("position").style.display="none"):(document.getElementById("divTableTextualOuter").style.visibility="hidden",document.getElementById("container").style.visibility="visible",document.getElementById("labelContainer").style.display=
-"block",document.getElementById("lonandlat").style.display="block",document.getElementById("position").style.display="block");qb&&("projectionRadar"===m?(document.getElementById("settingsVisual").style.display="none",document.getElementById("settingsRadar").style.display="block",document.getElementById("settingsTextual").style.display="none"):"projectionTextual"===m?(document.getElementById("settingsVisual").style.display="none",document.getElementById("settingsRadar").style.display="none",document.getElementById("settingsTextual").style.display=
-"block"):(document.getElementById("settingsVisual").style.display="block",document.getElementById("settingsRadar").style.display="none",document.getElementById("settingsTextual").style.display="none"));Ta||(rb=!1,document.getElementById("divSatelliteSettings").style.visibility="hidden");eb||(Ab=!1,document.getElementById("divObserverSettings").style.visibility="hidden");document.getElementById("frameouter").style.zIndex=Ta||gb||eb||hb||qb?"800":"500";eb&&setTimeout(function(){var a=nc.getCenter();
-google.maps.event.trigger(nc,"resize");nc.setCenter(a)},100)}function uf(){qb=hb=gb=eb=Ta=!1}function vf(){var a=!Ta;uf();Ta=a;tf();Ta&&qf()}function wf(){var a=!eb;uf();eb=a;tf();eb&&qf()}function xf(){var a=!gb;uf();gb=a;tf()}function yf(){var a=!hb;uf();hb=a;tf()}function zf(){var a=!qb;uf();qb=a;tf()}
-function Af(){var a=Bf();void 0!=a.color&&(M.color=ie(a.color,1));void 0!=a.label&&(M.label=a.label);void 0!=a.o&&(M.o=a.o);void 0!=a.l&&(M.l=ie(a.l,1));void 0!=a.symbol&&(M.symbol=a.symbol);void 0!=a.G&&(M.G=a.G);void 0!=a.B&&(M.B=a.B);void 0!=a.A&&(M.A=a.A);void 0!=a.H&&(M.H=a.H);void 0!=a.D&&(M.D=a.D);void 0!=a.v&&(M.v=a.v);void 0!=a.u&&(M.u=a.u);void 0!=a.h&&(M.h=a.h)}
-function Cf(){rb=!1;var a;if(a=document.getElementById("tableBodySatellitesBody")){var c,d,e,g=Bf();if(d=a.childNodes.length)for(e=0;e<d;e++)if((c=a.childNodes[e])&&c.firstChild&&c.firstChild.firstChild){var h;if((h=c.firstChild.firstChild)&&h.checked&&(h=c.getAttribute("id"))&&(c=g,h=Ga["S"+h]))try{var p=document.getElementById(h.element);void 0!==c.color&&(h.b.color=ie(c.color,1),p&&(p.style.color=c.color));void 0!==c.label&&(h.b.label=c.label);if(void 0!==c.o||void 0!==c.l)void 0!==c.o&&(h.b.o=
-c.o),void 0!==c.l&&(h.b.l=ie(c.l,1)),p&&(h.b.o?p.style.backgroundColor=c.l:p.style.backgroundColor="transparent");void 0!==c.symbol&&(h.b.symbol=c.symbol);void 0!==c.G&&(h.b.G=c.G);if(void 0!==c.B||void 0!==c.A||void 0!==c.H){var q=!1;void 0!==c.B&&(h.b.B=c.B,q=!0);void 0!==c.A&&(h.b.A=c.A,q=!0);void 0!==c.H&&(h.b.H=c.H,q=!0);if(q)for(Df(h),q=0;5>q;q++)h.b.w.length>q&&h.b.w[q]<Math.PI/2?Ke(h.b.za,q+3,Le(h.a.altitude,h.b.w[q])):Ke(h.b.za,q+3,Math.PI)}if(void 0!==c.v||void 0!==c.u||void 0!==c.D)void 0!==
-c.D&&(h.b.D=c.D),void 0!==c.v&&(h.b.v=c.v),void 0!==c.u&&(h.b.u=c.u),Ef(h);void 0!==c.h&&(h.b.h=c.h)}catch(n){}}}document.getElementById("divSatelliteSettings").style.visibility="hidden";Ff(!1,!1)}function Gf(){Hf(M)}
-function If(){if(rb=!rb){document.getElementById("divSatelliteSettings").style.visibility="visible";var a;if(a=document.getElementById("tableBodySatellitesBody")){var c;if(c=a.childNodes.length){var d=!0;var e=Object.assign({},M);for(var g=0;g<c;g++){var h=a.childNodes[g];if(h&&h.firstChild&&h.firstChild.firstChild){var p;if((p=h.firstChild.firstChild)&&p.checked&&(h=h.getAttribute("id"))&&(h=Ga["S"+h]))try{Object.assign(e,{color:ve(e.color,h.b.color,d),label:we(e.label,h.b.label,d),o:we(e.o,h.b.o,
-d),l:ve(e.l,h.b.l,d),symbol:we(e.symbol,h.b.symbol,d),G:we(e.G,h.b.G,d),B:we(e.B,h.b.B,d),A:we(e.A,h.b.A,d),H:we(e.H,h.b.H,d),v:we(e.v,h.b.v,d),u:we(e.u,h.b.u,d),D:we(e.D,h.b.D,d),h:we(e.h,h.b.h,d)}),d=!1}catch(q){}}}Hf(e)}}}else document.getElementById("divSatelliteSettings").style.visibility="hidden"}
-function Jf(){Ab=!1;var a=document.getElementById("colorObserver").value,c=document.getElementById("colorObserverLabelBackground").value,d=ma.length,e;G.b.label=document.getElementById("observerLabel").checked;G.b.color=ie(a,1);G.b.o=document.getElementById("observerLabelBackground").checked;G.b.l=ie(c,1);for(var g=0;g<d;g++)if((e=document.getElementById(ma[g]+"Observer"))&&"transparent"!==e.style.backgroundColor){G.b.symbol=g;break}if(e=document.getElementById(G.element))e.style.color=a,G.b.o?e.style.backgroundColor=
-c:e.style.backgroundColor="transparent";document.getElementById("divObserverSettings").style.visibility="hidden"}function Vf(){Wf()}function Xf(){(Ab=!Ab)?(document.getElementById("divObserverSettings").style.visibility="visible",Wf()):document.getElementById("divObserverSettings").style.visibility="hidden"}
-function Yf(a){var c=La.indexOf(a);if(0<=c&&(La.splice(c,1),c=Ga["S"+a])){try{document.getElementById("labelContainer").removeChild(document.getElementById(c.hb))}catch(d){}try{document.getElementById("labelContainer").removeChild(document.getElementById(c.element))}catch(d){}try{document.getElementById("tableBodyTextualBody").removeChild(c.a.Fc)}catch(d){}delete c.a;if(a=document.getElementById(a))if(a=a.firstChild.firstChild)a.checked=!1,Zf();c===b&&(b=null,$f());Ff(!0,!0)}}
-function ag(a){a.lengthComputable?document.getElementById("progress").value=a.loaded/a.total*100:(a=document.getElementById("progress").value+5,100<a&&(a=0),document.getElementById("progress").value=a)}function bg(){document.getElementById("loading").style.visibility="hidden"}function cg(){document.getElementById("loading").style.visibility="hidden"}
-function dg(a){document.getElementById("progress").value=100;Fa.addEventListener("progress",eg);Fa.addEventListener("load",fg);Fa.addEventListener("error",gg);Fa.addEventListener("abort",hg);Fa.open("GET","Celestrak/categories.txt");Fa.send();if(void 0===Ga)try{Ga=JSON.parse(a.currentTarget.responseText)}catch(p){}else try{var c;var d=JSON.parse(a.currentTarget.responseText);for(c in d){var e=d[c];if(Ga.hasOwnProperty(c)){var g=Ga[c];e.hasOwnProperty("satcat")&&(g.satcat=e.satcat);if(e.hasOwnProperty("le1")&&
-e.hasOwnProperty("le2"))g.le1=e.le1,g.le2=e.le2,g.hasOwnProperty("tracking")&&Qe(g,c);else{var h=c.substr(1,c.length-1);Yf(h);g.hasOwnProperty("le1")&&delete g.le1;g.hasOwnProperty("le2")&&delete g.le2}}}}catch(p){}a.currentTarget.responseText=null}function eg(a){a.lengthComputable?document.getElementById("progress").value=a.loaded/a.total*100:(a=document.getElementById("progress").value+5,100<a&&(a=0),document.getElementById("progress").value=a)}
-function gg(){document.getElementById("loading").style.visibility="hidden"}function hg(){document.getElementById("loading").style.visibility="hidden"}
-function fg(a){document.getElementById("progress").value=100;try{Ha=JSON.parse(a.currentTarget.responseText)}catch(P){}for(var c=window.location.search.substring(1).split("&"),d=c.length,e=0;e<d;e++){var g=c[e].split("=");if("display"===g[0]){g=g[1].split(",");var h=g.length,p;for(p=0;p<h;p++)Pe(g[p].trim())}else"projection"===g[0]?(g=g[1].trim().toLowerCase(),"perspective"===g?m="projectionPerspective":"cylindrical"===g?m="projectionCylindrical":"robinson"===g?m="projectionRobinson":"elliptical"===
-g?m="projectionElliptical":"sinusoidal"===g?m="projectionSinusoidal":"radar"===g?m="projectionRadar":"textual"===g&&(m="projectionTextual")):"observer"===g[0]&&(G.longitude=0,G.latitude=0)}Ga.S25544&&(Pe("25544"),ig("ZARYA"));a.currentTarget.responseText=null;if(c=document.getElementById("displayedSatellites"))0<c.childNodes.length&&(c.innerHTML=""),a=document.createElement("ul"),e=document.createElement("li"),a.setAttribute("class","categories"),e.appendChild(document.createTextNode("Displayed")),
-e.setAttribute("class","all"),e.addEventListener("click",jg),a.appendChild(e),c.appendChild(a);if(c=document.getElementById("categorySatellites")){0<c.childNodes.length&&(c.innerHTML="");a=document.createElement("ul");e=document.createElement("li");g=document.createElement("li");h=document.createElement("li");d=Ha.length;a.setAttribute("class","categories");h.appendChild(document.createTextNode("All"));h.setAttribute("class","all");h.addEventListener("click",kg);a.appendChild(e);a.appendChild(g);
-a.appendChild(h);for(e=0;e<d;e++){var q=Ha[e];g=q.groups;var n=document.createElement("li");h=document.createElement("ul");p=g.length;h.setAttribute("class","groups");n.appendChild(document.createTextNode(q.category));n.setAttribute("class","category");n.setAttribute("category",e);n.addEventListener("click",lg);a.appendChild(n);for(q=0;q<p;q++)n=document.createElement("li"),n.setAttribute("class","group"),n.setAttribute("category",e),n.setAttribute("group",q),n.addEventListener("click",mg),n.appendChild(document.createTextNode(g[q].group)),
-h.appendChild(n);a.appendChild(h)}c.appendChild(a)}document.getElementById("progress").value=100;document.getElementById("loading").style.visibility="hidden";ng(!0,!0)}function og(){var a,c;for(c=0;c<ja.length;c++)if(a=document.getElementById(ja[c]))a.style.borderColor=ja[c]===m?"#007f00":"transparent"}function pg(a){m="projection"===a.target.id.slice(0,10)?a.target.id:a.target.parentNode.id;og();Ff(!1,!1)}
-function qg(){var a=(ce+2*Math.PI)/(2*Math.PI)%1;r.useProgram(od);r.uniform1f(od.W,a);r.useProgram(ud);r.uniform1f(ud.W,a);r.useProgram(pd);r.uniform1f(pd.W,a);r.useProgram(vd);r.uniform1f(vd.W,a);r.useProgram(qd);r.uniform1f(qd.W,a);r.useProgram(wd);r.uniform1f(wd.W,a);r.useProgram(rd);r.uniform1f(rd.W,a);r.useProgram(xd);r.uniform1f(xd.W,a)}
-function rg(a){if(a.target!==a.currentTarget){var c=a.target;if("satellite"===c.className)c=c.id.replace("SATELLITE_",""),b=Ga["S"+c],$f();else if("satelliteHoverShape"===c.className)c=c.id.replace("SATELLITE_SHAPE_",""),b=Ga["S"+c],$f();else if("observer"===c.className||"observerHoverShape"===c.className)b=G,$f()}a.stopPropagation()}
-function Ff(a,c){var d=null;"projectionPerspective"===m?d=E:"projectionCylindrical"===m?d=od:"projectionElliptical"===m?d=pd:"projectionSinusoidal"===m?d=qd:"projectionRobinson"===m&&(d=rd);d&&(r.useProgram(d),r.uniform1f(d.Jc,ac.longitude),r.uniform1f(d.Ic,ac.latitude),a||r.uniform1i(d.ea,La.length));if(a){for(var e=La.length,g=0;g<e;g++){var h=La[g],p=Ga["S"+h];if(p)if(c)sg(p,g);else{var q=void 0,n=void 0,P=void 0,D=void 0,x=void 0,Y=void 0,sb=void 0,ib=void 0,na=void 0,H=void 0,k=p,f=h,ia=!1;try{var F=
-1440*(le-k.a.s.oa),ka=Math.floor((F-k.a.N)/k.a.m)*k.a.m,I=[],u=[];k.a.c=De(k,F);if(k.a.c){Fe(k.a,k.a.c);var oa=k.a,y=Ae(k.a.c);y.R*=180/Math.PI;y.R+=360;y.R%=360;y.ha*=180/Math.PI;oa.wa=y;var ba=k.a,Z=G,l={},va=vec3.fromValues(-k.a.c[0]+Z.c[0],k.a.c[2]-Z.c[2],k.a.c[1]-Z.c[1]);l.fa=6378.137*vec3.length(va);var Q=De(k,1440*(le-k.a.s.oa)-.01/60),N=De(k,1440*(le-k.a.s.oa)+.01/60),t=vec3.length(vec3.fromValues(-Q[0]+Z.c[0],Q[2]-Z.c[2],Q[1]-Z.c[1])),R=vec3.length(vec3.fromValues(-N[0]+Z.c[0],N[2]-Z.c[2],
-N[1]-Z.c[1]));l.sc=6378.137*(R-t)/.02;ba.fa=l;var Ia=k.a,K="None";sb=1.495978707E8*(1-.0167086*Math.cos(glMatrix.toRadian(360/365.256363*(Math.floor((je-new Date(je.getFullYear(),0,0))/864E5)-4))));if(ib=he(ac.longitude,ac.latitude,sb)){var L=[];D=6378.137*Math.sqrt(k.a.c[0]*k.a.c[0]+k.a.c[1]*k.a.c[1]+k.a.c[2]*k.a.c[2]);for(q=0;3>q;q++)L[q]=6378.137*(ib[q]-k.a.c[q]);P=Math.sqrt(L[0]*L[0]+L[1]*L[1]+L[2]*L[2]);Y=Math.asin(6378.137/D);x=Math.asin(695700/P);n=Math.acos(-6378.137*(k.a.c[0]*L[0]+k.a.c[1]*
-L[1]+k.a.c[2]*L[2])/(D*P));Y>x&&n<Y-x&&(K="Umbral");n>Math.abs(Y-x)&&n<Y+x&&(K="Penumbral")}na=K;for(Ia.ec=na;0>k.a.longitude;)k.a.longitude+=2*Math.PI;if(k.a.Fa||F<k.a.ga||ka>=k.a.P+k.a.L*k.a.m){var S=[],w=[];k.a.Fa=!1;k.a.ga=F;k.a.P=ka;k.a.ta=Math.ceil((k.a.C+k.a.N)/k.a.m);k.a.L=Math.floor((F-ka+k.a.C)/k.a.m);k.a.K=Math.floor((F-ka)/k.a.m);k.a.Kc=1;if(0<k.a.ta&&(w=tg(u,k,F+k.a.C,!0))&&(W(I,w.c,w.latitude,!0),w=tg(u,k,F-k.a.N,!0))){W(I,w.c,w.latitude,!1);for(H=0;H<k.a.L;H++)if(S=w,w=tg(u,k,k.a.P+
-(H+1)*k.a.m,!0))W(I,w.c,w.latitude,!1),W(I,S.c,S.latitude,!1);else break;w&&(S=w,w=tg(u,k,F+k.a.C,!0))&&(W(I,w.c,w.latitude,!1),W(I,S.c,S.latitude,!1),W(I,w.c,w.latitude,!1),k.a.L<k.a.ta&&(w=tg(u,k,F+k.a.C,!0),W(I,w.c,w.latitude,!0),k.a.Kc=2))}ug(u,I,k);r.bindBuffer(r.ARRAY_BUFFER,k.a.track);r.bufferData(r.ARRAY_BUFFER,new Float32Array(u),r.DYNAMIC_DRAW);r.bindBuffer(r.ARRAY_BUFFER,k.a.J);r.bufferData(r.ARRAY_BUFFER,new Float32Array(I),r.DYNAMIC_DRAW);r.bindBuffer(r.ARRAY_BUFFER,null);k.a.Fa=!1;k.a.track.g=
-u.length/k.a.track.f;k.a.xa=1}else{var U=Math.floor((F+k.a.C)/k.a.m)-Math.floor((k.a.ga+k.a.C)/k.a.m),wa=Math.floor((F-ka+k.a.C)/k.a.m);S=[];w=[];var xa=[],Pb=1;k.a.K=Math.floor((F-ka)/k.a.m);if(0<k.a.ta&&(w=k.a.P+k.a.L*k.a.m>F?tg(xa,k,k.a.P+k.a.L*k.a.m,!1):tg(xa,k,F,!1))){for(H=0;H<U;H++)if(S=w,w=tg(u,k,k.a.P+(k.a.L+H+1)*k.a.m,!0))W(I,w.c,w.latitude,!1),W(I,S.c,S.latitude,!1);else break;if(w&&(S=w,w=tg(u,k,F+k.a.C,!0))&&(W(I,w.c,w.latitude,!1),W(I,S.c,S.latitude,!1),W(I,w.c,w.latitude,!1),wa<k.a.ta&&
-(W(u,w.c,w.latitude,!0),W(I,w.c,w.latitude,!0)),k.a.L<k.a.ta&&(Pb+=1),w=ka+k.a.m<F?tg(xa,k,ka+k.a.m,!1):tg(xa,k,F,!1))){S=tg(u,k,F-k.a.N,!0);W(I,S.c,S.latitude,!1);W(I,w.c,w.latitude,!1);W(I,S.c,S.latitude,!1);var Ua=k.a.xa-Pb;1>Ua&&(Ua+=k.a.track.g/2-4);if(2*Ua+u.length/k.a.track.f>=k.a.track.g-6){var bc=k.a.track.g-6-2*Ua,tb=u.length/k.a.track.f-bc+2;r.bindBuffer(r.ARRAY_BUFFER,k.a.track);r.bufferSubData(r.ARRAY_BUFFER,8*k.a.track.f*Ua,new Float32Array(u.slice(0,bc*k.a.track.f)));r.bufferSubData(r.ARRAY_BUFFER,
-0,new Float32Array(u.slice(u.length-tb*k.a.track.f)));r.bindBuffer(r.ARRAY_BUFFER,k.a.J);r.bufferSubData(r.ARRAY_BUFFER,4*k.a.J.f*(2*Ua-1),new Float32Array(I.slice(0,(bc+1)*k.a.J.f)));r.bufferSubData(r.ARRAY_BUFFER,0,new Float32Array(I.slice(I.length-(tb+1)*k.a.J.f)));k.a.xa=2===tb?k.a.track.g/2-4:tb/2-1}else r.bindBuffer(r.ARRAY_BUFFER,k.a.track),r.bufferSubData(r.ARRAY_BUFFER,8*k.a.track.f*Ua,new Float32Array(u)),r.bindBuffer(r.ARRAY_BUFFER,k.a.J),r.bufferSubData(r.ARRAY_BUFFER,4*k.a.J.f*(2*Ua-
-1),new Float32Array(I)),k.a.xa=Ua+u.length/(2*k.a.track.f)-1;r.bindBuffer(r.ARRAY_BUFFER,null)}}k.a.ga=F;k.a.P=ka;k.a.L=wa;u.length=0;I.length=0;ug(u,I,k);r.bindBuffer(r.ARRAY_BUFFER,k.a.track);r.bufferSubData(r.ARRAY_BUFFER,4*k.a.track.f*(k.a.track.g-6),new Float32Array(u));r.bindBuffer(r.ARRAY_BUFFER,k.a.J);r.bufferSubData(r.ARRAY_BUFFER,4*k.a.J.f*(k.a.track.g-6),new Float32Array(I));r.bindBuffer(r.ARRAY_BUFFER,null)}if("joined"===k.b.h){var Qb=vec3.create(),Va=[];vec3.normalize(Qb,k.a.c);Va.push(k.a.c[0],
-k.a.c[1],k.a.c[2],0,Qb[0],Qb[1],Qb[2],0);r.bindBuffer(r.ARRAY_BUFFER,k.a.connect);r.bufferData(r.ARRAY_BUFFER,new Float32Array(Va),r.DYNAMIC_DRAW)}ia=!0}else Yf(f)}catch(db){}ia&&sg(p,g)}}"projectionPerspective"===m?(r.useProgram(E),r.uniform1i(E.ea,La.length)):"projectionCylindrical"===m?(r.useProgram(od),r.uniform1i(od.ea,La.length)):"projectionRobinson"===m?(r.useProgram(rd),r.uniform1i(rd.ea,La.length)):"projectionElliptical"===m?(r.useProgram(pd),r.uniform1i(pd.ea,La.length)):"projectionSinusoidal"===
-m&&(r.useProgram(qd),r.uniform1i(qd.ea,La.length));r.bindTexture(r.TEXTURE_2D,dd);try{r.texImage2D(r.TEXTURE_2D,0,r.RGBA,8,1024,0,r.RGBA,r.UNSIGNED_BYTE,Ad),Bd=!0}catch(db){me(db.message)}r.bindTexture(r.TEXTURE_2D,null)}Vb&&(Vb.hasOwnProperty("tracking")&&(ce=Vb.a.longitude,de=Vb.a.latitude,fe=Vb.a.longitude,ge=Vb.a.latitude,qg(),vg()),wg(Xb,Yb));r.clear(r.COLOR_BUFFER_BIT|r.DEPTH_BUFFER_BIT);mat4.identity(Mc);if("projectionPerspective"===m&&Sa)r.useProgram(E),r.activeTexture(r.TEXTURE0+0),r.bindTexture(r.TEXTURE_2D,
-$c),r.activeTexture(r.TEXTURE0+1),r.bindTexture(r.TEXTURE_2D,ad),r.activeTexture(r.TEXTURE0+2),r.bindTexture(r.TEXTURE_2D,bd),r.activeTexture(r.TEXTURE0+3),r.bindTexture(r.TEXTURE_2D,cd),Bd&&(r.activeTexture(r.TEXTURE0+4),r.bindTexture(r.TEXTURE_2D,dd)),r.bindBuffer(r.ARRAY_BUFFER,Rc),r.vertexAttribPointer(E.i,Rc.f,r.FLOAT,!1,0,0),r.enableVertexAttribArray(E.i),r.bindBuffer(r.ARRAY_BUFFER,Uc),r.vertexAttribPointer(E.Ga,Uc.f,r.FLOAT,!1,0,0),r.enableVertexAttribArray(E.Ga),r.bindBuffer(r.ELEMENT_ARRAY_BUFFER,
-Tc),r.uniformMatrix4fv(E.Ea,!1,Oc),r.uniformMatrix4fv(E.Ca,!1,Nc),r.drawElements(r.TRIANGLES,Tc.g,r.UNSIGNED_SHORT,0),r.bindBuffer(r.ELEMENT_ARRAY_BUFFER,null),r.bindTexture(r.TEXTURE_2D,null);else if("projectionCylindrical"===m&&Sa)of(od);else if("projectionRobinson"===m&&Sa)of(rd);else if("projectionElliptical"===m&&Sa)of(pd);else if("projectionSinusoidal"===m&&Sa)of(qd);else if("projectionRadar"===m){var ub=1,Wa=1;if(v.width!==xg||v.height!==yg){var Da=document.getElementById("radarLabels");if(Da){var cc=
-v.clientWidth,T=v.clientHeight,Rb;Object.assign(Da.style,{color:O(zg)});var jb=cc>T?T/2:cc/2;for(Rb=0;Rb<Da.children.length;Rb++){var Db=Da.children[Rb];if(Db){var Ya=Number(Db.getAttribute("alt")),Eb=Number(Db.getAttribute("az")),kb=Math.cos(glMatrix.toRadian(Eb-90))*Math.abs(90-Ya)/90,Za=Math.sin(glMatrix.toRadian(Eb-90))*Math.abs(90-Ya)/90;kb*=jb;Za*=jb;kb+=cc/2;Za+=T/2;Object.assign(Db.style,{left:kb.toString()+"px",top:Za.toString()+"px"})}}}Ag();v.clientWidth>v.clientHeight?ub=v.clientHeight/
-v.clientWidth:Wa=v.clientWidth/v.clientHeight;r.useProgram(B);r.uniform1f(B.$,ub);r.uniform1f(B.aa,Wa);r.useProgram(C);r.uniform1f(C.$,ub);r.uniform1f(C.aa,Wa);r.useProgram(yd);r.uniform1f(yd.$,ub);r.uniform1f(yd.aa,Wa);xg=v.width;yg=v.height;Ne();Me()}var Ma=Ee(le);r.useProgram(B);r.uniform1f(B.Fb,Ma);r.useProgram(C);r.uniform1f(C.Fb,Ma);if(Bg){r.useProgram(ld);r.uniform4f(ld.color,zg[0],zg[1],zg[2],.75);r.bindBuffer(r.ARRAY_BUFFER,Cg);r.vertexAttribPointer(ld.i,Cg.f,r.FLOAT,!1,0,0);r.enableVertexAttribArray(ld.i);
-for(var Ea=1;6>=Ea;Ea++)v.clientWidth>v.clientHeight?(r.uniform1f(ld.$,Ea/3*v.clientHeight/v.clientWidth),r.uniform1f(ld.aa,Ea/3)):(r.uniform1f(ld.$,Ea/3),r.uniform1f(ld.aa,Ea/3*v.clientWidth/v.clientHeight)),r.drawArrays(r.LINE_LOOP,0,Cg.g);r.bindBuffer(r.ARRAY_BUFFER,Dg);r.vertexAttribPointer(ld.i,Dg.f,r.FLOAT,!1,0,0);r.enableVertexAttribArray(ld.i);r.drawArrays(r.LINES,0,Dg.g);r.bindBuffer(r.ARRAY_BUFFER,null)}if(Eg){var la;r.useProgram(B);r.uniform4f(B.color,Fg[0],Fg[1],Fg[2],.5);var ra=2*(180/
-Gg+1);var Fb=360/Hg;r.bindBuffer(r.ARRAY_BUFFER,Ig);r.vertexAttribPointer(B.i,Ig.f,r.FLOAT,!1,0,0);r.enableVertexAttribArray(B.i);for(la=0;la<Fb;la++)r.drawArrays(r.LINE_STRIP,la*ra,ra);ra=2*(360/Jg+1);Fb=(90-Kg)/Kg*2+1;r.bindBuffer(r.ARRAY_BUFFER,Lg);r.vertexAttribPointer(B.i,Lg.f,r.FLOAT,!1,0,0);r.enableVertexAttribArray(B.i);for(la=0;la<Fb;la++)r.drawArrays(r.LINE_STRIP,la*ra,ra);r.bindBuffer(r.ARRAY_BUFFER,null)}if(Mg){var sa=0,$a;r.useProgram(B);r.uniform4f(B.color,Ng[0],Ng[1],Ng[2],1);r.bindBuffer(r.ARRAY_BUFFER,
-Og);r.vertexAttribPointer(B.i,Og.f,r.FLOAT,!1,0,0);r.enableVertexAttribArray(B.i);for($a=0;$a<constellationBoundaries.length;$a++)r.drawArrays(r.LINE_LOOP,sa,constellationBoundaries[$a].length/Og.f),sa+=constellationBoundaries[$a].length/Og.f;r.bindBuffer(r.ARRAY_BUFFER,null)}Pg&&(r.useProgram(B),r.uniform4f(B.color,Qg[0],Qg[1],Qg[2],.5),r.bindBuffer(r.ARRAY_BUFFER,Rg),r.vertexAttribPointer(B.i,Rg.f,r.FLOAT,!1,0,0),r.enableVertexAttribArray(B.i),r.drawArrays(r.LINES,0,Rg.g),r.bindBuffer(r.ARRAY_BUFFER,
-null),r.useProgram(null));Sg&&(r.useProgram(C),r.bindBuffer(r.ARRAY_BUFFER,Tg),r.vertexAttribPointer(C.i,Tg.f,r.FLOAT,!1,0,0),r.enableVertexAttribArray(C.i),r.drawArrays(r.POINTS,0,Tg.g),r.bindBuffer(r.ARRAY_BUFFER,null));var Na=document.getElementById("constellationLabels");if(Na)if(Ug){var dc=v.clientHeight,ec=v.clientWidth,fc=Math.sin(G.latitude),zc=Math.cos(G.latitude);var Vc=ec>dc?dc/2:ec/2;for(var Ac=0;Ac<Na.children.length;Ac++){var gc=Na.children[Ac];if(gc){var Bc=Number(gc.getAttribute("ra")),
-hc=Number(gc.getAttribute("dec")),ic=Math.cos(Ma+G.longitude-Bc),lb=Math.sin(hc),jc=Math.cos(hc),vb=-ic*jc*fc+lb*zc,wb=-Math.sin(Ma+G.longitude-Bc)*jc,Ja=Math.atan2(wb,vb),Oa=Math.atan2(ic*jc*zc+lb*fc,Math.sqrt(vb*vb+wb*wb));0<Oa?(vb=(Math.PI-2*Oa)/Math.PI*Math.cos(Math.PI/2-Ja),wb=-((Math.PI-2*Oa)/Math.PI)*Math.sin(Math.PI/2-Ja),vb*=Vc,wb*=Vc,vb+=ec/2,wb+=dc/2,Object.assign(gc.style,{left:Math.round(vb).toString()+"px",top:Math.round(wb).toString()+"px",visibility:"visible"})):gc.style.visibility=
-"hidden"}Na.style.display="inline"}}else Na.style.display="none"}if("projectionPerspective"===m||"projectionCylindrical"===m||"projectionSinusoidal"===m||"projectionElliptical"===m||"projectionRobinson"===m||"projectionRadar"===m)if(pc=document.createElement("div"))pc.id="labelContainer";"projectionPerspective"===m?Vg(!1,G,G.element,G.c,G.b.label,G.b.color,G.b.symbol):("projectionCylindrical"===m||"projectionSinusoidal"===m||"projectionElliptical"===m||"projectionRobinson"===m)&&Wg(!1,G,G,G.b);"projectionPerspective"===
-m&&(r.useProgram(sd),r.uniformMatrix4fv(sd.Ea,!1,Oc),r.uniformMatrix4fv(sd.Ca,!1,Nc),r.useProgram(td),r.uniformMatrix4fv(td.Ea,!1,Oc),r.uniformMatrix4fv(td.Ca,!1,Nc));for(var ab=0;ab<La.length;ab++){var Xa=Ga["S"+La[ab]];try{var z=Xa;if(z.a.c){var A=z;if(0<A.a.N||0<A.a.C)if("projectionPerspective"===m){if("both"===A.b.h||"aerial"===A.b.h||"joined"===A.b.h)r.useProgram(sd),Xg(A,sd);if("both"===A.b.h||"ground"===A.b.h||"joined"===A.b.h)r.useProgram(td),Xg(A,td)}else"projectionCylindrical"===m?(r.useProgram(ud),
-Xg(A,ud)):"projectionElliptical"===m?(r.useProgram(vd),Xg(A,vd)):"projectionSinusoidal"===m?(r.useProgram(wd),Xg(A,wd)):"projectionRobinson"===m?(r.useProgram(xd),Xg(A,xd)):"projectionRadar"===m&&(r.useProgram(yd),Xg(A,yd));"projectionPerspective"===m&&"joined"===A.b.h&&(r.useProgram(sd),r.bindBuffer(r.ARRAY_BUFFER,A.a.connect),r.getBufferParameter(r.ARRAY_BUFFER,r.BUFFER_SIZE)>=8*A.a.connect.f&&(r.vertexAttribPointer(sd.i,A.a.connect.f,A.a.connect.na,!1,0,0),r.enableVertexAttribArray(sd.i),r.drawArrays(r.LINES,
-0,2)));if("projectionPerspective"===m){var J=vec3.create();"ground"!==z.b.h&&"both"!==z.b.h&&"joined"!==z.b.h||vec3.normalize(J,z.a.c);"both"===z.b.h||"aerial"===z.b.h||"joined"===z.b.h?Vg(!0,z,z.element,z.a.c,z.b.label,z.b.color,z.b.symbol):"ground"===z.b.h&&Vg(!0,z,z.element,J,z.b.label,z.b.color,z.b.symbol);"both"!==z.b.h&&"joined"!==z.b.h||Vg(!0,z,"",J,!1,z.b.color,z.b.symbol)}else if("projectionCylindrical"===m||"projectionSinusoidal"===m||"projectionElliptical"===m||"projectionRobinson"===m)Wg(!0,
-z,z.a,z.b);else if("projectionRadar"===m){var ta=z,Pa=z.element,mb=z.b.label,Gb=z.b.color,bb=z.b.symbol,Cc=Zd,Dc=1,Hb=1,cb=Ae(z.a.c);v.clientWidth>v.clientHeight?Dc=v.clientHeight/v.clientWidth:Hb=v.clientWidth/v.clientHeight;var xb=Dc*(1-2*cb.ha/Math.PI)*Math.sin(cb.R),Sb=Hb*(1-2*cb.ha/Math.PI)*Math.cos(cb.R),Wc=vec4.fromValues(xb,Sb,0,0);xb=.5*v.clientWidth*(1+xb);Sb=.5*v.clientHeight*(1-Sb);Yg(!0,ta,xb,Sb,mb,Pa,Gb,bb,Cc,Wc)}else if("projectionTextual"===m){var Qa=void 0,Ra=z;if((Qa=document.getElementById(Ra.element+
-"_row"))&&(Qa.offsetWidth||Qa.offsetHeight||Qa.getClientRects().length))for(var Xc=ua.length,pa=0;pa<Xc;pa++){var ya;if(ya=document.getElementById(Ra.element+"_"+ua[pa].id))"Longitude"===ua[pa].id?ya.innerHTML=Ge(180*Ra.a.longitude/Math.PI,!1,!0):"Latitude"===ua[pa].id?ya.innerHTML=He(180*Ra.a.latitude/Math.PI,!1,!0):"Altitude"===ua[pa].id?ya.innerHTML=(6378.137*Ra.a.altitude).toFixed(0):"Azimuth"===ua[pa].id?ya.innerHTML=Ra.a.wa.R.toFixed(2):"Elevation"===ua[pa].id?ya.innerHTML=Ra.a.wa.ha.toFixed(2):
-"Range"===ua[pa].id?ya.innerHTML=Ra.a.fa.fa.toFixed(0):"RangeRate"===ua[pa].id?ya.innerHTML=Ra.a.fa.sc.toFixed(2):"Eclipse"===ua[pa].id&&(ya.innerHTML=Ra.a.ec)}}}}catch(db){}}"projectionPerspective"===m||"projectionCylindrical"===m||"projectionSinusoidal"===m||"projectionElliptical"===m||"projectionRobinson"===m||"projectionRadar"===m?(document.getElementById("background").replaceChild(pc,document.getElementById("labelContainer")),pc.addEventListener("mouseenter",rg,!0)):"projectionTextual"===m&&
-Ve("tableHeadTextual","tableBodyTextual");$f();r.disable(r.BLEND)}function Zg(){Ca.addEventListener("progress",ag);Ca.addEventListener("load",dg);Ca.addEventListener("error",bg);Ca.addEventListener("abort",cg);Ca.open("GET","Celestrak/satellites.txt");Ca.send()}function $g(){document.getElementById("progress").value=0;document.getElementById("loading").style.visibility="visible";Zg()}
-function wg(a,c){if("projectTextual"===m)document.getElementById("lonandlat").innerHTML="&ndash;";else if("projectionRadar"===m){be=ae=null;a-=v.clientWidth/2;c-=v.clientHeight/2;v.clientWidth>v.clientHeight?(a/=v.clientHeight/2,c/=v.clientHeight/2):(a/=v.clientWidth/2,c/=v.clientWidth/2);var d=90-90*Math.sqrt(a*a+c*c);-90<=d?(c=90+180*Math.atan2(c,a)/Math.PI,0>c&&(c+=360),document.getElementById("lonandlat").innerHTML="Az: "+Ie(c)+"&deg;&nbsp;&nbsp;El: "+Je(d)+"&deg;"):document.getElementById("lonandlat").innerHTML=
-"&ndash;"}else{var e=NaN;d=NaN;if("projectionPerspective"===m){var g=mat4.create(),h=mat4.create(),p=!1,q=[],n=!0,P=0;var D=mat4.create();mat4.translate(D,D,[0,0,-Md]);mat4.rotateY(D,D,Math.PI/2);var x=he(0,0,0);x=vec4.fromValues(x[0],x[1],x[2],1);vec4.transformMat4(x,x,D);vec4.transformMat4(x,x,Oc);var Y=x[2]/x[3];x=he(0,0,6378.137*(Math.sin(zd)-1));x=vec4.fromValues(x[0],x[1],x[2],1);vec4.transformMat4(x,x,D);vec4.transformMat4(x,x,Oc);D=x[2]/x[3];Y=(D-Y)/3;mat4.invert(g,Oc);mat4.invert(h,Nc);q.altitude=
-.01;a=2*a/r.drawingBufferWidth-1;c=1-2*c/r.drawingBufferHeight;for(x=D;5E-5<Math.abs(q.altitude);){D=vec4.fromValues(a,c,x,1);vec4.transformMat4(D,D,g);vec4.transformMat4(D,D,h);vec4.scale(D,D,1/D[3]);Fe(q,vec3.fromValues(D[0],D[1],D[2]));if(0===P&&0<q.altitude){n=!1;break}0<q.altitude?(x+=Y,p||(Y/=2,p=!0)):(x-=Y,p&&(Y/=2,p=!1));P++;if(100<P)break}n&&(e=180*q.longitude/Math.PI,d=180*q.latitude/Math.PI)}else if("projectionCylindrical"===m)e=180*(2*a/r.drawingBufferWidth+fe/Math.PI+1),d=90*(1-2*c/r.drawingBufferHeight);
-else if("projectionRobinson"===m){e=V.length;a=2*(a-.5*r.drawingBufferWidth)/r.drawingBufferWidth;g=2*(c-.5*r.drawingBufferHeight)/r.drawingBufferHeight;for(h=0;h<e-1;h++)if(Math.abs(g)>=V[h][2]&&Math.abs(g)<=V[h+1][2]){d=((Math.abs(g)-V[h][2])*V[h+1][0]+(V[h+1][2]-Math.abs(g))*V[h][0])/(V[h+1][2]-V[h][2]);0<g&&(d*=-1);break}c=Be(fe-Math.PI,d*Math.PI/180);e=Math.abs(a)<=Math.abs(c.x)?180*fe/Math.PI+a/(((Math.abs(g)-V[h][2])*V[h+1][1]+(V[h+1][2]-Math.abs(g))*V[h][1])/(V[h+1][2]-V[h][2]))*180:NaN}else"projectionElliptical"===
-m?(a=2*(a-.5*r.drawingBufferWidth)/r.drawingBufferWidth,g=Math.asin(2*(.5*r.drawingBufferHeight-c)/r.drawingBufferHeight),d=Math.asin((2*g+Math.sin(2*g))/Math.PI),c=Be(fe-Math.PI,d),Math.abs(a)<=Math.abs(c.x)&&(e=180/Math.PI*(fe+Math.PI*a/Math.cos(g)),d*=180/Math.PI)):"projectionSinusoidal"===m&&(a=2*(a-.5*r.drawingBufferWidth)/r.drawingBufferWidth,d=Math.PI/2*(1-2*c/r.drawingBufferHeight),c=Be(fe-Math.PI,d),Math.abs(a)<=Math.abs(c.x)&&0<Math.cos(d)&&(e=180/Math.PI*(Math.PI*a/Math.cos(d)+fe),d*=180/
-Math.PI));isNaN(e)||isNaN(d)?(document.getElementById("lonandlat").innerHTML="&ndash;",be=ae=null):(document.getElementById("lonandlat").innerHTML=Ge(e,!1,!0)+"&nbsp;&nbsp;"+He(d,!1,!0),ae=e,be=d)}}function ah(a){var c=(6378.137+ee/1E3)/6378.137;a&&(Vb=null);de=Math.max(de,-Math.PI/2);de=Math.min(de,Math.PI/2);ce%=2*Math.PI;ce<=-Math.PI?ce+=2*Math.PI:ce>Math.PI&&(ce-=2*Math.PI);Md=c;ge=de;fe=ce;zd=Math.asin(1/Md);qg();vg();wg(Xb,Yb);Ff(!1,!1)}
-function bh(a){if(Ta||gb||eb||hb||qb)return!1;if(!0===Wb){if(Xb!=a.clientX||Yb!=a.clientY)ce+=glMatrix.toRadian((Xb-a.clientX)/2),de+=glMatrix.toRadian((a.clientY-Yb)/2),Xb=a.clientX,Yb=a.clientY,ah(!0)}else Xb=a.clientX,Yb=a.clientY,wg(Xb,Yb)}function ch(a){wg(a.clientX,a.clientY);Wb=!1}function dh(a){Xb=a.clientX;Yb=a.clientY;Wb=!0}function eh(a){if(Ta||gb||eb||hb||qb)return!1;ee-=Math.max(-1,Math.min(1,a.wheelDelta||-a.detail))*ee*.1;1E8<ee?ee=1E8:25E4>ee&&(ee=25E4);ah(!1)}
-function fh(){Lb&&clearTimeout(Lb);Nb&&clearInterval(Nb)}function gh(a){fh();Kb+=a;ng(!0,!0);Lb=setTimeout(function(){Nb=setInterval(function(){Kb+=a;ng(!0,!0)},50)},500)}function hh(){gh(86400)}function ih(){gh(3600)}function jh(){gh(60)}function kh(){gh(-86400)}function lh(){gh(-3600)}function mh(){gh(-60)}
-function nh(){var a;Ob=!Ob;if(a=document.getElementById("dateandtimeplay"))Ob?(a.src="Time/Play128.png",a.classList.add("modifyTimehighlighted")):(a.src="Time/Pause128.png",a.classList.remove("modifyTimehighlighted"),ng(!0,!1))}function oh(){Kb=0;ng(!0,!1)}
-function ph(a){if(!(Ta||gb||eb||hb||qb))if(a.shiftKey&&a.altKey)if("Add"===a.key||"+"===a.key)Kb+=1,ng(!0,!0);else{if("Subtract"===a.key||"-"===a.key)--Kb,ng(!0,!0)}else if(a.shiftKey)if("ArrowUp"===a.key||"Up"===a.key)ee-=.1*ee,1E8<ee?ee=1E8:25E4>ee&&(ee=25E4),ah(!1);else if("ArrowDown"===a.key||"Down"===a.key)ee+=.1*ee,1E8<ee?ee=1E8:25E4>ee&&(ee=25E4),ah(!1);else if("Add"===a.key||"+"===a.key)Kb+=3600,ng(!0,!0);else{if("Subtract"===a.key||"-"===a.key)Kb-=3600,ng(!0,!0)}else if(a.altKey)if("Add"===
-a.key||"+"===a.key)Kb+=86400,ng(!0,!0);else{if("Subtract"===a.key||"-"===a.key)Kb-=86400,ng(!0,!0)}else if(a.ctrlKey)if("ArrowLeft"===a.key||"Left"===a.key)G.longitude-=glMatrix.toRadian(1),Xe(),Ff(!1,!1),$f();else if("ArrowRight"===a.key||"Right"===a.key)G.longitude+=glMatrix.toRadian(1),Xe(),Ff(!1,!1),$f();else if("ArrowUp"===a.key||"Up"===a.key)G.latitude+=glMatrix.toRadian(1),Xe(),Ff(!1,!1),$f();else{if("ArrowDown"===a.key||"Down"===a.key)G.latitude-=glMatrix.toRadian(1),Xe(),Ff(!1,!1),$f()}else"ArrowLeft"===
-a.key||"Left"===a.key?(ce+=glMatrix.toRadian(1),ah(!0)):"ArrowRight"===a.key||"Right"===a.key?(ce-=glMatrix.toRadian(1),ah(!0)):"ArrowUp"===a.key||"Up"===a.key?(de-=glMatrix.toRadian(1),ah(!0)):"ArrowDown"===a.key||"Down"===a.key?(de+=glMatrix.toRadian(1),ah(!0)):"Delete"===a.key||"Del"===a.key?hi():"Add"===a.key||"+"===a.key?(Kb+=60,ng(!0,!0)):"Subtract"===a.key||"-"===a.key?(Kb-=60,ng(!0,!0)):"c"===a.key?(b&&b.hasOwnProperty("tracking")&&(Vb=b),ng(!0,!1)):"e"===a.key?b&&b.hasOwnProperty("satcat"):
-"i"===a.key?b&&b.hasOwnProperty("satcat")&&window.open("https://nssdc.gsfc.nasa.gov/nmc/spacecraftDisplay.do?id="+b.sb[0]):"o"===a.key?ae&&be&&(nf(ae,be),Ff(!1,!1),$f()):"z"===a.key&&(Kb=0,ng(!0,!0))}function ii(a,c){r.useProgram(E);r.uniform1i(E[a],c);r.useProgram(od);r.uniform1i(od[a],c);r.useProgram(pd);r.uniform1i(pd[a],c);r.useProgram(qd);r.uniform1i(qd[a],c);r.useProgram(rd);r.uniform1i(rd[a],c)}
-function ji(a,c){r.useProgram(E);r.uniform4f(E[a],c[0],c[1],c[2],c[3]);r.useProgram(od);r.uniform4f(od[a],c[0],c[1],c[2],c[3]);r.useProgram(pd);r.uniform4f(pd[a],c[0],c[1],c[2],c[3]);r.useProgram(qd);r.uniform4f(qd[a],c[0],c[1],c[2],c[3]);r.useProgram(rd);r.uniform4f(rd[a],c[0],c[1],c[2],c[3])}
-function ki(){var a=ie(document.getElementById("colorBackground").value,1);document.getElementById("colorBackground").style.backgroundColor=document.getElementById("colorBackground").value;r.clearColor(a[0],a[1],a[2],1)}function li(){Sa=document.getElementById("displayEarth").checked}function mi(){ii("bUseSatelliteImage",document.getElementById("displayImage").checked)}function ni(){ii("bDisplayDayNight",document.getElementById("displayDayNight").checked)}
-function oi(){var a=ie(document.getElementById("colorDay").value,1);document.getElementById("colorDay").style.backgroundColor=document.getElementById("colorDay").value;ji("colorDay",a)}function pi(){var a=ie(document.getElementById("colorNight").value,1);document.getElementById("colorNight").style.backgroundColor=document.getElementById("colorNight").value;ji("colorNight",a)}function qi(){ii("bDisplayTerminator",document.getElementById("displayTerminator").checked)}
-function ri(){var a=ie(document.getElementById("colorTerminator").value,document.getElementById("alphaTerminator").value);document.getElementById("colorTerminator").style.backgroundColor=document.getElementById("colorTerminator").value;ji("colorTerminator",a)}function si(){ii("bDisplayLongitudeLatitudeGrid",document.getElementById("displayLatLongGrid").checked)}
-function ti(){var a=ie(document.getElementById("colorLatLongGrid").value,document.getElementById("alphaLatLongGrid").value);document.getElementById("colorLatLongGrid").style.backgroundColor=document.getElementById("colorLatLongGrid").value;ji("colorLongitudeLatitudeGrid",a)}function ui(){ii("bDisplayBoundaries",document.getElementById("displayBoundaries").checked)}function vi(){ii("bDisplayBoundariesCoastlines",document.getElementById("displayBoundariesCoastline").checked)}
-function wi(){ii("bDisplayBoundariesInternal",document.getElementById("displayBoundariesInternal").checked)}function xi(){var a=ie(document.getElementById("colorBoundaries").value,document.getElementById("alphaBoundaries").value);document.getElementById("colorBoundaries").style.backgroundColor=document.getElementById("colorBoundaries").value;ji("colorBoundaries",a)}function yi(){ii("bFillLand",document.getElementById("displayFillLand").checked)}
-function zi(){var a=ie(document.getElementById("colorLand").value,document.getElementById("alphaFillLand").value);document.getElementById("colorLand").style.backgroundColor=document.getElementById("colorLand").value;ji("colorLand",a)}function Ai(){ii("bFillSeas",document.getElementById("displayFillSeas").checked)}
-function Bi(){var a=ie(document.getElementById("colorSeas").value,document.getElementById("alphaFillSeas").value);document.getElementById("colorSeas").style.backgroundColor=document.getElementById("colorSeas").value;ji("colorSeas",a)}function Ci(){Sg=document.getElementById("displayStars").checked}function Di(a){var c=[],d=[],e;r.useProgram(C);for(e=0;3>e;e++)c[e]=(a[e]-Xd[e])/(Ei-Fi),d[e]=a[e]-c[e]*Ei;r.uniform3f(C.Bc,c[0],c[1],c[2]);r.uniform3f(C.Ac,d[0],d[1],d[2])}
-function Gi(){var a=ie(document.getElementById("colorStars").value,1);document.getElementById("colorStars").style.backgroundColor=document.getElementById("colorStars").value;Di(a)}function Hi(){Fi=document.getElementById("limitingMagnitude").value;r.useProgram(C);r.uniform1f(C.kc,Fi)}function Ii(){Pg=document.getElementById("displayConstellations").checked}
-function Ji(){Qg=ie(document.getElementById("colorConstellations").value,1);document.getElementById("colorConstellations").style.backgroundColor=document.getElementById("colorConstellations").value}function Ki(){Mg=document.getElementById("includeConstellationBoundaries").checked}
-function Li(){Ng=ie(document.getElementById("colorConstellationBoundaries").value,1);document.getElementById("colorConstellationBoundaries").style.backgroundColor=document.getElementById("colorConstellationBoundaries").value}function Mi(){Ug=document.getElementById("includeConstellationNames").checked}function Ni(a){var c=document.getElementById("constellationLabels");c&&(c.style.color=a)}
-function Oi(){var a=document.getElementById("colorConstellationNames").value;document.getElementById("colorConstellationNames").style.backgroundColor=document.getElementById("colorConstellationNames").value;Ni(a)}function Pi(){var a=document.getElementById("radarLabels");Bg=document.getElementById("displayAzElGrid").checked;a&&(a.style.visibility=Bg?"visible":"hidden")}
-function Qi(){zg=ie(document.getElementById("colorAzElGrid").value,1);document.getElementById("colorAzElGrid").style.backgroundColor=document.getElementById("colorAzElGrid").value;r.useProgram(ld);r.uniform4f(ld.color,zg[0],zg[1],zg[2],1)}function Ri(){Eg=document.getElementById("displayRADecGrid").checked}
-function Si(){Fg=ie(document.getElementById("colorRADecGrid").value,1);document.getElementById("colorRADecGrid").style.backgroundColor=document.getElementById("colorRADecGrid").value;r.useProgram(B);r.uniform4f(B.color,Fg[0],Fg[1],Fg[2],.5)}function Ti(){var a=document.getElementById("radarCenter");a&&(Ui=document.getElementById("displayCentralPosition").checked,a.style.visibility=Ui?"visible":"hidden")}
-function Vi(){var a=document.getElementById("radarCenter");if(a){Wi=ie(document.getElementById("colorCentralPosition").value,1);document.getElementById("colorCentralPosition").style.backgroundColor=document.getElementById("colorCentralPosition").value;var c=Wi;var d="#ffffff";var e=.299*c[0];e+=.587*c[1];e+=.114*c[2];.5<e&&(d="#000000");c=d;a.style.color=document.getElementById("colorCentralPosition").value;a.style.textShadow="-1px -1px 5px "+c+", 1px -1px 5px "+c+", -1px 1px 5px "+c+", 1px 1px 5px "+
-c}}function Xi(){Dd=document.getElementById("timeZoneUTC").checked;ng(!1,!1)}function Yi(){Ed=document.getElementById("refractionCorrection").checked}function Zi(){b&&(b.hasOwnProperty("tracking")?(Aa++,4<Aa&&(Aa=0)):(Ba++,1<Ba&&(Ba=0)),$f())}
-function ng(a,c){if(!Ob||c){if(a){je=new Date(1*new Date+1E3*Kb);c=le=ke();var d=(c-2451545)/365.25/100,e=(357.52911+35999.05029*d+1.537E-4*d*d)*Math.PI/180;e=(280.46646+36000.76983*d+3.032E-4*d*d+((1.914602-.004817*d-1.4E-5*d*d)*Math.sin(e)+(.019993-1.01E-4*d)*Math.sin(2*e)+2.89E-4*Math.sin(3*e)))*Math.PI/180;d=(23.43929111111111+46.815/3600*d)*Math.PI/180;ac={latitude:Math.sin(d)*Math.sin(e),longitude:Math.atan2(Math.cos(d)*Math.sin(e),Math.cos(e))-Ee(c)}}Dd?(document.getElementById("dateandtimeyear").innerHTML=
-je.getUTCFullYear(),document.getElementById("dateandtimemonth").innerHTML=(je.getUTCMonth()+1).toString().padStart(2,"0"),document.getElementById("dateandtimeday").innerHTML=je.getUTCDate().toString().padStart(2,"0"),document.getElementById("dateandtimehour").innerHTML=je.getUTCHours().toString().padStart(2,"0"),document.getElementById("dateandtimeminute").innerHTML=je.getUTCMinutes().toString().padStart(2,"0"),document.getElementById("dateandtimesecond").innerHTML=je.getUTCSeconds().toString().padStart(2,
-"0")):(document.getElementById("dateandtimeyear").innerHTML=je.getFullYear(),document.getElementById("dateandtimemonth").innerHTML=(je.getMonth()+1).toString().padStart(2,"0"),document.getElementById("dateandtimeday").innerHTML=je.getDate().toString().padStart(2,"0"),document.getElementById("dateandtimehour").innerHTML=je.getHours().toString().padStart(2,"0"),document.getElementById("dateandtimeminute").innerHTML=je.getMinutes().toString().padStart(2,"0"),document.getElementById("dateandtimesecond").innerHTML=
-je.getSeconds().toString().padStart(2,"0"));a&&Ff(a,!1)}}function $i(){ng(!0,!1)}
-function aj(a){r.useProgram(a);r.uniform4f(a.colorSeas,Od[0],Od[1],Od[2],.4);r.uniform4f(a.colorLand,Nd[0],Nd[1],Nd[2],.4);r.uniform1i(a.bUseSatelliteImage,!0);r.uniform1i(a.bFillLand,!1);r.uniform1i(a.bFillSeas,!1);r.uniform1i(a.bDisplayDayNight,!0);r.uniform4f(a.colorDay,Pd[0],Pd[1],Pd[2],1);r.uniform4f(a.colorNight,Qd[0],Qd[1],Qd[2],1);r.uniform4f(a.colorLongitudeLatitudeGrid,Ud[0],Ud[1],Ud[2],.2);r.uniform1i(a.bDisplayLongitudeLatitudeGrid,!0);r.uniform4f(a.colorTerminator,Vd[0],Vd[1],Vd[2],.4);
-r.uniform4f(a.colorBoundaries,Wd[0],Wd[1],Wd[2],.4);r.uniform1i(a.bDisplayTerminator,!0);r.uniform1i(a.bDisplayBoundaries,!0);r.uniform1i(a.bDisplayBoundariesCoastlines,!1);r.uniform1i(a.bDisplayBoundariesInternal,!1);r.uniform1i(a.numSatellites,0)}function bj(a){a.target.style.fontSize="150%";a.target.innerHTML=a.target.getAttribute("fullName")}function cj(a){a.target.style.fontSize="100%";a.target.innerHTML=a.target.getAttribute("abbr")}
-function dj(){var a=document.getElementById("radarLabels");if(a)for(var c=a.children.length,d=0;d<c;d++){var e=a.children[d];e&&(e.style.transform="translate("+e.getAttribute("xOffset")+"%, "+e.getAttribute("yOffset")+"%)")}if(a=document.getElementById("constellationLabels"))for(d=0;d<a.children.length;d++){if(e=a.children[d])e.innerHTML=e.getAttribute("abbr");e=a.children[d];e.addEventListener("mouseover",bj);e.addEventListener("mouseout",cj)}}
-function ej(){if(google){var a={lat:180*G.latitude/Math.PI,lng:180*G.longitude/Math.PI},c={center:new google.maps.LatLng(0,0),zoom:3,streetViewControl:!1,mapTypeControl:!0,mapTypeId:google.maps.MapTypeId.ROADMAP,mapTypeControlOptions:{mapTypeIds:[google.maps.MapTypeId.ROADMAP,google.maps.MapTypeId.SATELLITE]}};nc=new google.maps.Map(document.getElementById("mapObserver"),c);document.getElementById("mapObserver").style.display="block";oc=new google.maps.Marker({position:a,map:nc});google.maps.event.addListener(nc,
-"click",function(a){a=a.latLng;oc&&oc.setPosition(a);fj(a.lat(),a.lng())});nc.setOptions({draggableCursor:"crosshair"})}}
-function gj(a,c,d,e,g){r.pixelStorei(r.UNPACK_FLIP_Y_WEBGL,!0);r.bindTexture(r.TEXTURE_2D,a);try{r.texImage2D(r.TEXTURE_2D,0,r.RGBA,r.RGBA,r.UNSIGNED_BYTE,c)}catch(h){me(h.message)}r.texParameteri(r.TEXTURE_2D,r.TEXTURE_WRAP_S,r.REPEAT);r.texParameteri(r.TEXTURE_2D,r.TEXTURE_WRAP_T,r.CLAMP_TO_EDGE);r.texParameteri(r.TEXTURE_2D,r.TEXTURE_MAG_FILTER,r.LINEAR);r.texParameteri(r.TEXTURE_2D,r.TEXTURE_MIN_FILTER,r.LINEAR);r.generateMipmap(r.TEXTURE_2D);r.bindTexture(r.TEXTURE_2D,null);r.useProgram(d);r.uniform1i(e,
-g);Ff(!1,!1)}
-function hj(){var a=v;try{if(a.setAttribute("width",window.innerWidth),a.setAttribute("height",window.innerHeight),r=a.getContext("webgl",{antialias:!0})||a.getContext("experimental-webgl",{antialias:!0})){var c=ze("shader-fs-symbol"),d=ze("shader-vs-symbol");kd=r.createProgram();r.attachShader(kd,d);r.attachShader(kd,c);r.linkProgram(kd);r.getProgramParameter(kd,r.LINK_STATUS)&&(kd.i=r.getAttribLocation(kd,"aVertexPosition"),kd.color=r.getUniformLocation(kd,"uColor"),kd.Lc=r.getUniformLocation(kd,"uTranslateMatrix"),
-kd.tc=r.getUniformLocation(kd,"uScaleMatrix"));if(E=r.createProgram()){var e=ze("shader-fs-globe-perspective"),g=ze("shader-vs-globe-perspective");r.attachShader(E,g);r.attachShader(E,e);r.linkProgram(E);r.getProgramParameter(E,r.LINK_STATUS)&&(ij(E),E.Ea=r.getUniformLocation(E,"uPMatrix"),E.Ca=r.getUniformLocation(E,"uMVMatrix"))}od=r.createProgram();jj(od,"shader-fs-globe-cylindrical","shader-vs-globe-cylindrical");pd=r.createProgram();jj(pd,"shader-fs-globe-elliptical","shader-vs-globe-elliptical");
-qd=r.createProgram();jj(qd,"shader-fs-globe-sinusoidal","shader-vs-globe-sinusoidal");rd=r.createProgram();jj(rd,"shader-fs-globe-robinson","shader-vs-globe-robinson");var h=ze("shader-fs-track-perspective"),p=ze("shader-fs-track-projection"),q=ze("shader-fs-track-radar");sd=r.createProgram();kj(sd,"shader-vs-track-perspective",h);td=r.createProgram();kj(td,"shader-vs-track-perspective-ground",h);ud=r.createProgram();lj(ud,"shader-vs-track-cylindrical",p);vd=r.createProgram();lj(vd,"shader-vs-track-elliptical",
-p);wd=r.createProgram();lj(wd,"shader-vs-track-sinusoidal",p);xd=r.createProgram();lj(xd,"shader-vs-track-robinson",p);a=yd=r.createProgram();var n=ze("shader-vs-track-radar");r.attachShader(a,n);r.attachShader(a,q);r.linkProgram(a);r.getProgramParameter(a,r.LINK_STATUS)&&(a.i=r.getAttribLocation(a,"aVertexPosition"),a.Gb=r.getAttribLocation(a,"aVertexPositionPrevNext"),a.Ec=r.getUniformLocation(a,"observerLongLatAlt"),a.color=r.getUniformLocation(a,"uColor"),a.$=r.getUniformLocation(a,"uScaleX"),
-a.aa=r.getUniformLocation(a,"uScaleY"));var P=ze("shader-fs-basic"),D=ze("shader-vs-xy");ld=r.createProgram();r.attachShader(ld,D);r.attachShader(ld,P);r.linkProgram(ld);r.getProgramParameter(ld,r.LINK_STATUS)&&(ld.i=r.getAttribLocation(ld,"aVertexPosition"),ld.$=r.getUniformLocation(ld,"uScaleX"),ld.aa=r.getUniformLocation(ld,"uScaleY"),ld.color=r.getUniformLocation(ld,"uColor"));var x=ze("shader-fs-radec"),Y=ze("shader-vs-radec");B=r.createProgram();r.attachShader(B,Y);r.attachShader(B,x);r.linkProgram(B);
-r.getProgramParameter(B,r.LINK_STATUS)&&(B.i=r.getAttribLocation(B,"aVertexPosition"),B.$=r.getUniformLocation(B,"uScaleX"),B.aa=r.getUniformLocation(B,"uScaleY"),B.Fb=r.getUniformLocation(B,"thetaG"),B.longitude=r.getUniformLocation(B,"longitude"),B.latitude=r.getUniformLocation(B,"latitude"),B.color=r.getUniformLocation(B,"uColor"));var sb=ze("shader-fs-stars"),ib=ze("shader-vs-stars");C=r.createProgram();r.attachShader(C,ib);r.attachShader(C,sb);r.linkProgram(C);r.getProgramParameter(C,r.LINK_STATUS)&&
-(C.i=r.getAttribLocation(C,"aVertexPositionMagnitude"),C.kc=r.getUniformLocation(C,"limitingMagnitude"),C.$=r.getUniformLocation(C,"uScaleX"),C.aa=r.getUniformLocation(C,"uScaleY"),C.Fb=r.getUniformLocation(C,"thetaG"),C.longitude=r.getUniformLocation(C,"longitude"),C.latitude=r.getUniformLocation(C,"latitude"),C.Bc=r.getUniformLocation(C,"colorGradients"),C.Ac=r.getUniformLocation(C,"colorConstants"));q=[];n=[];P=[];var na,H;for(H=0;60>=H;H++){var k=H*Math.PI/60;var f=1-H/60;for(na=0;60>=na;na++){var ia=
-1-na/60;var F=he(2*na*Math.PI/60,k-Math.PI/2,0);q.push(ia,f);n.push(-F[0],-F[1],F[2])}}for(H=0;60>H;H++)for(na=0;60>na;na++){var ka=61*H+na;var I=ka+61;P.push(ka,I,ka+1,I,I+1,ka+1)}Uc=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Uc);r.bufferData(r.ARRAY_BUFFER,new Float32Array(q),r.STATIC_DRAW);Uc.f=2;Uc.g=q.length/Uc.f;Rc=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Rc);r.bufferData(r.ARRAY_BUFFER,new Float32Array(n),r.STATIC_DRAW);Rc.f=3;Rc.g=n.length/Rc.f;Tc=r.createBuffer();r.bindBuffer(r.ELEMENT_ARRAY_BUFFER,
-Tc);r.bufferData(r.ELEMENT_ARRAY_BUFFER,new Uint16Array(P),r.STATIC_DRAW);Tc.g=P.length;F=[];na=[];var u,oa;for(oa=0;oa<=mj;oa++)for(H=1-oa/mj,u=0;u<=nj;u++)F.push(1-u/nj,H);for(oa=0;oa<mj;oa++)for(u=0;u<nj;u++)H=oa*(nj+1)+u,k=H+nj+1,na.push(H,k,H+1,k,k+1,H+1);Zc=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Zc);r.bufferData(r.ARRAY_BUFFER,new Float32Array(F),r.STATIC_DRAW);Zc.f=2;Zc.g=F.length/Zc.f;Yc=r.createBuffer();r.bindBuffer(r.ELEMENT_ARRAY_BUFFER,Yc);r.bufferData(r.ELEMENT_ARRAY_BUFFER,new Uint16Array(na),
-r.STATIC_DRAW);Yc.g=na.length;u=[];var y;for(y=0;360>y;y+=2)u.push(Math.cos(glMatrix.toRadian(y)),Math.sin(glMatrix.toRadian(y)));Cg=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Cg);r.bufferData(r.ARRAY_BUFFER,new Float32Array(u),r.STATIC_DRAW);Cg.f=2;Cg.g=u.length/Cg.f;u.length=0;u.push(0,-1);u.push(0,1);u.push(-1,0);u.push(1,0);u.push(-1,-1);u.push(1,1);u.push(-1,1);u.push(1,-1);for(y=0;360>y;y+=5)u.push(.5*Math.cos(glMatrix.toRadian(y)),.5*Math.sin(glMatrix.toRadian(y))),u.push(.49*Math.cos(glMatrix.toRadian(y)),
-.49*Math.sin(glMatrix.toRadian(y)));Dg=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Dg);r.bufferData(r.ARRAY_BUFFER,new Float32Array(u),r.STATIC_DRAW);Dg.f=2;Dg.g=u.length/Dg.f;y=[];var ba,Z;for(ba=0;360>ba;ba+=Hg){var l=glMatrix.toRadian(ba);var va=glMatrix.toRadian(-90);for(Z=-90;Z<90+Gg/2;Z+=Gg){var Q=glMatrix.toRadian(Z);-90!==Z&&y.push(l,Q);y.push(l,Q);y.push(l,va);y.push(l,Q);va=Q}y.push(l,Q)}Ig=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Ig);r.bufferData(r.ARRAY_BUFFER,new Float32Array(y),
-r.STATIC_DRAW);Ig.f=4;Ig.g=y.length/Ig.f;y.length=0;for(Z=-60;60>=Z;Z+=Kg){Q=glMatrix.toRadian(Z);var N=glMatrix.toRadian(0);for(ba=0;ba<360+Jg/2;ba+=Jg)l=glMatrix.toRadian(ba),0!==ba&&y.push(l,Q),y.push(l,Q),y.push(N,Q),y.push(l,Q),N=l;y.push(l,Q)}Lg=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Lg);r.bufferData(r.ARRAY_BUFFER,new Float32Array(y),r.STATIC_DRAW);Lg.f=4;Lg.g=y.length/Lg.f;l=[];var t;var R=constellationBoundaries.length;for(t=0;t<R;t++)l.push.apply(l,constellationBoundaries[t]);Og=r.createBuffer();
-r.bindBuffer(r.ARRAY_BUFFER,Og);r.bufferData(r.ARRAY_BUFFER,new Float32Array(l),r.STATIC_DRAW);Og.f=4;Og.g=l.length/Og.f;l.length=0;R=constellationShapes.length;for(t=0;t<R;t++)l.push.apply(l,constellationShapes[t]);Rg=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Rg);r.bufferData(r.ARRAY_BUFFER,new Float32Array(l),r.STATIC_DRAW);Rg.f=4;Rg.g=l.length/Rg.f;constellationShapes.length=0;l.length=0;Tg=r.createBuffer();r.bindBuffer(r.ARRAY_BUFFER,Tg);r.bufferData(r.ARRAY_BUFFER,new Float32Array(brightStars),
-r.STATIC_DRAW);Tg.f=3;Tg.g=brightStars.length/Tg.f;t=[];R=0;ye(t,R++,r.LINE_STRIP);for(l=0;360>=l;l+=15)t.push(.8*Math.cos(glMatrix.toRadian(l)),.8*Math.sin(glMatrix.toRadian(l))),t.push(1.2*Math.cos(glMatrix.toRadian(l)),1.2*Math.sin(glMatrix.toRadian(l)));ye(t,R++,r.TRIANGLE_STRIP);t.length=0;for(l=45;405>=l;l+=90)t.push((1-.2*Math.sqrt(2))*Math.cos(glMatrix.toRadian(l)),(1-.2*Math.sqrt(2))*Math.sin(glMatrix.toRadian(l))),t.push((1+.2*Math.sqrt(2))*Math.cos(glMatrix.toRadian(l)),(1+.2*Math.sqrt(2))*
-Math.sin(glMatrix.toRadian(l)));ye(t,R++,r.TRIANGLE_STRIP);t.length=0;for(l=90;450>=l;l+=120)t.push(.6*Math.cos(glMatrix.toRadian(l)),.6*Math.sin(glMatrix.toRadian(l))),t.push(1.4*Math.cos(glMatrix.toRadian(l)),1.4*Math.sin(glMatrix.toRadian(l)));ye(t,R++,r.TRIANGLE_STRIP);t.length=0;for(l=270;630>=l;l+=120)t.push(.6*Math.cos(glMatrix.toRadian(l)),.6*Math.sin(glMatrix.toRadian(l))),t.push(1.4*Math.cos(glMatrix.toRadian(l)),1.4*Math.sin(glMatrix.toRadian(l)));ye(t,R++,r.TRIANGLE_STRIP);t.length=0;
-t.push(0,0);for(l=45;405>=l;l+=90)t.push(1.2*Math.cos(glMatrix.toRadian(l))+.2*Math.cos(glMatrix.toRadian(l-90)),1.2*Math.sin(glMatrix.toRadian(l))+.2*Math.sin(glMatrix.toRadian(l-90))),t.push(1.2*Math.cos(glMatrix.toRadian(l))+.2*Math.cos(glMatrix.toRadian(l+90)),1.2*Math.sin(glMatrix.toRadian(l))+.2*Math.sin(glMatrix.toRadian(l+90))),t.push(.2*Math.sqrt(2)*Math.cos(glMatrix.toRadian(l+45)),.2*Math.sqrt(2)*Math.sin(glMatrix.toRadian(l+45)));ye(t,R++,r.TRIANGLE_FAN);t.length=0;t.push(0,0);for(l=0;360>=
-l;l+=90)t.push(1.2*Math.cos(glMatrix.toRadian(l))+.2*Math.cos(glMatrix.toRadian(l-90)),1.2*Math.sin(glMatrix.toRadian(l))+.2*Math.sin(glMatrix.toRadian(l-90))),t.push(1.2*Math.cos(glMatrix.toRadian(l))+.2*Math.cos(glMatrix.toRadian(l+90)),1.2*Math.sin(glMatrix.toRadian(l))+.2*Math.sin(glMatrix.toRadian(l+90))),t.push(.2*Math.sqrt(2)*Math.cos(glMatrix.toRadian(l+45)),.2*Math.sqrt(2)*Math.sin(glMatrix.toRadian(l+45)));ye(t,R++,r.TRIANGLE_FAN);for(l=t.length=0;360>=l;l+=90)t.push((1-.2*Math.sqrt(2))*
-Math.cos(glMatrix.toRadian(l)),(1-.2*Math.sqrt(2))*Math.sin(glMatrix.toRadian(l))),t.push((1+.2*Math.sqrt(2))*Math.cos(glMatrix.toRadian(l)),(1+.2*Math.sqrt(2))*Math.sin(glMatrix.toRadian(l)));ye(t,R++,r.TRIANGLE_STRIP);t.length=0;t.push(0,0);for(l=0;360>=l;l+=45)t.push(1.2*Math.cos(glMatrix.toRadian(l))+.2*Math.cos(glMatrix.toRadian(l-90)),1.2*Math.sin(glMatrix.toRadian(l))+.2*Math.sin(glMatrix.toRadian(l-90))),t.push(1.2*Math.cos(glMatrix.toRadian(l))+.2*Math.cos(glMatrix.toRadian(l+90)),1.2*Math.sin(glMatrix.toRadian(l))+
-.2*Math.sin(glMatrix.toRadian(l+90))),t.push(.5*Math.cos(glMatrix.toRadian(l+22.5)),.5*Math.sin(glMatrix.toRadian(l+22.5)));ye(t,R++,r.TRIANGLE_FAN);for(l=t.length=0;360>=l;l+=120)t.push(.6*Math.cos(glMatrix.toRadian(l)),.6*Math.sin(glMatrix.toRadian(l))),t.push(1.4*Math.cos(glMatrix.toRadian(l)),1.4*Math.sin(glMatrix.toRadian(l)));ye(t,R++,r.TRIANGLE_STRIP);t.length=0;for(l=180;540>=l;l+=120)t.push(.6*Math.cos(glMatrix.toRadian(l)),.6*Math.sin(glMatrix.toRadian(l))),t.push(1.4*Math.cos(glMatrix.toRadian(l)),
-1.4*Math.sin(glMatrix.toRadian(l)));ye(t,R++,r.TRIANGLE_STRIP);t.length=0;for(l=-30;210>=l;l+=120)t.push(.6*Math.cos(glMatrix.toRadian(l)),.6*Math.sin(glMatrix.toRadian(l))),t.push(1.4*Math.cos(glMatrix.toRadian(l)),1.4*Math.sin(glMatrix.toRadian(l)));ye(t,R++,r.TRIANGLE_STRIP);$c=r.createTexture();ad=r.createTexture();bd=r.createTexture();cd=r.createTexture();dd=r.createTexture();r.bindTexture(r.TEXTURE_2D,dd);r.texParameteri(r.TEXTURE_2D,r.TEXTURE_MAG_FILTER,r.NEAREST);r.texParameteri(r.TEXTURE_2D,
-r.TEXTURE_MIN_FILTER,r.NEAREST);r.texParameteri(r.TEXTURE_2D,r.TEXTURE_WRAP_S,r.CLAMP_TO_EDGE);r.texParameteri(r.TEXTURE_2D,r.TEXTURE_WRAP_T,r.CLAMP_TO_EDGE);r.pixelStorei(r.UNPACK_FLIP_Y_WEBGL,!1);r.bindTexture(r.TEXTURE_2D,null);xe(E);xe(od);xe(pd);xe(qd);xe(rd);var Ia=new Float32Array([].concat.apply([],V)),K,L;r.useProgram(xd);(K=r.getUniformLocation(xd,"uRobinsonMap"))&&r.uniform3fv(K,Ia);r.useProgram(rd);(L=r.getUniformLocation(rd,"uRobinsonMap"))&&r.uniform3fv(L,Ia);r.enable(r.DEPTH_TEST);
-r.lineWidth(1);oj();Ff(!1,!1)}else me("Browser plugin unable to acquire WebGL context.")}catch(S){me("Browser plugin does not support WebGL. Check [HKEY_CURRENT_USER|HKEY_LOCAL_MACHINE]\\SOFTWARE\\Microsoft\\Internet Explorer\\MAIN\\FeatureControl\\FEATURE_BROWSER_EMULATION\\Tracker.exe=0x00002af8")}}
-function pj(){v=document.getElementById("canvas");document.documentElement.style.overflow="hidden";document.body.scroll="no";Ad=new Uint8Array(32768);hj();document.addEventListener("mousemove",bh);document.addEventListener("mouseleave",Oe);ed=new Image;ed.src="Images/EarthDay.jpg";ed.onload=function(){var a=ed;gj($c,a,E,E.qa,0);gj($c,a,od,od.qa,0);gj($c,a,pd,pd.qa,0);gj($c,a,qd,qd.qa,0);gj($c,a,rd,rd.qa,0)};fd=new Image;fd.src="Images/EarthNight.jpg";fd.onload=function(){var a=fd;gj(ad,a,E,E.sa,1);
-gj(ad,a,od,od.sa,1);gj(ad,a,pd,pd.sa,1);gj(ad,a,qd,qd.sa,1);gj(ad,a,rd,rd.sa,1)};gd=new Image;gd.src="Images/EarthMonochrome.bmp";gd.onload=function(){var a=gd;gj(bd,a,E,E.ra,2);gj(bd,a,od,od.ra,2);gj(bd,a,pd,pd.ra,2);gj(bd,a,qd,qd.ra,2);gj(bd,a,rd,rd.ra,2)};jd=new Image;jd.src="Images/boundaries_combined_4bit.png";jd.onload=function(){var a=jd;gj(cd,a,E,E.pa,3);gj(cd,a,od,od.pa,3);gj(cd,a,pd,pd.pa,3);gj(cd,a,qd,qd.pa,3);gj(cd,a,rd,rd.pa,3)};Ff(!0,!1)}
-function pf(){var a;qj();rj();document.getElementById("buttonSatellite").addEventListener("click",vf);document.getElementById("buttonObserver").addEventListener("click",wf);document.getElementById("buttonProjection").addEventListener("click",xf);document.getElementById("buttonFullscreen").addEventListener("click",rf);document.getElementById("buttonRefresh").addEventListener("click",$g);document.getElementById("buttonInformation").addEventListener("click",yf);document.getElementById("buttonSettings").addEventListener("click",
-zf);document.getElementById("imgSatelliteSettings").addEventListener("click",If);document.getElementById("resetSatelliteSettings").addEventListener("click",Gf);document.getElementById("doneSatelliteSettings").addEventListener("click",Cf);document.getElementById("setDefaultSatelliteSettings").addEventListener("click",Af);document.getElementById("selectAllNone").addEventListener("click",sj);document.getElementById("divSatellitesBody").addEventListener("scroll",tj);document.getElementById("searchInputEntry").addEventListener("keypress",
-uj);document.getElementById("imgObserverSettings").addEventListener("click",Xf);document.getElementById("resetObserverSettings").addEventListener("click",Vf);document.getElementById("doneObserverSettings").addEventListener("click",Jf);document.getElementById("resetObserverPositionSettings").addEventListener("click",vj);document.getElementById("applyObserverPositionSettings").addEventListener("click",wj);document.getElementById("useDeviceLocation").addEventListener("click",xj);document.getElementById("addDay").addEventListener("mousedown",
-hh);document.getElementById("addDay").addEventListener("mouseup",fh);document.getElementById("addDay").addEventListener("mouseleave",fh);document.getElementById("addHour").addEventListener("mousedown",ih);document.getElementById("addHour").addEventListener("mouseup",fh);document.getElementById("addHour").addEventListener("mouseleave",fh);document.getElementById("addMinute").addEventListener("mousedown",jh);document.getElementById("addMinute").addEventListener("mouseup",fh);document.getElementById("addMinute").addEventListener("mouseleave",
-fh);document.getElementById("dateandtimeplay").addEventListener("click",nh);document.getElementById("dateandtimezero").addEventListener("click",oh);document.getElementById("subtractDay").addEventListener("mousedown",kh);document.getElementById("subtractDay").addEventListener("mouseup",fh);document.getElementById("subtractDay").addEventListener("mouseleave",fh);document.getElementById("subtractHour").addEventListener("mousedown",lh);document.getElementById("subtractHour").addEventListener("mouseup",
-fh);document.getElementById("subtractHour").addEventListener("mouseleave",fh);document.getElementById("subtractMinute").addEventListener("mousedown",mh);document.getElementById("subtractMinute").addEventListener("mouseup",fh);document.getElementById("subtractMinute").addEventListener("mouseleave",fh);document.getElementById("satelliteLabel").addEventListener("change",yj);document.getElementById("satelliteLabelBackground").addEventListener("change",zj);document.getElementById("satelliteShade").addEventListener("change",
-Aj);document.getElementById("satelliteOutline").addEventListener("change",Bj);document.getElementById("satelliteTrackUnits").addEventListener("change",Cj);document.getElementById("satelliteTrackStyle").addEventListener("change",Dj);document.getElementById("colorBackground").addEventListener("change",ki);document.getElementById("displayEarth").addEventListener("change",li);document.getElementById("displayImage").addEventListener("change",mi);document.getElementById("displayDayNight").addEventListener("change",
-ni);document.getElementById("colorDay").addEventListener("change",oi);document.getElementById("colorNight").addEventListener("change",pi);document.getElementById("displayTerminator").addEventListener("change",qi);document.getElementById("colorTerminator").addEventListener("change",ri);document.getElementById("alphaTerminator").addEventListener("change",ri);document.getElementById("displayLatLongGrid").addEventListener("change",si);document.getElementById("colorLatLongGrid").addEventListener("change",
-ti);document.getElementById("alphaLatLongGrid").addEventListener("change",ti);document.getElementById("displayBoundaries").addEventListener("change",ui);document.getElementById("colorBoundaries").addEventListener("change",xi);document.getElementById("alphaBoundaries").addEventListener("change",xi);document.getElementById("displayBoundariesCoastline").addEventListener("change",vi);document.getElementById("displayBoundariesInternal").addEventListener("change",wi);document.getElementById("displayFillLand").addEventListener("change",
-yi);document.getElementById("colorLand").addEventListener("change",zi);document.getElementById("alphaFillLand").addEventListener("change",zi);document.getElementById("displayFillSeas").addEventListener("change",Ai);document.getElementById("colorSeas").addEventListener("change",Bi);document.getElementById("alphaFillSeas").addEventListener("change",Bi);document.getElementById("displayStars").addEventListener("change",Ci);document.getElementById("colorStars").addEventListener("change",Gi);document.getElementById("limitingMagnitude").addEventListener("change",
-Hi);document.getElementById("displayConstellations").addEventListener("change",Ii);document.getElementById("colorConstellations").addEventListener("change",Ji);document.getElementById("includeConstellationBoundaries").addEventListener("change",Ki);document.getElementById("colorConstellationBoundaries").addEventListener("change",Li);document.getElementById("includeConstellationNames").addEventListener("change",Mi);document.getElementById("colorConstellationNames").addEventListener("change",Oi);document.getElementById("displayAzElGrid").addEventListener("change",
-Pi);document.getElementById("colorAzElGrid").addEventListener("change",Qi);document.getElementById("displayRADecGrid").addEventListener("change",Ri);document.getElementById("colorRADecGrid").addEventListener("change",Si);document.getElementById("displayCentralPosition").addEventListener("change",Ti);document.getElementById("colorCentralPosition").addEventListener("change",Vi);document.getElementById("timeZoneUTC").addEventListener("change",Xi);document.getElementById("refractionCorrection").addEventListener("change",
-Yi);document.getElementById("colorSatellite").addEventListener("input",Ej);document.getElementById("colorSatelliteLabelBackground").addEventListener("input",Fj);document.getElementById("satelliteFootprintAlpha").addEventListener("input",Gj);document.getElementById("satelliteOutlineAngles").addEventListener("input",Hj);document.getElementById("satelliteTrackForwardCount").addEventListener("input",Ij);document.getElementById("satelliteTrackBackwardCount").addEventListener("input",Jj);document.getElementById("colorObserver").addEventListener("input",
-Kj);document.getElementById("colorObserverLabelBackground").addEventListener("input",Lj);document.getElementById("alphaTerminator").addEventListener("input",function(){document.getElementById("alphaTerminatorValue").value=document.getElementById("alphaTerminator").value});document.getElementById("alphaLatLongGrid").addEventListener("input",function(){document.getElementById("alphaLatLongGridValue").value=document.getElementById("alphaLatLongGrid").value});document.getElementById("alphaBoundaries").addEventListener("input",
-function(){document.getElementById("alphaBoundariesValue").value=document.getElementById("alphaBoundaries").value});document.getElementById("alphaFillLand").addEventListener("input",function(){document.getElementById("alphaFillLandValue").value=document.getElementById("alphaFillLand").value});document.getElementById("alphaFillSeas").addEventListener("input",function(){document.getElementById("alphaFillSeasValue").value=document.getElementById("alphaFillSeas").value});document.getElementById("limitingMagnitude").addEventListener("input",
-function(){document.getElementById("limitingMagnitudeValue").value=document.getElementById("limitingMagnitude").value});if(a=document.getElementById("searchFor"))for(var c=[za.ja,za.ka,za.Zb],d=0;d<c.length;d++){var e=document.createElement("option");e.setAttribute("value",qa[c[d]].I);e.innerHTML=qa[c[d]].I;c[d]===za.ja&&(e.selected=!0);a.appendChild(e)}document.addEventListener("webkitfullscreenchange",Mj);document.addEventListener("mozfullscreenchange",Mj);document.addEventListener("fullscreenchange",
-Mj);for(d=0;d<ja.length;d++)document.getElementById(ja[d]).addEventListener("click",pg);og();Zg();pj();document.addEventListener("mousedown",dh);document.addEventListener("pointerdown",dh);document.addEventListener("mouseup",ch);document.addEventListener("pointerup",ch);document.addEventListener("mousewheel",eh,{passive:!0});document.addEventListener("keydown",ph);document.getElementById("colorBackground").value=O(Xd);document.getElementById("colorBackground").style.backgroundColor=O(Xd);document.getElementById("displayEarth").checked=
-Sa;document.getElementById("displayImage").checked=!0;document.getElementById("displayDayNight").checked=!0;document.getElementById("colorDay").value=O(Pd);document.getElementById("colorNight").value=O(Qd);document.getElementById("colorDay").style.backgroundColor=O(Pd);document.getElementById("colorNight").style.backgroundColor=O(Qd);document.getElementById("displayTerminator").checked=!0;document.getElementById("colorTerminator").value=O(Vd);document.getElementById("colorTerminator").style.backgroundColor=
-O(Vd);document.getElementById("alphaTerminator").value=.4;document.getElementById("alphaTerminatorValue").value=.4;document.getElementById("displayLatLongGrid").checked=!0;document.getElementById("colorLatLongGrid").value=O(Ud);document.getElementById("colorLatLongGrid").style.backgroundColor=O(Ud);document.getElementById("alphaLatLongGrid").value=.2;document.getElementById("alphaLatLongGridValue").value=.2;document.getElementById("displayBoundaries").checked=!0;document.getElementById("colorBoundaries").value=
-O(Wd);document.getElementById("colorBoundaries").style.backgroundColor=O(Wd);document.getElementById("alphaBoundaries").value=.4;document.getElementById("alphaBoundariesValue").value=.4;document.getElementById("displayFillLand").checked=!1;document.getElementById("colorLand").value=O(Nd);document.getElementById("colorLand").style.backgroundColor=O(Nd);document.getElementById("alphaFillLand").value=.4;document.getElementById("alphaFillLandValue").value=.4;document.getElementById("displayFillSeas").checked=
-!1;document.getElementById("colorSeas").value=O(Od);document.getElementById("colorSeas").style.backgroundColor=O(Od);document.getElementById("alphaFillSeas").value=.4;document.getElementById("alphaFillSeasValue").value=.4;document.getElementById("displayStars").checked=Sg;document.getElementById("colorStars").value=O(Nj);document.getElementById("colorStars").style.backgroundColor=O(Nj);document.getElementById("limitingMagnitude").value=Fi;document.getElementById("limitingMagnitudeValue").value=Fi;
-document.getElementById("displayConstellations").checked=Pg;document.getElementById("colorConstellations").value=O(Qg);document.getElementById("colorConstellations").style.backgroundColor=O(Qg);document.getElementById("includeConstellationBoundaries").checked=Mg;document.getElementById("colorConstellationBoundaries").value=O(Ng);document.getElementById("colorConstellationBoundaries").style.backgroundColor=O(Ng);document.getElementById("includeConstellationNames").checked=Ug;document.getElementById("colorConstellationNames").value=
-O(Oj);document.getElementById("colorConstellationNames").style.backgroundColor=O(Oj);document.getElementById("displayAzElGrid").checked=Bg;document.getElementById("colorAzElGrid").value=O(zg);document.getElementById("colorAzElGrid").style.backgroundColor=O(zg);document.getElementById("displayRADecGrid").checked=Eg;document.getElementById("colorRADecGrid").value=O(Fg);document.getElementById("colorRADecGrid").style.backgroundColor=O(Fg);document.getElementById("displayCentralPosition").checked=Pg;
-document.getElementById("colorCentralPosition").value=O(Wi);document.getElementById("colorCentralPosition").style.backgroundColor=O(Wi);for(a=0;a<ma.length;a++)document.getElementById(ma[a]).addEventListener("click",Pj),document.getElementById(ma[a]+"Observer").addEventListener("click",Qj);nf(0,0);dj();Rj();Vi();zd=Math.asin(1/Md);r.clearColor(Xd[0],Xd[1],Xd[2],1);aj(E);aj(od);aj(pd);aj(qd);aj(rd);Di(Nj);Ni(O(Oj));r.useProgram(C);r.uniform1f(C.kc,Fi);r.useProgram(B);r.uniform4f(B.color,Fg[0],Fg[1],
-Fg[2],.5);ah(!1);We();ng(!0,!0);ej();qf();setInterval($i,5E3)}function Sj(a,c){if(a=document.getElementById(a)){var d=Math.max(0,(c.getBoundingClientRect().width-a.getBoundingClientRect().width)/2);c=Math.max(0,(c.getBoundingClientRect().height-a.getBoundingClientRect().height)/2);Object.assign(a.style,{left:d+"px",top:c+"px"})}}
-function Tj(){var a=document.getElementById("divTableTextualOuter");if(a&&"none"!=a.style.display){var c=document.getElementById("tableHeadTextual");if(c){var d=document.getElementById("divTableBodyTextual");if(d){var e=document.getElementById("divTableTextual");if(e){var g=a.getBoundingClientRect().height;a=window.getComputedStyle(a);g-=parseInt(a.paddingTop,10);g-=parseInt(a.paddingBottom,10);g-=2*parseInt(window.getComputedStyle(e).getPropertyValue("border-width"),10);g-=c.getBoundingClientRect().height;
-d.style.height=g+"px"}}}}}function Uj(a,c){a=document.getElementById(a).getBoundingClientRect();document.getElementById(c).style.left=a.left+"px";document.getElementById(c).style.width=a.width+"px"}
-function qf(){var a=document.getElementById("categorySatellites"),c=document.getElementById("tableHeadSatellites"),d=document.getElementById("divSatellitesBody"),e=document.getElementById("frameleft"),g=document.getElementById("frameright"),h=document.getElementById("frametable"),p=document.getElementById("frameouter"),q=document.getElementById("results");Ve("tableHeadSatellites","tableBodySatellites");Ve("tableHeadTextual","tableBodyTextual");e=e.getBoundingClientRect().bottom;e-=a.getBoundingClientRect().top;
-e-=parseInt(window.getComputedStyle(a).marginBottom,10);a.style.height=e+"px";e=g.getBoundingClientRect().bottom-q.getBoundingClientRect().bottom;h.style.height=e+"px";e=h.getBoundingClientRect().bottom-c.getBoundingClientRect().bottom;window.getComputedStyle(h).borderBottom&&(e-=parseInt(window.getComputedStyle(h).borderBottom,10));d.style.height=e+"px";if(nc){c=document.getElementById("itemSelectObserver");var n=nc.getCenter();a=document.getElementById("mapObserver");e=c.getBoundingClientRect().bottom-
-c.getBoundingClientRect().top;e-=a.getBoundingClientRect().top;200>e&&(e=200);a.style.height=Math.floor(e)+"px";setTimeout(function(){nc.setCenter(n)},5)}Tj();Sj("divSatelliteSettings",p);Sj("divObserverSettings",p);if(v.width!=v.clientWidth||v.height!=v.clientHeight)oj(),Rj(),Ag();Uj("dateandtimeday","subtractDay");Uj("dateandtimehour","subtractHour");Uj("dateandtimeminute","subtractMinute");Uj("dateandtimeday","addDay");Uj("dateandtimehour","addHour");Uj("dateandtimeminute","addMinute");oj();Ff(!1,
-!1)}function Kj(){document.getElementById("colorObserver").style.backgroundColor=document.getElementById("colorObserver").value}function Lj(){document.getElementById("colorObserverLabelBackground").style.backgroundColor=document.getElementById("colorObserverLabelBackground").value}
-function ij(a){a.i=r.getAttribLocation(a,"aVertexPosition");a.Ga=r.getAttribLocation(a,"aTextureCoord");a.qa=r.getUniformLocation(a,"uSamplerDay");a.sa=r.getUniformLocation(a,"uSamplerNight");a.ra=r.getUniformLocation(a,"uSamplerMask");a.pa=r.getUniformLocation(a,"uSamplerBoundaries");a.Gc=r.getUniformLocation(a,"uSamplerFootprints");a.Jc=r.getUniformLocation(a,"uSolarLongitude");a.Ic=r.getUniformLocation(a,"uSolarLatitude");a.lineWidth=r.getUniformLocation(a,"uLineWidth");a.ea=r.getUniformLocation(a,
-"uNumSatellites");a.colorSeas=r.getUniformLocation(a,"uColorSeas");a.colorLand=r.getUniformLocation(a,"uColorLand");a.colorLongitudeLatitudeGrid=r.getUniformLocation(a,"uColorLongitudeLatitudeGrid");a.colorTerminator=r.getUniformLocation(a,"uColorTerminator");a.colorBoundaries=r.getUniformLocation(a,"uColorBoundaries");a.bUseSatelliteImage=r.getUniformLocation(a,"bUseSatelliteImage");a.bFillLand=r.getUniformLocation(a,"bFillLand");a.bFillSeas=r.getUniformLocation(a,"bFillSeas");a.colorDay=r.getUniformLocation(a,
-"uColorDay");a.colorNight=r.getUniformLocation(a,"uColorNight");a.bDisplayDayNight=r.getUniformLocation(a,"bDisplayDayNight");a.bDisplayLongitudeLatitudeGrid=r.getUniformLocation(a,"bDisplayLongitudeLatitudeGrid");a.bDisplayTerminator=r.getUniformLocation(a,"bDisplayTerminator");a.bDisplayBoundaries=r.getUniformLocation(a,"bDisplayBoundaries");a.bDisplayBoundariesCoastlines=r.getUniformLocation(a,"bDisplayBoundariesCoastlines");a.bDisplayBoundariesInternal=r.getUniformLocation(a,"bDisplayBoundariesInternal")}
-function jj(a,c,d){a&&(c=ze(c),d=ze(d),r.attachShader(a,d),r.attachShader(a,c),r.linkProgram(a),r.getProgramParameter(a,r.LINK_STATUS)&&(ij(a),a.W=r.getUniformLocation(a,"uCentralLongitude"),a.Aa=r.getUniformLocation(a,"uLineWidthS"),a.Ba=r.getUniformLocation(a,"uLineWidthT")))}function hi(){b&&b.hasOwnProperty("tracking")&&Yf(b.id)};var Hg=30,Kg=30,Jg=2,Gg=2,Ig,Lg,Dg,Cg,Ei=0,Fi=6,Sg=!0,Bg=!0,Eg=!1,Ui=!1,Mg=!1,Pg=!1,Ug=!1,Nj=[1,1,1],Oj=[1,1,1],Qg=[1,1,1],Ng=[1,1,1],zg=[1,1,1],Fg=[1,1,1],Wi=[1,1,1],xg=0,yg=0,Og,Rg,Tg;function Ag(){var a=document.getElementById("constellationLabels");a&&Object.assign(a.style,{color:O(Oj),fontSize:$d.toString()+"px",fontStyle:"normal",fontFamily:"arial, helvetica, sans-serif",fontWeight:"normal"})}
-function Rj(){var a=document.getElementById("radarCenter");a&&Object.assign(a.style,{left:(v.clientWidth/2).toString()+"px",top:(v.clientHeight/2).toString()+"px"})};var mj=60,nj=60,Vj=4,Ce=5,V=[[0,1,0],[5,.9986,.062],[10,.9954,.124],[15,.99,.186],[20,.9822,.248],[25,.973,.31],[30,.96,.372],[35,.9427,.434],[40,.9216,.4958],[45,.8962,.5571],[50,.8679,.6176],[55,.835,.6769],[60,.7986,.7346],[65,.7597,.7903],[70,.7186,.8435],[75,.6732,.8936],[80,.6213,.9394],[85,.5722,.9761],[90,.5322,1]];function vg(){mat4.identity(Pc);mat4.rotateX(Pc,Pc,ge);mat4.rotateY(Pc,Pc,Math.PI/2-fe);mat4.identity(Nc);mat4.translate(Nc,Nc,[0,0,-Md]);mat4.multiply(Nc,Nc,Pc)}
-function oj(){if(0<v.clientWidth){var a=v.clientWidth/v.clientHeight;Cd=Hc/2;v.width=v.clientWidth;v.height=v.clientHeight;Jc=v.width;Kc=v.height;r.viewport(0,0,r.drawingBufferWidth,r.drawingBufferHeight);mat4.perspective(Oc,glMatrix.toRadian(30),a,Cd,200);Ne();Me();a=mat4.create();var c=mat4.create(),d=vec4.fromValues(0,0,-1,1);mat4.translate(a,a,[0,0,-Md]);mat4.rotateY(a,a,5E-5);mat4.multiply(c,Oc,a);vec4.transformMat4(d,d,c);vec4.scale(d,d,1/d[3]);a=5E-5*Vj/(-r.drawingBufferWidth*d[0]/2*Math.PI*
-4);.05<a&&(a=0);r.useProgram(E);r.uniform1f(E.lineWidth,a);c=.25*Vj/r.drawingBufferWidth;d=.25*Vj/r.drawingBufferHeight;a=(c+d)/2;r.useProgram(od);r.uniform1f(od.lineWidth,a);r.uniform1f(od.Aa,c);r.uniform1f(od.Ba,d);r.useProgram(pd);r.uniform1f(pd.lineWidth,a);r.uniform1f(pd.Aa,c);r.uniform1f(pd.Ba,d);r.useProgram(qd);r.uniform1f(qd.lineWidth,a);r.uniform1f(qd.Aa,c);r.uniform1f(qd.Ba,d);r.useProgram(rd);r.uniform1f(rd.lineWidth,a);r.uniform1f(rd.Aa,c);r.uniform1f(rd.Ba,d)}}
-function kj(a,c,d){c=ze(c);r.attachShader(a,c);r.attachShader(a,d);r.linkProgram(a);r.getProgramParameter(a,r.LINK_STATUS)&&(a.i=r.getAttribLocation(a,"aVertexPosition"),a.color=r.getUniformLocation(a,"uColor"),a.Ea=r.getUniformLocation(a,"uPMatrix"),a.Ca=r.getUniformLocation(a,"uMVMatrix"))}
-function lj(a,c,d){c=ze(c);r.attachShader(a,c);r.attachShader(a,d);r.linkProgram(a);r.getProgramParameter(a,r.LINK_STATUS)&&(a.i=r.getAttribLocation(a,"aVertexPosition"),a.Gb=r.getAttribLocation(a,"aVertexPositionPrevNext"),a.W=r.getUniformLocation(a,"uCentralLongitude"),a.color=r.getUniformLocation(a,"uColor"))}
-function Yg(a,c,d,e,g,h,p,q,n,P){if(pc){var D="satelliteHoverShape",x="satellite";a||(D="observerHoverShape",x="observer");0<q&&(a=document.createElement("div"))&&(Object.assign(a,{id:c.hb,className:D,innerHTML:"&#9723;"}),Object.assign(a.style,{left:d.toString()+"px",top:e.toString()+"px"}),pc.appendChild(a));if(g){var Y=document.createElement("div");g="-50%";D="30%";d+c.O.width/2>Jc?g="-100%":0>d-c.O.width/2&&(g="0%");e+c.O.height>=Kc&&(D="-130%");h&&(Object.assign(Y,{id:h,className:x,innerHTML:c.names[0]}),
-Object.assign(Y.style,{color:O(c.b.color),backgroundColor:O(c.b.l),transform:"translate("+g+","+D+")",webkitTransform:"translate("+g+","+D+")",left:d.toString()+"px",top:e.toString()+"px"}),pc.appendChild(Y));c.hasOwnProperty("screenWidth")&&c.Hc==Jc&&c.La===c.names[0]||setTimeout(function(){c.O=Y.getBoundingClientRect();c.La=c.names[0];c.Hc=Jc},0)}}r.disable(r.DEPTH_TEST);r.useProgram(kd);r.uniformMatrix4fv(kd.tc,!1,Mc);r.uniform4fv(kd.color,p);mat4.identity(Mc);mat4.scale(Mc,Mc,[n/r.drawingBufferWidth,
-n/r.drawingBufferHeight,1]);r.uniformMatrix4fv(kd.tc,!1,Mc);mat4.identity(Lc);mat4.translate(Lc,Lc,P);r.uniformMatrix4fv(kd.Lc,!1,Lc);r.bindBuffer(r.ARRAY_BUFFER,Qc[q]);r.vertexAttribPointer(kd.i,Qc[q].f,r.FLOAT,!1,0,0);r.enableVertexAttribArray(kd.i);r.drawArrays(Qc[q].style,0,Qc[q].g);r.enable(r.DEPTH_TEST)}
-function Wg(a,c,d,e){var g=Zd;d=Be(d.longitude,d.latitude);var h=vec4.fromValues(d.x,d.y,0,0);Yg(a,c,.5*v.clientWidth*(1+d.x),.5*v.clientHeight*(1-d.y),e.label,c.element,e.color,e.symbol,g,h)}
-function Vg(a,c,d,e,g,h,p){var q=Zd,n=vec4.fromValues(e[0],e[1],e[2],1);e=vec4.create();var P=!1,D=0,x=0;vec4.transformMat4(e,n,Nc);n=vec3.length(e);Sa?Math.acos(vec3.dot(e,vec3.fromValues(0,0,-1))/n)>zd?P=!0:n*n<Md*Md-1?P=!0:g=!1:P=!0;P&&(vec4.transformMat4(e,e,Oc),vec4.scale(e,e,1/e[3]),-1>e[0]||1<e[0]||-1>e[1]||1<e[1]||-1>e[2]||1<e[2]?g=!1:(D=r.drawingBufferWidth*(e[0]+1)/2,x=r.drawingBufferHeight*(1-e[1])/2));Yg(a,c,D,x,g,d,h,p,q,e)}
-function W(a,c,d,e){e?a.push(c[0],c[1],c[2],d,c[0],c[1],c[2],d):a.push(c[0],c[1],c[2],d);return{c:c,latitude:d}}function tg(a,c,d,e){return(c=De(c,d))?(d=[],Fe(d,c),W(a,c,d.latitude,e),{c:c,latitude:d.latitude}):null}
-function $f(){var a,c="&ndash;";if(a=document.getElementById("position")){if(b){c=!0;try{b.a.Yc&&(c=!0)}catch(p){c=!1}if(c){c="";for(var d=0;d<=Aa;d++){c=Aa===d?c+'<div class="expand" id="expandReport">&#x271A;</div>':c+'<div class="expandHidden">&#x271A;</div>';switch(d){case 0:c+=b.names[0]+'&nbsp;<div class="deleteFromView" id="deleteFromView">&times;</div>';break;case 1:c+=Ge(180*b.a.longitude/Math.PI,!1,!0)+"&nbsp;&nbsp;"+He(180*b.a.latitude/Math.PI,!1,!0)+"&nbsp;&nbsp;"+((6378.137*b.a.altitude).toFixed(1).toString()+
-" km");break;case 2:c+="Az:&nbsp;"+Ie(b.a.wa.R)+"&deg;&nbsp;&nbsp;El:&nbsp;"+Je(b.a.wa.ha)+"&deg";break;case 3:var e=b.a.fa.fa.toFixed(1);var g="     "+e;g=g.substr(g.length-Math.max(7,e.length));e=g=g.replace(/\s/g,"&nbsp;");g=b.a.fa.sc.toFixed(2);var h="     "+g;h=h.substr(h.length-Math.max(5,g.length));h=h.replace(/\s/g,"&nbsp;");c+="Range:&nbsp;"+e+"&nbsp;km&nbsp;&nbsp;Rate:&nbsp;"+h+"&nbsp;km/s";break;case 4:c+="Eclipse:&nbsp;"+b.a.ec}c+="<br />"}}else if(c=d="",b.hasOwnProperty("title")&&(d=
-b.title),0<d.trim().length&&(c=0===Ba?c+'<div class="expand" id="expandReport">&#x271A;</div>':c+'<div class="expandHidden">&#x271A;</div>',c=c+d+"<br />"),0===d.trim().length||0<Ba)c=c+'<div class="expand" id="expandReport">&#x271A;</div>'+(Ge(180*b.longitude/Math.PI,!0,!1)+"&nbsp;&nbsp;"+He(180*b.latitude/Math.PI,!0,!1)+"&nbsp;&nbsp;"+(parseFloat(b.altitude).toFixed(0).toString()+"m"))}a.innerHTML=c.trim();document.getElementById("expandReport")&&document.getElementById("expandReport").addEventListener("click",
-Zi);document.getElementById("deleteFromView")&&document.getElementById("deleteFromView").addEventListener("click",hi)}}
-function Qe(a,c){var d=!1;a.O=[];a.O.width=0;a.O.height=0;a.O.La="";if(a.hasOwnProperty("le1")&&a.hasOwnProperty("le2")){a.id=c;a.hasOwnProperty("tracking")||(a.a=[],a.element="SATELLITE_"+c.toString(),a.hb="SATELLITE_SHAPE_"+c.toString());a.a.P=0;try{a.b.color===ie("#000000",.2)&&(a.b.color=ie("#000000",.1))}catch(Sl){a.b=Object.assign({},M),Df(a)}var e=a.le1,g=a.le2,h=Math.PI/180,p=1440/(2*Math.PI),q=(1).Mc,n={error:0,cd:1};n.ad=e.substring(2,7);n.ib=parseInt(e.substring(18,20),10);n.Cc=parseFloat(e.substring(20,
-32));n.nc=parseFloat(e.substring(33,43));n.mc=parseFloat("0."+e.substring(44,50))*Math.pow(10,parseInt(e.substring(50,52),10));n.ba=parseFloat(e.substring(53,54)+"."+e.substring(54,59))*Math.pow(10,parseInt(e.substring(59,61),10));n.T=parseFloat(g.substring(8,16));n.X=parseFloat(g.substring(17,25));n.F=parseFloat("0."+g.substring(26,33));n.M=parseFloat(g.substring(34,42));n.U=parseFloat(g.substring(43,51));n.j=parseFloat(g.substring(52,63));n.j/=p;n.$b=Math.pow(n.j*q,-2/3);n.nc/=1440*p;n.mc/=2073600*
-p;n.T*=h;n.X*=h;n.M*=h;n.U*=h;n.Sc=n.$b*(1+n.F)-1;n.Tc=n.$b*(1-n.F)-1;var P=57>n.ib?n.ib+100:n.ib;n.oa=n.Cc-1+2415020.5+365*P+Math.floor((P-1)/4);a.a.s=n;if(a.a.s){var D=a.a.s.oa-2433281.5,x=a.a.s.ba,Y=a.a.s.F,sb=a.a.s.M,ib=a.a.s.T,na=a.a.s.U,H=a.a.s.j,k=a.a.s.X,f=a.a.s,ia=1;f.ma=0;f.method="n";f.Ja=0;f.ca=0;f.S=0;f.bc=0;f.cc=0;f.Z=0;f.ya=0;f.Qa=0;f.dc=0;f.da=0;f.ua=0;f.qc=0;f.uc=0;f.t=0;f.vc=0;f.wc=0;f.xc=0;f.yc=0;f.ia=0;f.Hb=0;f.lb=0;f.Da=0;f.Vb=0;f.Wb=0;f.oc=0;f.ic=0;f.Ma=0;f.Na=0;f.Oa=0;f.Pa=
-0;f.Ra=0;f.Sa=0;f.Ta=0;f.Ua=0;f.Va=0;f.Wa=0;f.Xa=0;f.Ya=0;f.Za=0;f.$a=0;f.ab=0;f.bb=0;f.cb=0;f.eb=0;f.fb=0;f.gb=0;f.nb=0;f.ob=0;f.pb=0;f.qb=0;f.rb=0;f.tb=0;f.ub=0;f.vb=0;f.wb=0;f.xb=0;f.yb=0;f.zb=0;f.Ab=0;f.Bb=0;f.Cb=0;f.Db=0;f.Eb=0;f.jb=0;f.Ib=0;f.Jb=0;f.Kb=0;f.Lb=0;f.Mb=0;f.Nb=0;f.Ob=0;f.Pb=0;f.Rb=0;f.Sb=0;f.Tb=0;f.Ub=0;f.Xb=0;f.Yb=0;f.va=0;f.Ha=0;f.Ia=0;f.ba=x;f.F=Y;f.M=sb;f.T=ib;f.U=na;f.j=H;f.X=k;f.mb="a";ia=vc(ia);var F=ia.rc;var ka=ia.kb;var I=ia.Dc;var u=ia.jc;var oa=78/F+1;var y=42/F;var ba=
-y*y*y*y;f.hc="y";f.t=0;var Z=f.F,l=f.T,va=f.j;var Q=ia.Qb;var N=ia.kb;var t=Z*Z;var R=1-t;var Ia=Math.sqrt(R);var K=Math.cos(l);var L=K*K;var S=Math.pow(Q/va,sc);var w=.75*N*(3*L-1)/(Ia*R);var U=w/(S*S);var wa=S*(1-U*U-U*(1/3+134*U*U/81));va/=1+w/(wa*wa);var xa=Math.pow(Q/va,sc);var Pb=Math.sin(l);var Ua=xa*R;var bc=1-5*L;if("a"==f.mb){var tb=D-7305;var Qb=Math.floor(tb+1E-8);var Va=.017202791694070362+rc;var ub=(1.7321343856509375+.017202791694070362*Qb+Va*(tb-Qb)+tb*tb*5.075514194322695E-15)%rc;
-0>ub&&(ub+=rc)}else{var Wa=(D+2433281.5-2451545)/36525;var Da=(-6.2E-6*Wa*Wa*Wa+.093104*Wa*Wa+3.164400184812866E9*Wa+67310.54841)*qc/240%rc;0>Da&&(Da+=rc);ub=Da}var cc=va;var T=-bc-L-L;var Rb=Ua*Ua;var jb=xa*(1-Z);var Db=ub;f.j=cc;f.method="n";f.ca=T;f.jb=Db;f.error=0;if(0<=R||0<=f.j){f.ma=0;jb<220/F+1&&(f.ma=1);var Ya=oa;var Eb=ba;var kb=(jb-1)*F;if(156>kb){Ya=kb-78;98>kb&&(Ya=20);var Za=(120-Ya)/F;Eb=Za*Za*Za*Za;Ya=Ya/F+1}var Ma=1/Rb;var Ea=1/(xa-Ya);f.da=xa*f.F*Ea;var la=f.da*f.da;var ra=f.F*f.da;
-var Fb=Math.abs(1-la);var sa=Eb*Math.pow(Ea,4);var $a=sa/Math.pow(Fb,3.5);var Na=$a*f.j*(xa*(1+1.5*la+ra*(4+la))+.375*ka*Ea/Fb*f.ca*(8+3*la*(8+la)));f.S=f.ba*Na;var dc=0;1E-4<f.F&&(dc=-2*sa*Ea*u*f.j*Pb/f.F);f.ia=1-L;f.bc=2*f.j*$a*xa*R*(f.da*(2+.5*la)+f.F*(.5+2*la)-ka*Ea/(xa*Fb)*(-3*f.ca*(1-2*ra+la*(1.5-.5*ra))+.75*f.ia*(2*la-ra*(1+la))*Math.cos(2*f.M)));f.cc=2*$a*xa*R*(1+2.75*(la+ra)+ra*la);var ec=L*L;var fc=1.5*ka*Ma*f.j;var zc=.5*fc*ka*Ma;var Vc=-.46875*I*Ma*Ma*f.j;f.lb=f.j+.5*fc*Ia*f.ca+.0625*
-zc*Ia*(13-78*L+137*ec);f.ua=-.5*fc*bc+.0625*zc*(7-114*L+395*ec)+Vc*(3-36*L+49*ec);var Ac=-fc*K;f.Da=Ac+(.5*zc*(4-19*L)+2*Vc*(3-7*L))*K;var gc=f.ua+f.Da;f.qc=f.ba*dc*Math.cos(f.M);f.Wb=0;1E-4<f.F&&(f.Wb=-sc*sa*f.ba/ra);f.oc=3.5*R*Ac*f.S;f.vc=1.5*f.S;f.Vb=1.5E-12<Math.abs(K+1)?-.25*u*Pb*(3+5*K)/(1+K):-.25*u*Pb*(3+5*K)/1.5E-12;f.Ja=-.5*u*Pb;var Bc=1+f.da*Math.cos(f.U);f.dc=Bc*Bc*Bc;f.uc=Math.sin(f.U);f.Hb=7*L-1;if(225<=2*Math.PI/f.j){f.method="d";f.ma=1;var hc=f.T;var ic=f.F,lb=f.M,jc=f.T,vb=f.X,wb=
-f.j,Ja;var Oa=Math.sin(vb);var ab=Math.cos(vb);var Xa=Math.sin(lb);var z=Math.cos(lb);var A=Math.sin(jc);var J=Math.cos(jc);var ta=ic*ic;var Pa=1-ta;var mb=Math.sqrt(Pa);var Gb=D+18261.5+0;var bb=(4.523602-9.2422029E-4*Gb)%rc;var Cc=Math.sin(bb);var Dc=Math.cos(bb);var Hb=.91375164-.03568096*Dc;var cb=Math.sqrt(1-Hb*Hb);var xb=.089683511*Cc/cb;var Sb=Math.sqrt(1-xb*xb);var Wc=5.8351514+.001944368*Gb;var Qa=.39785416*Cc/cb;Qa=Math.atan2(Qa,Sb*Dc+.91744867*xb*Cc);Qa=Wc+Qa-bb;var Ra=Math.cos(Qa);var Xc=
-Math.sin(Qa);var pa=.1945905;var ya=-.98088458;var db=.91744867;var Ec=.39785416;var kc=ab;var Fc=Oa;var Rd=2.9864797E-6;var Sd=1/wb;for(Ja=1;2>=Ja;Ja++){var Ib=pa*kc+ya*db*Fc;var nb=-ya*kc+pa*db*Fc;var Gc=-pa*Fc+ya*db*kc;var md=ya*Ec;var nd=ya*Fc+pa*db*kc;var Td=pa*Ec;var Tb=J*Gc+A*md;var Ub=J*nd+A*Td;var lc=-A*Gc+J*md;var mc=-A*nd+J*Td;var ob=Ib*z+Tb*Xa;var pb=nb*z+Ub*Xa;var yb=-Ib*Xa+Tb*z;var zb=-nb*Xa+Ub*z;var Ye=lc*Xa;var Ze=mc*Xa;var $e=lc*z;var af=mc*z;var ne=12*ob*ob-3*yb*yb;var bf=24*ob*
-pb-6*yb*zb;var oe=12*pb*pb-3*zb*zb;var Fd=3*(Ib*Ib+Tb*Tb)+ne*ta;var pe=6*(Ib*nb+Tb*Ub)+bf*ta;var Gd=3*(nb*nb+Ub*Ub)+oe*ta;var Kf=-6*Ib*lc+ta*(-24*ob*$e-6*yb*Ye);var qh=-6*(Ib*mc+nb*lc)+ta*(-24*(pb*$e+ob*af)-6*(yb*Ze+zb*Ye));var Lf=-6*nb*mc+ta*(-24*pb*af-6*zb*Ze);var Mf=6*Tb*lc+ta*(24*ob*Ye-6*yb*$e);var rh=6*(Ub*lc+Tb*mc)+ta*(24*(pb*Ye+ob*Ze)-6*(zb*$e+yb*af));var Nf=6*Ub*mc+ta*(24*pb*Ze-6*zb*af);Fd=Fd+Fd+Pa*ne;pe=pe+pe+Pa*bf;Gd=Gd+Gd+Pa*oe;var hd=Rd*Sd;var Hd=-.5*hd/mb;var Id=hd*mb;var cf=-15*ic*Id;
-var sh=ob*yb+pb*zb;var th=pb*yb+ob*zb;var uh=pb*zb-ob*yb;if(1==Ja){var Of=cf;var qe=Hd;var df=hd;var ef=Id;var ek=sh;var fk=th;var gk=uh;var vh=Fd;var hk=pe;var wh=Gd;var xh=Kf;var ik=qh;var yh=Lf;var zh=Mf;var jk=rh;var Ah=Nf;var Bh=ne;var kk=bf;var Ch=oe;pa=Ra;ya=Xc;db=Hb;Ec=cb;kc=Sb*ab+xb*Oa;Fc=Oa*Sb-ab*xb;Rd=4.7968065E-7}}var lk=(4.7199672+.2299715*Gb-Wc)%rc;var mk=(6.2565837+.017201977*Gb)%rc;var nk=2*Of*fk;var ok=2*Of*gk;var pk=2*qe*ik;var qk=2*qe*(yh-xh);var rk=-2*df*hk;var sk=-2*df*(wh-vh);
-var tk=-2*df*(-21-9*ta)*.01675;var uk=2*ef*kk;var vk=2*ef*(Ch-Bh);var wk=-.3015*ef;var xk=-2*qe*jk;var yk=-2*qe*(Ah-zh);var zk=2*cf*th;var Ak=2*cf*uh;var Bk=2*Hd*qh;var Ck=2*Hd*(Lf-Kf);var Dk=cf;var Dh=Hd;var Ek=hd;var Fk=Id;var Gk=sh;var Hk=Of;var Eh=qe;var Ik=df;var Jk=ef;var Kk=ek;var Lk=vh;var Mk=wh;var Nk=xh;var Ok=yh;var Pk=zh;var Qk=Ah;var Rk=Bh;var Sk=Ch;var Tk=2*Id*bf;var Uk=2*Id*(oe-ne);var Vk=-.9882*Id;var Wk=-2*Hd*rh;var Xk=-2*Hd*(Nf-Mf);var Yk=-2*hd*pe;var Zk=-2*hd*(Gd-Fd);var $k=-2*
-hd*(-21-9*ta)*.0549;var al=Fd;var bl=Gd;var cl=Kf;var dl=Lf;var el=Mf;var fl=Nf;var gl=ne;var hl=oe;f.fb=Ak;f.gb=zk;f.nb=0;f.ob=0;f.pb=0;f.qb=0;f.rb=0;f.tb=nk;f.ub=ok;f.vb=uk;f.wb=vk;f.xb=wk;f.yb=xk;f.zb=yk;f.Ab=pk;f.Bb=qk;f.Cb=rk;f.Db=sk;f.Eb=tk;f.Jb=Tk;f.Kb=Uk;f.Lb=Vk;f.Mb=Wk;f.Nb=Xk;f.Ob=Bk;f.Pb=Ck;f.Rb=Yk;f.Sb=Zk;f.Tb=$k;f.Xb=lk;f.Yb=mk;var re=tc(f.fb,f.gb,f.nb,f.ob,f.pb,f.qb,f.rb,f.tb,f.ub,f.vb,f.wb,f.xb,f.yb,f.zb,f.Ab,f.Bb,f.Cb,f.Db,f.Eb,f.t,f.Jb,f.Kb,f.Lb,f.Mb,f.Nb,f.Ob,f.Pb,f.Rb,f.Sb,f.Tb,
-f.Xb,f.Yb,f.hc,f.F,f.T,f.X,f.M,f.U,f.mb);f.F=re.fc;f.T=re.gc;f.X=re.pc;f.M=re.ac;f.U=re.lc;var X=ta,il=f.t,Fh=f.U,Gh=f.lb,ff=f.j,Pf=f.X,aa=ic,Zb=wb,Hh=f.va,Ih=f.Ma,Jh=f.Na,Kh=f.Oa,Lh=f.Pa,Mh=f.Ra,Nh=f.Sa,Oh=f.Ta,Ph=f.Ua,Qh=f.Va,Rh=f.Wa,Qf=f.Xa,Sh=f.ab,gf=f.bb,se=f.cb,hf=f.eb,Jd=f.Ya,Th=f.Za,Uh=f.$a,Rf=f.Ib,jf=f.Ub,Vh=f.Ha,Wh=f.Ia,$b=0;var jl=ia.Qb;var Kd=0;.0052359877>Zb&&.0034906585<Zb&&(Kd=1);.00826<=Zb&&.00924>=Zb&&.5<=aa&&(Kd=2);var kf=-1.19459E-5*Eh*(Pk+Qk);if(.052359877>hc||hc>Math.PI-.052359877)kf=
-0;0!=A&&(kf/=A);var kl=1.19459E-5*Jk*(Rk+Sk-6)-J*kf;Qf=1.19459E-5*Hk*Kk+1.5835218E-4*Dk*Gk;Sh=1.19459E-5*Eh*(Nk+Ok)+1.5835218E-4*Dh*(cl+dl);gf=-1.19459E-5*Ik*(Lk+Mk-14-6*X)-1.5835218E-4*Ek*(al+bl-14-6*X);var Sf=-1.5835218E-4*Dh*(el+fl);if(.052359877>hc||hc>Math.PI-.052359877)Sf=0;hf=kl+1.5835218E-4*Fk*(gl+hl-6);se=kf;0!=A&&(hf-=J/A*Sf,se+=Sf/A);var Tf=(f.jb+0)%rc;aa+=Qf*il;if(0!=Kd){$b=Math.pow(Zb/jl,sc);if(2==Kd){var Mb=J*J;var ll=aa;aa=f.F;var ml=X;X=t;var Ka=aa*X;if(.65>=aa){var Xh=3.616-13.247*
-aa+16.29*X;var Yh=-19.302+117.39*aa-228.419*X+156.591*Ka;var Zh=-18.9068+109.7927*aa-214.6334*X+146.5816*Ka;var $h=-41.122+242.694*aa-471.094*X+313.953*Ka;var ai=-146.407+841.88*aa-1629.014*X+1083.435*Ka;var bi=-532.114+3017.977*aa-5740.032*X+3708.276*Ka}else Xh=-72.099+331.819*aa-508.738*X+266.724*Ka,Yh=-346.844+1582.851*aa-2415.925*X+1246.113*Ka,Zh=-342.585+1554.908*aa-2366.899*X+1215.972*Ka,$h=-1052.797+4758.686*aa-7193.992*X+3651.957*Ka,ai=-3581.69+16178.11*aa-24462.77*X+12422.52*Ka,bi=.715<aa?
--5149.66+29936.92*aa-54087.36*X+31324.56*Ka:1464.74-4664.75*aa+3763.64*X;if(.7>aa){var ci=-919.2277+4988.61*aa-9064.77*X+5542.21*Ka;var di=-822.71072+4568.6173*aa-8491.4146*X+5337.524*Ka;var ei=-853.666+4690.25*aa-8624.77*X+5341.4*Ka}else ci=-37995.78+161616.52*aa-229838.2*X+109377.94*Ka,di=-51752.104+218913.95*aa-309468.16*X+146349.42*Ka,ei=-40023.88+170470.89*aa-242699.48*X+115605.82*Ka;var Ld=A*A;var fi=.75*(1+2*J+Mb);var Sc=3*Zb*Zb*$b*$b;var fb=1.7891679E-6*Sc;Ih=fb*fi*(-.306-.44*(aa-.64));Jh=
-1.5*fb*Ld*Xh;Sc*=$b;fb=3.7393792E-7*Sc;Kh=1.875*fb*A*(1-2*J-3*Mb)*Yh;Lh=-1.875*fb*A*(1+2*J-3*Mb)*Zh;Sc*=$b;fb=1.47273906E-8*Sc;Mh=35*fb*Ld*fi*$h;Nh=39.375*fb*Ld*Ld*ai;Sc*=$b;fb=1.1428639E-7*Sc;Oh=9.84375*fb*A*(Ld*(1-2*J-5*Mb)+.33333333*(-2+4*J+6*Mb))*bi;Ph=fb*A*(4.92187512*Ld*(-2-4*J+10*Mb)+6.56250012*(1+2*J-3*Mb))*ei;fb=4.3531606E-9*Sc;Qh=29.53125*fb*A*(2-8*J+Mb*(-12+8*J+10*Mb))*di;Rh=29.53125*fb*A*(-2-8*J+Mb*(12+8*J-10*Mb))*ci;jf=(Fh+Pf+Pf-Tf-Tf)%rc;Rf=Gh+gf+2*(f.Da+se-.0043752690880113)-ff;aa=
-ll;X=ml}if(1==Kd){var Uf=1+J;Jd=3*Zb*Zb*$b*$b;Th=1.5*Jd*(1+J)*(1+J)*(1+X*(-2.5+.8125*X))*1.7891679E-6;Uh=5.625*Jd*Uf*Uf*Uf*(1+X*(-6+6.60937*X))*2.2123015E-7*$b;Jd=Jd*(.9375*A*A*(1+3*J)-.75*(1+J))*(1+2*X)*2.1460748E-6*$b;jf=(Fh+Pf+f.M-Tf)%rc;Rf=Gh+gc-.0043752690880113+gf+hf+se-ff}Vh=jf;Wh=ff;Hh=0;Zb=ff+0}var nl=Kd;var ol=Hh;var pl=Ih;var ql=Jh;var rl=Kh;var sl=Lh;var tl=Mh;var ul=Nh;var vl=Oh;var wl=Ph;var xl=Qh;var yl=Rh;var zl=Qf;var Al=Sh;var Bl=gf;var Cl=se;var Dl=hf;var El=Jd;var Fl=Th;var Gl=
-Uh;var Hl=Rf;var Il=jf;var Jl=Vh;var Kl=Wh;f.ic=nl;f.va=ol;f.Ma=pl;f.Na=ql;f.Oa=rl;f.Pa=sl;f.Ra=tl;f.Sa=ul;f.Ta=vl;f.Ua=wl;f.Va=xl;f.Wa=yl;f.Xa=zl;f.ab=Al;f.bb=Bl;f.cb=Cl;f.eb=Dl;f.Ya=El;f.Za=Fl;f.$a=Gl;f.Ib=Hl;f.Ub=Il;f.Ha=Jl;f.Ia=Kl}if(1!=f.ma){var te=f.S*f.S;f.Z=4*xa*Ea*te;var gi=f.Z*Ea*f.S/3;f.ya=(17*xa+Ya)*gi;f.Qa=.5*gi*xa*Ea*(221*xa+31*Ya)*f.S;f.wc=f.Z+2*te;f.xc=.25*(3*f.ya+f.S*(12*f.Z+10*te));f.yc=.2*(3*f.Qa+12*f.S*f.ya+6*f.Z*f.Z+15*te*(2*f.Z+te))}}uc(f,0,ia);f.hc="n";Ef(a);a.a.m=1/(10*Math.PI*
-a.a.s.j);a.a.Fa=!0;a.a.Xc=0;a.a.Vc=0;a.a.connect=r.createBuffer();a.a.connect.f=4;a.a.connect.na=r.FLOAT;a.a.track=r.createBuffer();a.a.track.f=4;a.a.track.na=r.FLOAT;a.a.J=r.createBuffer();a.a.J.f=4;a.a.J.na=r.FLOAT;var ue=document.createElement("tr");if(ue){var Ll=ua.length;Object.assign(ue,{id:a.element+"_row"});for(var id=0;id<Ll;id++){var lf=document.createElement("td");"Name"===ua[id].id?Object.assign(lf,{id:a.element+"_"+ua[id].id,innerHTML:a.names[0]+'&nbsp;<div class="deleteFromView" id="deleteFromTable_'+
-a.id+'">&times;</div>'}):"Id"===ua[id].id?Object.assign(lf,{id:a.element+"_"+ua[id].id,innerHTML:a.id}):Object.assign(lf,{id:a.element+"_"+ua[id].id,innerHTML:"&mdash;"});ue.appendChild(lf)}document.getElementById("tableBodyTextualBody").appendChild(ue);a.a.Fc=ue}d=!0}}return d}
-function ug(a,c,d){var e,g,h=[];if(e=1<d.a.K?tg(h,d,d.a.P+(d.a.K-1)*d.a.m,!1):0<d.a.N?tg(h,d,d.a.ga-d.a.N,!1):W(h,d.a.c,d.a.latitude,!1))if(W(c,e.c,e.latitude,!1),e=0<d.a.K?tg(a,d,d.a.P+(d.a.K+0)*d.a.m,!0):0<d.a.N?tg(a,d,d.a.ga-d.a.N,!0):W(a,d.a.c,d.a.latitude,!0))if(g=W(a,d.a.c,d.a.latitude,!0))if(W(c,g.c,g.latitude,!1),W(c,e.c,e.latitude,!1),e=g,g=d.a.K<d.a.L?tg(a,d,d.a.P+(d.a.K+1)*d.a.m,!0):0<d.a.C?tg(a,d,d.a.ga+d.a.C,!0):W(a,d.a.c,d.a.latitude,!0))W(c,g.c,g.latitude,!1),W(c,e.c,e.latitude,!1),
-(g=d.a.K+1<d.a.L?tg(h,d,d.a.P+(d.a.K+2)*d.a.m,!1):0<d.a.C?tg(h,d,d.a.ga+d.a.C,!1):W(h,d.a.c,d.a.latitude,!1))&&W(c,g.c,g.latitude,!1)}function sg(a,c){if(1024>c)for(Ad[32*c]=255*a.b.color[0],Ad[32*c+1]=255*a.b.color[1],Ad[32*c+2]=255*a.b.color[2],Ad[32*c+3]=255*a.b.G,a.b.za=c,Ke(c,1,a.a.longitude),Ke(c,2,a.a.latitude+Math.PI/2),c=0;5>c;c++)a.b.w.length>c&&a.b.w[c]<Math.PI/2?Ke(a.b.za,c+3,Le(a.a.altitude,a.b.w[c])):Ke(a.b.za,c+3,Math.PI)}
-function Wj(a,c,d){c+=2*a.a.xa;c>=a.a.track.g-6&&(c+=2-(a.a.track.g-6));c+d<a.a.track.g-6?r.drawArrays(r.LINE_STRIP,c,d):(a=a.a.track.g-6-c,d=d-a+2,1<a?(r.drawArrays(r.LINE_STRIP,c,a),r.drawArrays(r.LINE_STRIP,0,d)):r.drawArrays(r.LINE_STRIP,1,d-1))}
-function Xg(a,c){r.uniform4fv(c.color,a.b.color);r.bindBuffer(r.ARRAY_BUFFER,a.a.track);r.vertexAttribPointer(c.i,a.a.track.f,a.a.track.na,!1,0,0);r.enableVertexAttribArray(c.i);if("projectionCylindrical"===m||"projectionSinusoidal"===m||"projectionElliptical"===m||"projectionRobinson"===m||"projectionRadar"===m)r.bindBuffer(r.ARRAY_BUFFER,a.a.J),r.vertexAttribPointer(c.Gb,a.a.J.f,a.a.J.na,!1,0,0),r.enableVertexAttribArray(c.Gb);0<a.a.L&&(0<a.a.K&&Wj(a,0,2*(a.a.K+1)-1),0<a.a.L-a.a.K&&Wj(a,2*(a.a.K+
-1)+1,2*(a.a.L-a.a.K+1)-1));r.drawArrays(r.LINE_STRIP,a.a.track.g-6,6);r.bindBuffer(r.ARRAY_BUFFER,null)};function Xj(a){if("click"===a.type){var c=a.target||a.srcElement;c&&((a=c.getAttribute("id"))||(a=c.parentElement.getAttribute("id")),a&&(c=a.indexOf("deleteFromTable"),-1!==c?(c=a.indexOf("_"),a=a.slice(c+1),Yf(a)):(c=a.indexOf("_"),-1!==c&&(a=a.slice(c+1),c=a.indexOf("_"),-1!==c&&(a=a.slice(0,c))),0<parseInt(a,10)&&(a=Ga["S"+a])&&a.hasOwnProperty("satcat")&&a.satcat[0]&&window.open("https://nssdc.gsfc.nasa.gov/nmc/spacecraftDisplay.do?id="+a.satcat[0]))))}}
-function Yj(a){Re(a,document.getElementById("tableHeadTextual"),Cb);2<Cb.length&&Cb.pop();Ue("tableBodyTextualBody",Cb)}
-function rj(){var a=document.getElementById("tableHeadTextual"),c=document.getElementById("tableBodyTextual");if(a){var d=document.createElement("thead");if(d){var e=document.createElement("tr");if(e){for(var g=ua.length,h=0;h<g;h++){var p;if(p=document.createElement("th"))0<ua[h].title.trim().length&&(p.innerHTML=ua[h].title,ua[h].V&&(p.className="sortable"),p.addEventListener("click",Yj)),e.appendChild(p)}d.appendChild(e)}a.appendChild(d)}}c&&(a=document.createElement("tbody"))&&(a.setAttribute("id",
-"tableBodyTextualBody"),c.appendChild(a),c.addEventListener("click",Xj,!0))};function Zj(a){var c=document.getElementById("results");if(c){var d=c.getBoundingClientRect().height;c.innerHTML="Results: "+a;c.getBoundingClientRect().height!==d&&qf()}}
-function Zf(){var a=document.getElementById("selectAllNone");if(a){var c=document.getElementById("tableBodySatellitesBody");if(c&&(c=c.childNodes,c))for(var d=c.length,e=0;e<d;e++)if(c[e].firstChild&&c[e].firstChild.firstChild)if(0===e){var g=c[e].firstChild.firstChild.checked;a.checked=g;a.indeterminate=!1}else if(g!==c[e].firstChild.firstChild.checked){a.indeterminate=!0;break}}}
-function ak(a){var c=[],d=document.getElementById("divSatellitesHead").getBoundingClientRect().height,e=a.length,g;for(g=0;g<e;g++){var h=a[g],p=Ga["S"+h];if(p&&p.names&&p.satcat){var q=document.createElement("tr");q.setAttribute("tabindex",g);q.addEventListener("keypress",bk);q.addEventListener("click",bk);q.setAttribute("id",h);if(p.le1&&p.le2){var n="<td><input type='checkbox' class='tableSelect'";0<=La.indexOf(h)&&(n+=" checked");n+="></td>"}else n="<td><input type='checkbox' style='visibility: hidden'></td>";
-n+="<td>"+p.names[0]+"</td><td>"+h+"</td><td>"+p.satcat[0]+"</td><td>"+p.satcat[4]+"</td><td>"+p.satcat[5]+"</td><td>"+p.satcat[3]+"</td><td>"+p.satcat[6]+"</td>";q.innerHTML=n;p.le1&&p.le2?q.firstChild.addEventListener("click",ck):q.setAttribute("class","decayed");c.push(q)}}Te("tableBodySatellitesBody",c,Bb);Zf();Ve("tableHeadSatellites","tableBodySatellites");d!==document.getElementById("divSatellitesHead").getBoundingClientRect().height&&qf()}
-function dk(a,c){(a=a.getAttribute("id"))&&(c?Pe(a):Yf(a))}function sj(){var a=document.getElementById("selectAllNone");if(a){var c=document.getElementById("tableBodySatellitesBody");if(c&&(c=c.childNodes)){var d=a.checked;a.indeterminate=!1;for(a=0;a<c.length;a++){var e=c[a];e.firstChild&&e.firstChild.firstChild&&(e.firstChild.firstChild.checked=d,dk(e,d))}}}}
-function bk(a){var c=a.which||a.keyCode;if(a.target||a.srcElement)if("click"===a.type||"keypress"===a.type&&105===c)(c=a.target.getAttribute("id"))||(c=a.target.parentElement.getAttribute("id")),c&&(a=Ga["S"+c])&&a.sb&&a.sb[0]&&window.open("https://nssdc.gsfc.nasa.gov/nmc/spacecraftDisplay.do?id="+a.sb[0])}
-function ck(a){var c=a.target||a.srcElement;if(c){a=!0;if("TR"===c.parentNode.nodeName)var d=c.parentNode;else"TR"===c.parentNode.parentNode.nodeName&&(d=c.parentNode.parentNode,a=!1);d&&(c=d.firstChild.firstChild)&&(a&&(c.checked=!c.checked),dk(d,c.checked),Zf())}}function Ml(a){Re(a,document.getElementById("tableHeadSatellites"),Bb);4<Bb.length&&(Bb.pop(),Bb.pop(),Bb.push(za.ka));Ue("tableBodySatellitesBody",Bb)}
-function qj(){var a=document.getElementById("tableHeadSatellites");if(a){var c=document.createElement("thead");if(c){var d=document.createElement("tr");if(d){var e;c.setAttribute("id","tableHeadSatellitesHeader");for(e=0;e<qa.length;e++){var g=document.createElement("th");0<qa[e].I.trim().length&&(g.innerHTML=qa[e].I,g.addEventListener("click",Ml));d.appendChild(g)}c.appendChild(d)}a.appendChild(c)}}if(a=document.getElementById("tableBodySatellites"))if(c=document.createElement("tbody"))c.setAttribute("id",
-"tableBodySatellitesBody"),a.appendChild(c)}function Nl(a,c,d){if(c<Ha.length&&d<Ha[c].groups.length){c=Ha[c].groups[d].satellites;d=c.length;var e;for(e=0;e<d;e++){var g=c[e];0>a.indexOf(g)&&a.push(g)}}}function jg(){ak(La);Zj("Displayed orbiting satellites")}
-function kg(a){var c,d=[];document.getElementById("loading").style.visibility="visible";setTimeout(function(){var e=Ha.length;for(c=0;c<e;c++){var g=Ha[c].groups.length,h;for(h=0;h<g;h++)Nl(d,c,h)}ak(d);document.getElementById("loading").style.visibility="hidden";Zj(a.target.innerHTML+" orbiting satellites")},0)}
-function lg(a){if(a=a.target||a.srcElement){var c=a.getAttribute("category");if(c<Ha.length){var d=[],e;document.getElementById("loading").style.visibility="visible";setTimeout(function(){var a=Ha[c].groups.length;for(e=0;e<a;e++)Nl(d,c,e);ak(d);document.getElementById("loading").style.visibility="hidden";Zj(Ha[c].category)},0)}}}
-function mg(a){var c=a.target||a.srcElement;if(c){a=c.getAttribute("category");c=c.getAttribute("group");var d=[];Nl(d,a,c);ak(d);Zj(Ha[a].category+" - "+Ha[a].groups[c].group)}}function Mj(){document.getElementById("buttonFullscreen").style.backgroundImage=document.Ka&&null!==document.Ka||document.mozFullScreen||document.webkitIsFullScreen?"url(Buttons/ExitFullscreen.png)":"url(Buttons/Fullscreen.png)"}
-function ig(a){var c=document.getElementById("searchFor");if(c){var d,e=new RegExp(a),g=[],h;document.getElementById("loading").style.visibility="visible";setTimeout(function(){if(c.value===qa[za.ka].I)for(d in Ga)d=d.slice(1),e.test(d)&&g.push(d);else if(c.value===qa[za.Zb].I)for(d in Ga){var a=Ga[d];d=d.slice(1);a.satcat&&a.satcat[0]&&e.test(a.satcat[0])&&g.push(d)}else if(c.value===qa[za.ja].I)for(d in Ga)if(a=Ga[d],d=d.slice(1),a.names){var q=a.names.length;for(h=0;h<q;h++)if(e.test(a.names[h])){g.push(d);
-break}}ak(g);document.getElementById("loading").style.visibility="hidden"},0);Zj("Searched for '"+a+"' by "+c.value)}}function uj(a){13===(a.which||a.keyCode)&&ig(a.target.value.toUpperCase())}function tj(a){if("scroll"===a.type&&Jb!==a.target.scrollLeft){var c=document.getElementById("divSatellitesHead");c&&(c.style.left=-a.target.scrollLeft+"px");Jb=a.target.scrollLeft}}
-function Bf(){var a={symbol:void 0};document.getElementById("satelliteLabel").indeterminate||(a.label=document.getElementById("satelliteLabel").checked);document.getElementById("colorSatellite").indeterminate||(a.color=document.getElementById("colorSatellite").value);document.getElementById("satelliteLabelBackground").indeterminate||(a.o=document.getElementById("satelliteLabelBackground").checked);document.getElementById("colorSatelliteLabelBackground").indeterminate||(a.l=document.getElementById("colorSatelliteLabelBackground").value);
-document.getElementById("satelliteTrackForwardCount").indeterminate||(a.v=document.getElementById("satelliteTrackForwardCount").value);document.getElementById("satelliteTrackBackwardCount").indeterminate||(a.u=document.getElementById("satelliteTrackBackwardCount").value);document.getElementById("satelliteTrackUnits").indeterminate||(a.D=document.getElementById("satelliteTrackUnits").value);document.getElementById("satelliteTrackStyle").indeterminate||(a.h=document.getElementById("satelliteTrackStyle").value);
-document.getElementById("satelliteOutline").indeterminate||(a.A=document.getElementById("satelliteOutline").checked);document.getElementById("satelliteShade").indeterminate||(a.B=document.getElementById("satelliteShade").checked);document.getElementById("satelliteOutlineAngles").indeterminate||(a.H=document.getElementById("satelliteOutlineAngles").value);document.getElementById("satelliteFootprintAlpha").indeterminate||(a.G=document.getElementById("satelliteFootprintAlpha").value);for(var c=0;c<ma.length;c++){var d=
-document.getElementById(ma[c]);if(d&&"transparent"!==d.style.backgroundColor){a.symbol=c;break}}return a}function Ej(){document.getElementById("colorSatellite").indeterminate=!1;document.getElementById("colorSatellite").style.backgroundColor=document.getElementById("colorSatellite").value;document.getElementById("satelliteGroupColor").style.backgroundColor="transparent"}
-function yj(){document.getElementById("satelliteLabel").indeterminate=!1;document.getElementById("satelliteGroupLabel").style.backgroundColor="transparent"}function zj(){document.getElementById("satelliteLabelBackground").indeterminate=!1;document.getElementById("satelliteGroupLabelBackground").style.backgroundColor="transparent"}
-function Fj(){document.getElementById("colorSatelliteLabelBackground").indeterminate=!1;document.getElementById("colorSatelliteLabelBackground").style.backgroundColor=document.getElementById("colorSatelliteLabelBackground").value;document.getElementById("satelliteGroupLabelBackgroundColor").style.backgroundColor="transparent"}function Aj(){document.getElementById("satelliteShade").indeterminate=!1;document.getElementById("satelliteGroupShade").style.backgroundColor="transparent"}
-function Gj(){document.getElementById("satelliteFootprintAlphaValue").value=parseFloat(document.getElementById("satelliteFootprintAlpha").value).toFixed(2);document.getElementById("satelliteFootprintAlpha").indeterminate=!1;document.getElementById("satelliteFootprintAlphaValue").indeterminate=!1;document.getElementById("satelliteGroupAlpha").style.backgroundColor="transparent"}
-function Bj(){document.getElementById("satelliteOutline").indeterminate=!1;document.getElementById("satelliteGroupOutline").style.backgroundColor="transparent"}function Hj(){document.getElementById("satelliteOutlineAngles").indeterminate=!1;document.getElementById("satelliteGroupOutlineAngles").style.backgroundColor="transparent"}
-function Ij(){document.getElementById("satelliteTrackForwardCount").indeterminate=!1;document.getElementById("satelliteGroupTrackForward").style.backgroundColor="transparent"}function Jj(){document.getElementById("satelliteTrackBackwardCount").indeterminate=!1;document.getElementById("satelliteGroupTrackBackward").style.backgroundColor="transparent"}
-function Cj(){document.getElementById("satelliteTrackUnits").indeterminate=!1;document.getElementById("satelliteGroupTrackUnits").style.backgroundColor="transparent"}function Dj(){document.getElementById("satelliteTrackStyle").indeterminate=!1;document.getElementById("satelliteGroupTrackStyle").style.backgroundColor="transparent"}
-function Hf(a){void 0!==a.color?(document.getElementById("colorSatellite").value=O(a.color),Ej()):(document.getElementById("colorSatellite").value=O(M.color),document.getElementById("colorSatellite").style.backgroundColor=O(M.color),document.getElementById("colorSatellite").indeterminate=!0,document.getElementById("satelliteGroupColor").style.backgroundColor="#000000");void 0!==a.label?(document.getElementById("satelliteLabel").checked=a.label,yj()):(document.getElementById("satelliteLabel").checked=
-M.label,document.getElementById("satelliteLabel").indeterminate=!0,document.getElementById("satelliteGroupLabel").style.backgroundColor="#000000");void 0!==a.o?(document.getElementById("satelliteLabelBackground").checked=a.o,zj()):(document.getElementById("satelliteLabelBackground").checked=M.o,document.getElementById("satelliteLabelBackground").indeterminate=!0,document.getElementById("satelliteGroupLabelBackground").style.backgroundColor="#000000");void 0!==a.l?(document.getElementById("colorSatelliteLabelBackground").value=
-O(a.l),document.getElementById("colorSatelliteLabelBackground").style.backgroundColor=O(a.l),Fj()):(document.getElementById("colorSatelliteLabelBackground").value=O(M.l),document.getElementById("colorSatelliteLabelBackground").style.backgroundColor=O(M.l),document.getElementById("colorSatelliteLabelBackground").indeterminate=!0,document.getElementById("satelliteGroupLabelBackgroundColor").style.backgroundColor="#000000");var c=a.symbol,d;c<ma.length&&(d=ma[c]);Ol(d);void 0!==a.B?(document.getElementById("satelliteShade").checked=
-a.B,Aj()):(document.getElementById("satelliteShade").checked=M.B,document.getElementById("satelliteShade").indeterminate=!0,document.getElementById("satelliteGroupShade").style.backgroundColor="#000000");void 0!==a.G?(document.getElementById("satelliteFootprintAlpha").value=a.G,Gj()):(document.getElementById("satelliteFootprintAlpha").value=M.G,document.getElementById("satelliteFootprintAlpha").indeterminate=!0,document.getElementById("satelliteFootprintAlphaValue").value=parseFloat(M.G).toFixed(2),
-document.getElementById("satelliteFootprintAlphaValue").indeterminate=!0,document.getElementById("satelliteGroupAlpha").style.backgroundColor="#000000");void 0!==a.A?(document.getElementById("satelliteOutline").checked=a.A,Bj()):(document.getElementById("satelliteOutline").checked=M.A,document.getElementById("satelliteOutline").indeterminate=!0,document.getElementById("satelliteGroupOutline").style.backgroundColor="#000000");void 0!==a.H?(document.getElementById("satelliteOutlineAngles").value=a.H,
-Hj()):(document.getElementById("satelliteOutlineAngles").value=M.H,document.getElementById("satelliteOutlineAngles").indeterminate=!0,document.getElementById("satelliteGroupOutlineAngles").style.backgroundColor="#000000");void 0!==a.v?(document.getElementById("satelliteTrackForwardCount").value=a.v,Ij()):(document.getElementById("satelliteTrackForwardCount").value=M.v,document.getElementById("satelliteTrackForwardCount").indeterminate=!0,document.getElementById("satelliteGroupTrackForward").style.backgroundColor=
-"#000000");void 0!==a.u?(document.getElementById("satelliteTrackBackwardCount").value=a.u,Jj()):(document.getElementById("satelliteTrackBackwardCount").value=M.u,document.getElementById("satelliteTrackBackwardCount").indeterminate=!0,document.getElementById("satelliteGroupTrackBackward").style.backgroundColor="#000000");void 0!==a.D?(document.getElementById("satelliteTrackUnits").value=a.D,Cj()):(document.getElementById("satelliteTrackUnits").value=M.D,document.getElementById("satelliteTrackUnits").indeterminate=
-!0,document.getElementById("satelliteGroupTrackUnits").style.backgroundColor="#000000");void 0!==a.h?(document.getElementById("satelliteTrackStyle").value=a.h,Dj()):(document.getElementById("satelliteTrackStyle").value=M.h,document.getElementById("satelliteTrackStyle").indeterminate=!0,document.getElementById("satelliteGroupTrackStyle").style.backgroundColor="#000000")}
-function Ef(a){"orbits"===a.b.D?(a.a.C=1440*a.b.v*a.a.s.j,a.a.N=1440*a.b.u*a.a.s.j):"hours"===a.b.D?(a.a.C=60*a.b.v,a.a.N=60*a.b.u):"days"===a.b.D?(a.a.C=1440*a.b.v,a.a.N=1440*a.b.u):(a.a.C=a.b.v,a.a.N=a.b.u);a.a.Fa=!0}
-function Ol(a){var c=ma.length;document.getElementById("satelliteGroupSymbol").style.backgroundColor="#000000";for(var d=0;d<c;d++){var e=document.getElementById(ma[d]);e&&(a===ma[d]?(e.style.backgroundColor="#007f00",document.getElementById("satelliteGroupSymbol").style.backgroundColor="transparent"):e.style.backgroundColor="transparent")}}
-function Df(a){var c=a.b.H.split(","),d=c.length,e;a.b.w=[];for(e=0;e<d;e++){var g=glMatrix.toRadian(parseFloat(c[e]));!isNaN(g)&&0<=g&&g<Math.PI/2&&(0===a.b.w.length&&(a.b.B?a.b.w.push(g):a.b.w.push(Math.PI)),a.b.A?a.b.w.push(g):a.b.w.push(Math.PI))}0===a.b.w.length&&(a.b.B||a.b.A)&&(a.b.B?a.b.w.push(0):a.b.w.push(Math.PI),a.b.A?a.b.w.push(0):a.b.w.push(Math.PI))}function Pj(a){Ol(a.target.id)}function Qj(a){Pl(a.target.id)};function fj(a,c){0<=c?document.getElementById("observerLonEast").checked=!0:document.getElementById("observerLonWest").checked=!0;document.getElementById("observerLonDegrees").value=Math.round(1E5*Math.abs(c))/1E5;document.getElementById("observerLonDMS").innerHTML="["+Ge(c,!0,!1)+"]";0<=a?document.getElementById("observerLatNorth").checked=!0:document.getElementById("observerLatSouth").checked=!0;document.getElementById("observerLatDegrees").value=Math.round(1E5*Math.abs(a))/1E5;document.getElementById("observerLatDMS").innerHTML=
-"["+He(a,!0,!1)+"]"}function mf(){var a=180*G.longitude/Math.PI,c=180*G.latitude/Math.PI;fj(c,a);document.getElementById("observerName").value=G.title;document.getElementById("observerAltitude").value=Math.abs(G.altitude);oc&&oc.setPosition({lat:c,lng:a})}
-function wj(){G.title=document.getElementById("observerName").value;var a=Math.abs(document.getElementById("observerLonDegrees").value);document.getElementById("observerLonWest").checked&&(a*=-1);G.longitude=glMatrix.toRadian(a);a=Math.abs(document.getElementById("observerLatDegrees").value);document.getElementById("observerLatSouth").checked&&(a*=-1);G.latitude=glMatrix.toRadian(a);G.altitude=document.getElementById("observerAltitude").value;Xe();Ff(!1,!1)}function vj(){mf()}
-function Ql(a){G.longitude=glMatrix.toRadian(a.coords.longitude);G.latitude=glMatrix.toRadian(a.coords.latitude);Xe();Ff(!1,!1)}function Rl(){}function xj(){"geolocation"in navigator&&navigator.geolocation.getCurrentPosition(Ql,Rl,{enableHighAccuracy:!0,timeout:5E3,maximumAge:Infinity})}
-function Pl(a){document.getElementById("observerGroupSymbol").style.backgroundColor="#000000";for(var c=0;c<ma.length;c++){var d=document.getElementById(ma[c]+"Observer");d&&(a===ma[c]+"Observer"?(d.style.backgroundColor="#007f00",document.getElementById("observerGroupSymbol").style.backgroundColor="transparent"):d.style.backgroundColor="transparent")}}
-function Wf(){document.getElementById("colorObserver").value=O(G.b.color);document.getElementById("colorObserver").style.backgroundColor=O(G.b.color);document.getElementById("observerLabel").checked=G.b.label;document.getElementById("observerLabelBackground").checked=G.b.o;document.getElementById("colorObserverLabelBackground").value=O(G.b.l);document.getElementById("colorObserverLabelBackground").style.backgroundColor=O(G.b.l);var a=G.b.symbol,c;a<ma.length&&(c=ma[a]+"Observer");Pl(c)};
+/*
+ |============================================================================
+ |
+ |  Project:          Tracker
+ |
+ |  Author(s):        Andrew Walker
+ |
+ |  Description:      
+ |
+ |  Copyright:        Sumus Technology Limited 2017-
+ |
+ |  Notes:            
+ |
+ |============================================================================
+ |  Build       Date        Author  Description
+ |----------------------------------------------------------------------------
+ |  1.0.0.1     21-Mar-17   ARW     Removed compiler warnings.
+ |============================================================================
+*/
+
+window.addEventListener("load", loaded);
+window.addEventListener('resize', resized);
+
+function cancelFullScreen(el) {
+    var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
+
+    if (requestMethod) {
+        requestMethod.call(el);
+    }
+}
+
+function requestFullScreen(el) {
+    var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+
+    if (requestMethod) {
+        requestMethod.call(el);
+    }
+}
+
+function toggleFull() {
+    var isInFullScreen = (document.fullScreenElement && document.fullScreenElement !== null) || (document.mozFullScreen || document.webkitIsFullScreen);
+
+    if (isInFullScreen) {
+        cancelFullScreen(document);
+    } else {
+        var elem = document.body;
+
+        requestFullScreen(elem);
+    }
+}
+
+function updateElement(itemName, buttonName, bShowElement) {
+    var element = document.getElementById(itemName);
+    var button = document.getElementById(buttonName);
+
+    //
+    // we used to use visibility (visible, hidden) to switch between the UI elements, 
+    //  but when the satellite table has a lot of entries this becomes very slow...
+    //
+
+    if (bShowElement) {
+        if (button) {
+            button.style.backgroundColor = "#007f00";
+        }
+
+        if (element) {
+            if (element.style.display !== "block") {
+                Object.assign( element.style, {
+                    display: "block",
+                    pointerEvents: "auto",
+                });
+            }
+        }
+    } else {
+        if (button) {
+            button.style.backgroundColor = "#000000";
+        }
+
+        if (element) {
+            if (element.style.display !== "none") {
+                Object.assign( element.style, {
+                    display: "none",
+                    pointerEvents: "none",
+                });
+            }
+        }
+    }
+}
+
+function showElements() {
+    updateElement("itemFindSatellite", "buttonSatellite", bShowFindSatellite);
+    updateElement("itemSelectObserver", "buttonObserver", bShowSelectObserver);
+    updateElement("itemSelectProjection", "buttonProjection", bShowSelectProjection);
+    updateElement("itemInformation", "buttonInformation", bShowInformation);
+    updateElement("itemSettings", "buttonSettings", bShowSettings);
+
+    // 
+    // xxx these probably belong elsewhere...
+    //
+
+    var divObserver = document.getElementById(observer.element);
+
+    if (projection === "projectionRadar") {
+        if (divObserver) {
+            divObserver.style.display = "none";
+        }
+        document.getElementById("radarText").style.display = "block";
+    } else {
+        if (divObserver) {
+            divObserver.style.display = "block";
+        }
+        document.getElementById("radarText").style.display = "none";
+    }
+
+    if (projection === "projectionTextual") {
+        document.getElementById("divTableTextualOuter").style.visibility = "visible";
+        document.getElementById("container").style.visibility = "hidden";
+        document.getElementById("labelContainer").style.display = "none";
+        document.getElementById("lonandlat").style.display = "none";
+        document.getElementById("position").style.display = "none";
+    } else {
+        document.getElementById("divTableTextualOuter").style.visibility = "hidden";
+        document.getElementById("container").style.visibility = "visible";
+        document.getElementById("labelContainer").style.display = "block";
+        document.getElementById("lonandlat").style.display = "block";
+        document.getElementById("position").style.display = "block";
+    }
+
+    if (bShowSettings) {
+        if (projection === "projectionRadar") {
+            document.getElementById("settingsVisual").style.display = "none";
+            document.getElementById("settingsRadar").style.display = "block";
+            document.getElementById("settingsTextual").style.display = "none";
+        } else if (projection === "projectionTextual") {
+            document.getElementById("settingsVisual").style.display = "none";
+            document.getElementById("settingsRadar").style.display = "none";
+            document.getElementById("settingsTextual").style.display = "block";
+        } else {
+            document.getElementById("settingsVisual").style.display = "block";
+            document.getElementById("settingsRadar").style.display = "none";
+            document.getElementById("settingsTextual").style.display = "none";            
+        }
+    }
+
+    //
+    // handle the hiding of the 'popup' dialogs for the satellite and observer settings...
+    //
+
+    if (!bShowFindSatellite) {
+        bShowSatelliteSettings = false;
+
+        document.getElementById("divSatelliteSettings").style.visibility = "hidden";
+    }
+
+    if (!bShowSelectObserver) {
+        bShowObserverSettings = false;
+
+        document.getElementById("divObserverSettings").style.visibility = "hidden";
+    }
+
+    if (bShowFindSatellite || bShowSelectProjection || bShowSelectObserver || bShowInformation || bShowSettings) {
+        document.getElementById("frameouter").style.zIndex = "800";
+    } else {
+        document.getElementById("frameouter").style.zIndex = "500";
+    }
+
+    if (bShowSelectObserver) {
+        //
+        // this is needed otherwise the map is not aware of its 
+        //  real limits, and restricts redrawing to a subregion
+        //  of that expected. We could just do this once...
+        //
+
+        setTimeout(function() {
+            var center = observerMap.getCenter(); 
+            google.maps.event.trigger(observerMap, 'resize'); 
+            observerMap.setCenter(center);
+        }, 100);
+    }
+}
+
+function resetVisible() {
+    bShowFindSatellite = false;
+    bShowSelectObserver = false;
+    bShowSelectProjection = false;
+    bShowInformation = false;
+    bShowSettings = false;
+}
+
+function findSatellite() {
+    var bShowFindSatelliteLocal = !bShowFindSatellite;
+
+    resetVisible();
+
+    bShowFindSatellite = bShowFindSatelliteLocal;
+
+    showElements();
+
+    if (bShowFindSatellite) {
+        resized();
+    }
+}
+
+function selectObserver() {
+    var bShowSelectObserverLocal = !bShowSelectObserver;
+
+    resetVisible();
+
+    bShowSelectObserver = bShowSelectObserverLocal;
+
+    showElements();
+
+    if (bShowSelectObserver) {
+        resized();
+    }    
+}
+
+function selectProjection() {
+    var bShowSelectProjectionLocal = !bShowSelectProjection;
+
+    resetVisible();
+    
+    bShowSelectProjection = bShowSelectProjectionLocal;
+
+    showElements();
+}
+
+function showInformation() {
+    var bShowInformationLocal = !bShowInformation;
+
+    resetVisible();
+
+    bShowInformation = bShowInformationLocal;
+
+    showElements();
+}
+
+function showSettings() {
+    var bShowSettingsLocal = !bShowSettings;
+
+    resetVisible();
+
+    bShowSettings = bShowSettingsLocal;
+
+    showElements();
+}
+
+function setDefaultSatelliteSettings() {
+    var settings = getSatelliteSettings();
+
+    if (settings.color != undefined) {
+        satelliteDefaultSettings.color = makeColor(settings.color, 1.0);
+    }
+
+    if (settings.label != undefined) {
+        satelliteDefaultSettings.label = settings.label;
+    }
+
+    if (settings.fillBackground != undefined) {
+        satelliteDefaultSettings.fillBackground = settings.fillBackground;
+    }
+
+    if (settings.colorBackground != undefined) {
+        satelliteDefaultSettings.colorBackground = makeColor(settings.colorBackground, 1.0);
+    }
+
+    if (settings.symbol != undefined) {
+        satelliteDefaultSettings.symbol = settings.symbol;
+    }
+
+    if (settings.footprintAlpha != undefined) {
+        satelliteDefaultSettings.footprintAlpha = settings.footprintAlpha;
+    }
+
+    if (settings.footprintShade != undefined) {
+        satelliteDefaultSettings.footprintShade = settings.footprintShade;
+    }
+
+    if (settings.footprintOutline != undefined) {
+        satelliteDefaultSettings.footprintOutline = settings.footprintOutline;
+    }
+
+    if (settings.footprintAngles != undefined) {
+        satelliteDefaultSettings.footprintAngles = settings.footprintAngles;
+    }
+
+    if (settings.trackUnits != undefined) {
+        satelliteDefaultSettings.trackUnits = settings.trackUnits;
+    }
+
+    if (settings.trackForward != undefined) {
+        satelliteDefaultSettings.trackForward = settings.trackForward;
+    }
+
+    if (settings.trackBackward != undefined) {
+        satelliteDefaultSettings.trackBackward = settings.trackBackward;
+    }
+
+    if (settings.trackStyle != undefined) {
+        satelliteDefaultSettings.trackStyle = settings.trackStyle;
+    }
+}
+
+function applyAndHideSatelliteSettings() {
+    bShowSatelliteSettings = false;
+
+    setSelectedSatelliteSettings();
+
+    document.getElementById("divSatelliteSettings").style.visibility = "hidden";
+
+    redrawScene();
+}
+
+function resetSatelliteSettings() {
+    fillSatelliteSettings(satelliteDefaultSettings);
+}
+
+function showSatelliteSettings() {
+    bShowSatelliteSettings = !bShowSatelliteSettings;
+
+    if (bShowSatelliteSettings) {
+        document.getElementById("divSatelliteSettings").style.visibility = "visible";
+
+        fillSelectedSatelliteSettings();
+    } else {
+        document.getElementById("divSatelliteSettings").style.visibility = "hidden";
+    }
+}
+
+function applyAndHideObserverSettings() {
+    bShowObserverSettings = false;
+
+    setObserverSettings();
+
+    document.getElementById("divObserverSettings").style.visibility = "hidden";
+    
+    redrawScene();    
+}
+
+function resetObserverSettings() {
+    fillObserverSettings();
+}
+
+function showObserverSettings() {
+    bShowObserverSettings = !bShowObserverSettings;
+
+    if (bShowObserverSettings) {
+        document.getElementById("divObserverSettings").style.visibility = "visible";
+
+        fillObserverSettings();
+    } else {
+        document.getElementById("divObserverSettings").style.visibility = "hidden";
+    }
+}
+
+function removeDisplayedSatellite(id) {
+    var index = satellitesToDisplay.indexOf(id);
+
+    if (index >= 0) {
+        satellitesToDisplay.splice(index, 1);
+
+        deleteSatellite(id);
+    }
+}
+
+function satellitesUpdateProgress(event) {
+    if (event.lengthComputable) {
+        document.getElementById("progress").value = 100 * ( event.loaded / event.total );
+    } else {
+        //
+        // seems like we can't set an accurate report of the progress,
+        //  so we just use the prgoress bar as an indicator of activity...
+        //
+
+        var value = document.getElementById("progress").value + 5;
+
+        if (value > 100) {
+            value = 0;
+        }   
+        
+        document.getElementById("progress").value = value;
+    }
+}
+
+function satellitesTransferFailed(event) {
+    document.getElementById("loading").style.visibility = "hidden";
+}
+
+function satellitesTransferCanceled(event) {
+    document.getElementById("loading").style.visibility = "hidden";
+}
+
+function satellitesTransferComplete(event) {
+    document.getElementById("progress").value = 100;
+
+    oReqCategories.addEventListener("progress", categoriesUpdateProgress);
+    oReqCategories.addEventListener("load", categoriesTransferComplete);
+    oReqCategories.addEventListener("error", categoriesTransferFailed);
+    oReqCategories.addEventListener("abort", categoriesTransferCanceled);
+
+    oReqCategories.open("GET", "Celestrak/categories.txt");
+    oReqCategories.send();
+
+    if (jsonSatellites === undefined)
+    {
+        try
+        {
+            jsonSatellites = JSON.parse(event.currentTarget.responseText);
+        }
+        catch(e)
+        {
+        }
+    } else {
+        try
+        {
+            var jsonSatellitesNew;
+            var satelliteNew;
+            var satellite;
+            var index;
+            var id;
+
+            jsonSatellitesNew = JSON.parse(event.currentTarget.responseText);
+
+            //
+            // need to copy everything over to jsonSatellites...
+            //
+
+            for (id in jsonSatellitesNew) {
+                satelliteNew = jsonSatellitesNew[id];
+
+                if (jsonSatellites.hasOwnProperty(id)) {
+                    satellite = jsonSatellites[id];
+
+                    if (satelliteNew.hasOwnProperty("satcat") ) {
+                        satellite["satcat"] = satelliteNew["satcat"];
+                    }
+
+                    if (satelliteNew.hasOwnProperty("le1") && satelliteNew.hasOwnProperty("le2")) {
+                        satellite["le1"] = satelliteNew["le1"];
+                        satellite["le2"] = satelliteNew["le2"];
+
+                        if (satellite.tracking.satrec) {
+                            //
+                            // only initialize the satellite if we are already tracking it...
+                            //
+
+                            initializeSatellite(satellite, id);
+                        }
+                    } else {
+                        index = id.substr(1, id.length - 1);
+                        removeDisplayedSatellite(index);
+
+                        if (satellite.hasOwnProperty("le1")) {
+                            delete satellite["le1"];
+                        }
+
+                        if (satellite.hasOwnProperty("le2")) {
+                            delete satellite["le2"];
+                        }
+                    }
+                }
+            }
+        }
+        catch(e)
+        {
+        }
+
+        //
+        // need to refill the satellite list...
+        //
+
+
+    }
+
+    event.currentTarget.responseText = null;
+}
+
+function categoriesUpdateProgress(event) {
+    if (event.lengthComputable) {
+        document.getElementById("progress").value = 100 * ( event.loaded / event.total );
+    } else {
+        //
+        // seems like we can't set an accurate report of the progress,
+        //  so we just use the prgoress bar as an indicator of activity...
+        //
+
+        var value = document.getElementById("progress").value + 5;
+
+        if (value > 100) {
+            value = 0;
+        }   
+        
+        document.getElementById("progress").value = value;
+    }
+}
+
+function categoriesTransferFailed(event) {
+    document.getElementById("loading").style.visibility = "hidden";
+}
+
+function categoriesTransferCanceled(event) {
+    document.getElementById("loading").style.visibility = "hidden";
+}
+
+function categoriesTransferComplete(event) {
+    var index;
+
+    document.getElementById("progress").value = 100;
+
+    try
+    {
+        jsonCategories = JSON.parse(event.currentTarget.responseText);
+    }
+    catch (e)
+    {
+
+    }
+
+    //
+    // do this here, rather than in loaded(), as we need
+    //  the satellites to have been fully transferred...
+    //
+
+    setInitialParameters();
+
+    event.currentTarget.responseText = null;
+
+    fillSatelliteCategories();
+
+    document.getElementById("progress").value = 100;
+
+    document.getElementById("loading").style.visibility = "hidden";
+
+    updateTime();
+}
+
+function setInitialParameters() {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    var length = vars.length;
+    var selectedSatellite = false;
+
+    for (var i = 0; i < length; i++) {
+        var pair = vars[i].split("=");
+
+        if (pair[0] === "display")
+        {
+            //
+            // select the satellites for display...
+            //
+
+            var ids = pair[1].split(",");
+            var lengthIds = ids.length;
+            var index;
+
+            for (index = 0; index < lengthIds; index++) {
+                var id = ids[index].trim();
+
+                addDisplayedSatellite(id);
+            }
+        }
+        else if (pair[0] === "projection") {
+            var projectionToSet = pair[1].trim().toLowerCase();
+
+            if (projectionToSet === "perspective") {
+                projection = "projectionPerspective";
+            } else if (projectionToSet === "cylindrical") {
+                projection = "projectionCylindrical";
+            } else if (projectionToSet === "robinson") {
+                projection = "projectionRobinson";            
+            } else if (projectionToSet === "elliptical") {
+                projection = "projectionElliptical";            
+            } else if (projectionToSet === "sinusoidal") {
+                projection = "projectionSinusoidal";            
+            } else if (projectionToSet === "radar") {
+                projection = "projectionRadar";           
+            } else if (projectionToSet === "textual") {
+                projection = "projectionTextual";           
+            }
+        }
+        else if (pair[0] === "observer") {
+            var observerToSet = pair[1].trim().toLowerCase();
+
+            observer.tracking.longitude = 0.0;
+            observer.tracking.latitude = 0.0;
+        }
+    }
+
+    //
+    // if the user hasn't requested anything then display the ISS...
+    //
+
+    if (!selectedSatellite) {
+        if (jsonSatellites["S" + initialSatelliteID]) {
+            addDisplayedSatellite(initialSatelliteID);
+
+            searchForSatellitesRoutine(initialSatelliteName);
+        }
+    }
+}
+
+function switchedProjection() {
+    var element;
+    var index;
+
+    for (index = 0; index < projections.length; index++) {
+        element = document.getElementById(projections[index]);
+
+        if (element) {
+            if (projections[index] === projection) {
+                element.style.borderColor = "#007f00";
+            }
+            else {
+                element.style.borderColor = "transparent";
+            }
+        }
+    }
+}
+
+function projectionSwitch(event) {
+    if (event.target.id.slice(0, 10) === "projection") {
+        projection = event.target.id;
+    } else {
+        projection = event.target.parentNode.id;
+    }
+
+    switchedProjection();
+
+    redrawScene();
+}
+
+function applyShaderSettingsCenter() {
+    var longitudeScaled = ((centralPosition.longitudeRadians + (2.0 * Math.PI)) / (2.0 * Math.PI)) % 1.0;
+
+    gl.useProgram(shaderProgramGlobeCylindrical);
+    gl.uniform1f(shaderProgramGlobeCylindrical.centralLongitude, longitudeScaled);
+
+    gl.useProgram(shaderProgramTrackCylindrical);
+    gl.uniform1f(shaderProgramTrackCylindrical.centralLongitude, longitudeScaled);
+
+    gl.useProgram(shaderProgramGlobeElliptical);
+    gl.uniform1f(shaderProgramGlobeElliptical.centralLongitude, longitudeScaled);
+
+    gl.useProgram(shaderProgramTrackElliptical);
+    gl.uniform1f(shaderProgramTrackElliptical.centralLongitude, longitudeScaled);
+
+    gl.useProgram(shaderProgramGlobeSinusoidal);
+    gl.uniform1f(shaderProgramGlobeSinusoidal.centralLongitude, longitudeScaled);
+
+    gl.useProgram(shaderProgramTrackSinusoidal);
+    gl.uniform1f(shaderProgramTrackSinusoidal.centralLongitude, longitudeScaled);
+
+    gl.useProgram(shaderProgramGlobeRobinson);
+    gl.uniform1f(shaderProgramGlobeRobinson.centralLongitude, longitudeScaled);
+
+    gl.useProgram(shaderProgramTrackRobinson);
+    gl.uniform1f(shaderProgramTrackRobinson.centralLongitude, longitudeScaled);
+}
+
+function enterSatellite(e) {
+    if (e.target !== e.currentTarget) {
+        var element = e.target;
+
+        if (element.className === "satellite") {
+            var identifier = element.id.replace("SATELLITE_", "");
+
+            objectReport = jsonSatellites["S" + identifier];
+
+            updateObjectReport();
+        } else if (element.className === "satelliteHoverShape") {
+            var identifier = element.id.replace("SATELLITE_SHAPE_", "");
+
+            objectReport = jsonSatellites["S" + identifier];
+
+            updateObjectReport();            
+        } else if (element.className === "observer" || element.className === "observerHoverShape") {
+            objectReport = observer;
+
+            updateObjectReport();            
+        }
+    }
+
+    e.stopPropagation();
+}
+
+function updateScene(updateFootprintsOnly) {
+    updateSatellites(updateFootprintsOnly);
+
+    redrawScene();
+}
+
+function redrawScene() {
+    var shaderProgram = null;
+
+    if (projection === "projectionPerspective") {
+        shaderProgram = shaderProgramGlobePerspective;
+    } else if (projection === "projectionCylindrical") {
+        shaderProgram = shaderProgramGlobeCylindrical;
+    } else if (projection === "projectionElliptical") {
+        shaderProgram = shaderProgramGlobeElliptical;   
+    } else if (projection === "projectionSinusoidal") {
+        shaderProgram = shaderProgramGlobeSinusoidal;   
+    } else if (projection === "projectionRobinson") {
+        shaderProgram = shaderProgramGlobeRobinson;   
+    }
+
+    if (shaderProgram) {
+        //
+        // we update the solar position here as we may have just made a projection change,
+        //  and the new projection needs to know of the current solar position...
+        //
+
+        gl.useProgram(shaderProgram);
+        gl.uniform1f(shaderProgram.solarLongitude, solarPosition.longitude);
+        gl.uniform1f(shaderProgram.solarLatitude, solarPosition.latitude);
+
+        //
+        // if we're not about to update (we may have just made a projection change) then the new 
+        //  projection needs to know of the number of satellite footprints to be displayed...
+        //
+
+        gl.uniform1i(shaderProgram.numSatellites, satellitesToDisplay.length);
+    }
+    
+    if (objectCenter) {
+        if (centralPosition.longitudeRadians !== objectCenter.tracking.longitude ||
+            centralPosition.latitudeRadians !== objectCenter.tracking.latitude) {
+            centralPosition.longitudeRadians = objectCenter.tracking.longitude;
+            centralPosition.latitudeRadians = objectCenter.tracking.latitude;
+
+            applyShaderSettingsCenter();
+            applyPerspectiveRotation();
+
+            reportMousePosition(posX, posY);
+        }
+    }
+    
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    
+    mat4.identity(scaleMatrix);
+       
+    if (projection === "projectionPerspective" && bDisplayEarth) {
+        drawGlobePerspective();
+    } else if (projection === "projectionCylindrical" && bDisplayEarth) {
+        drawGlobeCylindrical();
+    } else if (projection === "projectionRobinson" && bDisplayEarth) {
+        drawGlobeRobinson();
+    } else if (projection === "projectionElliptical" && bDisplayEarth) {
+        drawGlobeElliptical();
+    } else if (projection === "projectionSinusoidal" && bDisplayEarth) {
+        drawGlobeSinusoidal();
+    } else if (projection === "projectionRadar") {
+        drawGlobeRadar();
+    } else if (projection === "projectionTextual") {
+        drawTextual();
+    }
+
+    if (projection === "projectionPerspective" ||
+        projection === "projectionCylindrical" ||
+        projection === "projectionSinusoidal" ||
+        projection === "projectionElliptical" ||
+        projection === "projectionRobinson" ||
+        projection === "projectionRadar") {
+        divLabelContainerNew = document.createElement("div");
+        if (divLabelContainerNew) {
+            divLabelContainerNew.id = "labelContainer";
+        }
+    }
+    
+    drawObserver();
+    drawSatellites();
+
+    if (projection === "projectionPerspective" ||
+        projection === "projectionCylindrical" ||
+        projection === "projectionSinusoidal" ||
+        projection === "projectionElliptical" ||
+        projection === "projectionRobinson" ||
+        projection === "projectionRadar") {
+        document.getElementById("background").replaceChild(divLabelContainerNew, document.getElementById("labelContainer"));
+
+        divLabelContainerNew.addEventListener("mouseenter", enterSatellite, true);
+    } else if (projection === "projectionTextual") {
+        setColumnWidths("tableHeadTextual", "tableBodyTextual");        
+    }
+
+    //
+    // always update the object report as we may
+    //  have just moved the observer position...
+    //
+
+    updateObjectReport();
+
+    gl.disable(gl.BLEND);
+}
+
+function loadSatellites() {
+    oReqSatellites.addEventListener("progress", satellitesUpdateProgress);
+    oReqSatellites.addEventListener("load", satellitesTransferComplete);
+    oReqSatellites.addEventListener("error", satellitesTransferFailed);
+    oReqSatellites.addEventListener("abort", satellitesTransferCanceled);
+
+    oReqSatellites.open("GET", "Celestrak/satellites.txt");
+    oReqSatellites.send();
+}
+
+function reload() {
+    document.getElementById("progress").value = 0;
+
+    document.getElementById("loading").style.visibility = "visible";
+
+    loadSatellites();
+}
+
+function reportMousePosition(x, y) {
+    //
+    // report the longitude and latitude...
+    //
+
+    if (projection === "projectTextual") {
+        document.getElementById("lonandlat").innerHTML = "&ndash;"
+    } else if (projection === "projectionRadar") {
+        var radarAltitude;
+        var radarAzimuth;
+
+        mouseLongitude = null;
+        mouseLatitude = null;
+
+        x -= canvas.clientWidth / 2;
+        y -= canvas.clientHeight / 2;
+
+        if (canvas.clientWidth > canvas.clientHeight) {
+            x /= canvas.clientHeight / 2;
+            y /= canvas.clientHeight / 2;
+        } else {
+            x /= canvas.clientWidth / 2;
+            y /= canvas.clientWidth / 2;
+        }
+
+        radarAltitude = 90.0 - ( Math.sqrt((x * x) + (y * y)) * 90.0 );
+
+        if (radarAltitude >= -90.0) {
+            radarAzimuth = 90.0 + ( 180.0 * Math.atan2(y, x) / Math.PI );
+            if (radarAzimuth < 0.0) {
+                radarAzimuth += 360.0;
+            }
+
+            document.getElementById("lonandlat").innerHTML = "Az: " + azimuthToString(radarAzimuth, true) + "&deg;&nbsp;&nbsp;El: " + elevationToString(radarAltitude, true) + "&deg;";
+        } else {
+            document.getElementById("lonandlat").innerHTML = "&ndash;"
+        }
+    } else {
+        var longitudeLocal = NaN;
+        var latitudeLocal = NaN;
+
+        if (projection === "projectionPerspective") {
+            var pMatrixInvert = mat4.create();
+            var mvMatrixInvert = mat4.create();
+            var posCartesian;
+            var increasing = false;
+            var mouse = [];
+            var z;
+            var zMax;
+            var zMin;
+            var zStep;
+            var found = true;
+            var loop = 0;
+
+            //
+            // find the minimum and maximum permissible values for the z-value...
+            //
+
+            {
+                var matrix = mat4.create();
+                var pos;
+
+                mat4.translate(matrix, matrix, [0, 0, -distanceScale]);
+                mat4.rotateY(matrix, matrix, (Math.PI / 2.0));
+
+                pos = toCartesianECEF(0.0, 0.0, 0.0);
+                pos = vec4.fromValues(pos[0], pos[1], pos[2], 1.0);
+                vec4.transformMat4(pos, pos, matrix);
+                vec4.transformMat4(pos, pos, pMatrix);
+                zMin = pos[2] / pos[3];
+
+                pos = toCartesianECEF(0.0, 0.0, EARTH_SEMI_MAJOR_AXIS_KM * (Math.sin(angleGrazingEarthRadians) - 1.0));
+                pos = vec4.fromValues(pos[0], pos[1], pos[2], 1.0);
+                vec4.transformMat4(pos, pos, matrix);
+                vec4.transformMat4(pos, pos, pMatrix);
+                zMax = pos[2] / pos[3];
+            }
+
+            zStep = (zMax - zMin) / 3.0;
+
+            mat4.invert(pMatrixInvert, pMatrix);
+            mat4.invert(mvMatrixInvert, mvMatrix);
+            mouse.altitude = 0.01;
+
+            x = (2.0 * x / gl.drawingBufferWidth) - 1.0;
+            y = 1.0 - (2.0 * y / gl.drawingBufferHeight);
+            z = zMax;
+
+            while (Math.abs(mouse.altitude) > 0.00005) {
+                posCartesian = vec4.fromValues(x, y, z, 1.0);
+                vec4.transformMat4(posCartesian, posCartesian, pMatrixInvert);
+                vec4.transformMat4(posCartesian, posCartesian, mvMatrixInvert);
+                vec4.scale(posCartesian, posCartesian, 1.0 / posCartesian[3]);
+                fromCartesianECEF(mouse, vec3.fromValues(posCartesian[0], posCartesian[1], posCartesian[2]));
+
+                if (loop === 0 && mouse.altitude > 0.0) {
+                    found = false;
+
+                    break;
+                }
+
+                if (mouse.altitude > 0.0) {
+                    z += zStep;
+                    if (!increasing) {
+                        zStep /= 2.0;
+                        increasing = true;
+                    }
+                } else {
+                    z -= zStep;
+                    if (increasing) {
+                        zStep /= 2.0;
+                        increasing = false;
+                    }
+                }
+
+                loop++;
+                if (loop > 100) {
+                    break;
+                }
+            }
+
+            if (found) {
+                longitudeLocal = 180.0 * mouse.longitude / Math.PI;
+                latitudeLocal = 180.0 * mouse.latitude / Math.PI;
+            }
+        } else if (projection === "projectionCylindrical") {
+            longitudeLocal = 180.0 * ((2.0 * x / gl.drawingBufferWidth) + (centralPosition.longitudeRadians / Math.PI) + 1.0);
+            latitudeLocal = 90.0 * (1.0 - (2.0 * y / gl.drawingBufferHeight));
+        } else if (projection === "projectionRobinson") {
+            var xScaled;
+            var yScaled;
+            var length = RobinsonMapStructs.length;
+            var edge;
+
+            xScaled = 2.0 * (x - (0.5 * gl.drawingBufferWidth)) / gl.drawingBufferWidth;
+            yScaled = 2.0 * (y - (0.5 * gl.drawingBufferHeight)) / gl.drawingBufferHeight;
+
+            for (var i = 0; i < length - 1; i++) {
+                if (Math.abs(yScaled) >= RobinsonMapStructs[i + 0][2] &&
+                    Math.abs(yScaled) <= RobinsonMapStructs[i + 1][2]) {
+                    latitudeLocal = (((Math.abs(yScaled) - RobinsonMapStructs[i + 0][2]) * RobinsonMapStructs[i + 1][0]) +
+                        ((RobinsonMapStructs[i + 1][2] - Math.abs(yScaled)) * RobinsonMapStructs[i + 0][0])) /
+                        (RobinsonMapStructs[i + 1][2] - RobinsonMapStructs[i + 0][2]);
+
+                    //
+                    // Math.sign() is not yet supported in all browsers,
+                    //  so we do it the long way for now...
+                    //
+
+                    if (yScaled > 0.0) {
+                        latitudeLocal *= -1.0;
+                    }
+
+                    break;
+                }
+            }
+
+            edge = longLatToXY(centralPosition.longitudeRadians - Math.PI, latitudeLocal * Math.PI / 180.0);
+
+            if (Math.abs(xScaled) <= Math.abs(edge.x)) {
+                var plen;
+
+                plen = (((Math.abs(yScaled) - RobinsonMapStructs[i + 0][2]) * RobinsonMapStructs[i + 1][1]) +
+                    ((RobinsonMapStructs[i + 1][2] - Math.abs(yScaled)) * RobinsonMapStructs[i + 0][1])) /
+                    (RobinsonMapStructs[i + 1][2] - RobinsonMapStructs[i + 0][2]);
+
+                longitudeLocal = (centralPosition.longitudeRadians * 180.0 / Math.PI) + (180.0 * (xScaled / plen));
+            } else {
+                longitudeLocal = NaN;
+            }
+        } else if (projection === "projectionElliptical") {
+            var xScaled;
+            var theta;
+            var edge;
+
+            xScaled = 2.0 * (x - (0.5 * gl.drawingBufferWidth)) / gl.drawingBufferWidth;
+            theta = Math.asin(2.0 * ((0.5 * gl.drawingBufferHeight) - y) / gl.drawingBufferHeight);
+
+            latitudeLocal = Math.asin(((2.0 * theta) + Math.sin(2.0 * theta)) / Math.PI);
+            edge = longLatToXY(centralPosition.longitudeRadians - Math.PI, latitudeLocal);
+
+            if (Math.abs(xScaled) <= Math.abs(edge.x)) {
+                longitudeLocal = (180.0 / Math.PI) * (centralPosition.longitudeRadians + (Math.PI * xScaled / Math.cos(theta)));
+                latitudeLocal *= 180.0 / Math.PI;
+            }
+        } else if (projection === "projectionSinusoidal") {
+            var xScaled;
+            var edge;
+
+            xScaled = 2.0 * (x - (0.5 * gl.drawingBufferWidth)) / gl.drawingBufferWidth;
+            latitudeLocal = ( Math.PI / 2.0 ) * (1.0 - (2.0 * y / gl.drawingBufferHeight));
+
+            edge = longLatToXY(centralPosition.longitudeRadians - Math.PI, latitudeLocal);
+
+            if (Math.abs(xScaled) <= Math.abs(edge.x) && Math.cos(latitudeLocal) > 0.0) {
+                longitudeLocal = (180.0 / Math.PI) * ( (Math.PI * xScaled / Math.cos(latitudeLocal)) + centralPosition.longitudeRadians );
+                latitudeLocal *= 180.0 / Math.PI;
+            }
+        }
+
+        if (isNaN(longitudeLocal) || isNaN(latitudeLocal)) {
+            document.getElementById("lonandlat").innerHTML = "&ndash;"
+
+            mouseLongitude = null;
+            mouseLatitude = null;
+        } else {
+            document.getElementById("lonandlat").innerHTML = longitudeToString(longitudeLocal, false, true) + "&nbsp;&nbsp;" + latitudeToString(latitudeLocal, false, true);
+
+            mouseLongitude = longitudeLocal;
+            mouseLatitude = latitudeLocal;
+        }
+    }
+}
+
+function updateCentralPosition(setToFixedCenter) {
+    var distanceScaleLocal = (EARTH_SEMI_MAJOR_AXIS_KM + (centralPosition.altitudeMeters / 1000.0)) / EARTH_SEMI_MAJOR_AXIS_KM;
+
+    //
+    // if setToFixedCenter is true then we've just performed some action
+    //  (such as adjusting the central position with mouse or keys) that
+    //  removes the specified satellite or observer at the center...
+    //
+
+    if (setToFixedCenter) {
+        objectCenter = null;
+    }
+
+    //
+    // restrict latitude to the range [-90,90]...
+    //
+
+    centralPosition.latitudeRadians = Math.max(centralPosition.latitudeRadians, -Math.PI / 2.0);
+    centralPosition.latitudeRadians = Math.min(centralPosition.latitudeRadians, Math.PI / 2.0);
+            
+    //
+    // restrict longitude to the range [-180, 180]...
+    //
+
+    centralPosition.longitudeRadians %= 2.0 * Math.PI;
+    
+    if (centralPosition.longitudeRadians <= -Math.PI) {
+        centralPosition.longitudeRadians += 2.0 * Math.PI;
+    } else if (centralPosition.longitudeRadians > Math.PI) {
+        centralPosition.longitudeRadians -= 2.0 * Math.PI;
+    }
+
+    distanceScale = distanceScaleLocal;
+
+    angleGrazingEarthRadians = Math.asin(1.0 / distanceScale);
+
+    applyShaderSettingsCenter();
+    applyPerspectiveRotation();
+
+    reportMousePosition(posX, posY);
+
+    redrawScene();  
+}
+
+function handleMouseMove(event) {
+    if (bShowFindSatellite || bShowSelectProjection || bShowSelectObserver || bShowInformation || bShowSettings) {
+        //
+        // one of the configration displays is showing,
+        //  so we don't want to process the mouse move
+        //  ourselves...
+        //
+
+        return false;
+    }
+
+    if (mouseDown === true) {
+        if (posX != event.clientX ||
+            posY != event.clientY) {
+            centralPosition.longitudeRadians += glMatrix.toRadian((posX - event.clientX) / 2);
+            centralPosition.latitudeRadians += glMatrix.toRadian((event.clientY - posY) / 2);
+
+            posX = event.clientX;
+            posY = event.clientY;
+            
+            updateCentralPosition(true);
+        }
+    } else {
+        posX = event.clientX;
+        posY = event.clientY;
+
+        reportMousePosition(posX, posY);
+    }
+
+    eventLast = event;
+}
+
+function handleMouseUp(event) {
+    reportMousePosition(event.clientX, event.clientY);
+
+    mouseDown = false;
+}
+
+function handleMouseDown(event) {
+    posX = event.clientX;
+    posY = event.clientY;
+
+    mouseDown = true;
+}
+
+function handleMouseWheel(event) {
+    if (bShowFindSatellite || bShowSelectProjection || bShowSelectObserver || bShowInformation || bShowSettings) {
+        //
+        // one of the configration displays is showing,
+        //  so we don't want to process the mouse wheel
+        //  ourselves...
+        //
+
+        return false;
+    }
+
+    var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
+
+    centralPosition.altitudeMeters -= delta * centralPosition.altitudeMeters * 0.1;
+
+    if (centralPosition.altitudeMeters > MAX_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0) {
+        centralPosition.altitudeMeters = MAX_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0;
+    } else if (centralPosition.altitudeMeters < MIN_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0) {
+        centralPosition.altitudeMeters = MIN_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0;
+    }
+
+    updateCentralPosition(false);
+}
+
+function cancelInterval( ) {
+    if (timeout) {
+        clearTimeout(timeout);
+    }
+
+    if (interval) {
+        clearInterval(interval);
+    }
+}
+
+function createInterval(intervalSeconds) {
+    cancelInterval();
+
+    //
+    // do things immediately...
+    //
+
+    offsetSeconds += intervalSeconds;
+    updateTime();
+
+    //
+    // and then at a set interval
+    //  after an initial pause...
+    //
+
+    timeout = setTimeout( function() {
+        var intervalLocal = intervalSeconds;
+
+        interval = setInterval( function() {
+            offsetSeconds += intervalLocal;
+            updateTime();
+        }, 50);  
+    }, 500);
+}
+
+function addDay(event) {
+    createInterval(86400);
+}
+
+function addHour() {
+    createInterval(3600);    
+}
+
+function addMinute() {
+    createInterval(60);      
+}
+
+function subtractDay( ) {
+    createInterval(-86400);
+}
+
+function subtractHour() {
+    createInterval(-3600);    
+}
+
+function subtractMinute() {
+    createInterval(-60); 
+}
+
+function play() {
+    var element;
+
+    paused = !paused;
+
+    element = document.getElementById("dateandtimeplay");
+    if (element) {
+        if (paused) {
+            element.src = "Time/Play128.png";
+            element.classList.add("modifyTimehighlighted");
+        } else {
+            element.src = "Time/Pause128.png";
+            element.classList.remove("modifyTimehighlighted");
+
+            updateTime();
+        }
+    }
+}
+
+function zero() {
+    offsetSeconds = 0;        
+
+    updateTime();
+}
+
+function handleKeyDown(event) {
+    if (bShowFindSatellite || bShowSelectProjection || bShowSelectObserver || bShowInformation || bShowSettings) {
+        //
+        // one of the configration displays is showing,
+        //  so we don't want to process the mouse move
+        //  ourselves...
+        //
+
+        return;
+    }
+
+    if (event.shiftKey && event.altKey) {
+        if (event.key === "Add" || event.key === "+") {
+            offsetSeconds += 1;
+            updateTime();
+        } else if (event.key === "Subtract" || event.key === "-") {
+            offsetSeconds -= 1;
+            updateTime();
+        }
+    } else if (event.shiftKey) {
+        if (event.key === "ArrowUp" || event.key === "Up") {
+            centralPosition.altitudeMeters -= centralPosition.altitudeMeters * 0.1;
+
+            if (centralPosition.altitudeMeters > MAX_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0) {
+                centralPosition.altitudeMeters = MAX_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0;
+            } else if (centralPosition.altitudeMeters < MIN_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0) {
+                centralPosition.altitudeMeters = MIN_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0;
+            }
+
+            updateCentralPosition(false);
+        } else if (event.key === "ArrowDown" || event.key === "Down") {
+            centralPosition.altitudeMeters += centralPosition.altitudeMeters * 0.1;
+
+            if (centralPosition.altitudeMeters > MAX_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0) {
+                centralPosition.altitudeMeters = MAX_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0;
+            } else if (centralPosition.altitudeMeters < MIN_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0) {
+                centralPosition.altitudeMeters = MIN_SPHERICAL_VIEW_ALTITUDE_KM * 1000.0;
+            }
+
+            updateCentralPosition(false);
+        } else if (event.key === "Add" || event.key === "+") {
+            offsetSeconds += 3600;
+            updateTime();
+        } else if (event.key === "Subtract" || event.key === "-") {
+            offsetSeconds -= 3600;
+            updateTime();
+        } else {
+            return;
+        }
+    } else if (event.altKey) {
+        if (event.key === "Add" || event.key === "+") {
+            offsetSeconds += 86400;
+            updateTime();
+        } else if (event.key === "Subtract" || event.key === "-") {
+            offsetSeconds -= 86400;
+            updateTime();
+        }
+    } else if (event.ctrlKey) {
+        if (event.key === "ArrowLeft" || event.key === "Left") {
+            observer.tracking.longitude -= glMatrix.toRadian(1.0);
+            updateObserverPosition();
+            redrawScene();
+            updateObjectReport();
+        } else if (event.key === "ArrowRight" || event.key === "Right") {
+            observer.tracking.longitude += glMatrix.toRadian(1.0);
+            updateObserverPosition();
+            redrawScene();
+            updateObjectReport();
+        } else if (event.key === "ArrowUp" || event.key === "Up") {
+            observer.tracking.latitude += glMatrix.toRadian(1.0);
+            updateObserverPosition();
+            redrawScene();
+            updateObjectReport();
+        } else if (event.key === "ArrowDown" || event.key === "Down") {
+            observer.tracking.latitude -= glMatrix.toRadian(1.0);
+            updateObserverPosition();
+            redrawScene();
+            updateObjectReport();
+        }
+    } else if (event.key === "ArrowLeft" || event.key === "Left") {
+        centralPosition.longitudeRadians += glMatrix.toRadian(1.0);
+        updateCentralPosition(true);
+    } else if (event.key === "ArrowRight" || event.key === "Right") {
+        centralPosition.longitudeRadians -= glMatrix.toRadian(1.0);
+        updateCentralPosition(true);
+    } else if (event.key === "ArrowUp" || event.key === "Up") {
+        centralPosition.latitudeRadians -= glMatrix.toRadian(1.0);
+        updateCentralPosition(true);
+    } else if (event.key === "ArrowDown" || event.key === "Down") {
+        centralPosition.latitudeRadians += glMatrix.toRadian(1.0);
+        updateCentralPosition(true);
+    } else if (event.key === "Delete" || event.key === "Del" || event.key === "d" || event.key === "x") {
+        deleteObjectReport();
+    } else if (event.key === "Add" || event.key === "+") {
+        offsetSeconds += 60;
+        updateTime();
+    } else if (event.key === "Subtract" || event.key === "-") {
+        offsetSeconds -= 60;
+        updateTime();
+    } else if (event.key === "c") {
+        centerObjectReport();
+    } else if (event.key === "e") {
+        //
+        // edit the selected satellite...
+        //
+
+        if (objectReport) {
+            if (objectReport.hasOwnProperty("satcat")) {
+                
+            }
+        }
+    } else if (event.key === "i") {
+        //
+        // display the associated NSSDC info for the selected satellite...
+        //
+
+        if (objectReport) {
+            if (objectReport.hasOwnProperty("satcat")) {
+                var page = WEBSITE_NSSDC + objectReport.satcat[SATCAT_ENTRY_DESIGNATOR];
+
+                window.open(page);
+            }
+        }
+    } else if (event.key === "o") {        
+        if(mouseLongitude && mouseLatitude) {
+            setObserverPosition(mouseLongitude, mouseLatitude, 0.0);
+            redrawScene();
+            updateObjectReport();
+        }
+    }
+    else if (event.key === "z") {
+        offsetSeconds = 0;
+        updateTime();
+    } else if (event.key === "") {
+
+    } else {
+        return;
+    }
+}
+
+function changeSettingInteger(property, value) {
+    gl.useProgram(shaderProgramGlobePerspective);
+    gl.uniform1i(shaderProgramGlobePerspective[property], value);
+
+    gl.useProgram(shaderProgramGlobeCylindrical);
+    gl.uniform1i(shaderProgramGlobeCylindrical[property], value);
+
+    gl.useProgram(shaderProgramGlobeElliptical);
+    gl.uniform1i(shaderProgramGlobeElliptical[property], value);
+
+    gl.useProgram(shaderProgramGlobeSinusoidal);
+    gl.uniform1i(shaderProgramGlobeSinusoidal[property], value);
+
+    gl.useProgram(shaderProgramGlobeRobinson);
+    gl.uniform1i(shaderProgramGlobeRobinson[property], value);
+}
+
+function changeSettingColor(property, color) {
+    gl.useProgram(shaderProgramGlobePerspective);
+    gl.uniform4f(shaderProgramGlobePerspective[property], color[0], color[1], color[2], color[3]);
+
+    gl.useProgram(shaderProgramGlobeCylindrical);
+    gl.uniform4f(shaderProgramGlobeCylindrical[property], color[0], color[1], color[2], color[3]);
+
+    gl.useProgram(shaderProgramGlobeElliptical);
+    gl.uniform4f(shaderProgramGlobeElliptical[property], color[0], color[1], color[2], color[3]);
+
+    gl.useProgram(shaderProgramGlobeSinusoidal);
+    gl.uniform4f(shaderProgramGlobeSinusoidal[property], color[0], color[1], color[2], color[3]);
+
+    gl.useProgram(shaderProgramGlobeRobinson);
+    gl.uniform4f(shaderProgramGlobeRobinson[property], color[0], color[1], color[2], color[3]);
+}
+
+function changeSettingBackgroundColor() {
+    var colorBackground = makeColor(document.getElementById("colorBackground").value, 1.0);
+
+    document.getElementById("colorBackground").style.backgroundColor = document.getElementById("colorBackground").value;
+
+    gl.clearColor(colorBackground[0], colorBackground[1], colorBackground[2], 1.0);
+}
+
+function changeSettingDisplayEarth() {
+    bDisplayEarth = document.getElementById("displayEarth").checked;
+}
+
+function changeSettingDisplayImage() {
+    var bUseSatelliteImage = document.getElementById("displayImage").checked;
+
+    changeSettingInteger("bUseSatelliteImage", bUseSatelliteImage);
+}
+
+function changeSettingDisplayDayNight() {
+    var bDisplayDayNight = document.getElementById("displayDayNight").checked;
+
+    changeSettingInteger("bDisplayDayNight", bDisplayDayNight);
+}
+
+function changeSettingColorDay() {
+    var colorDay = makeColor(document.getElementById("colorDay").value, 1.0);
+
+    document.getElementById("colorDay").style.backgroundColor = document.getElementById("colorDay").value;
+
+    changeSettingColor("colorDay", colorDay);
+}
+
+function changeSettingColorNight() {
+    var colorNight = makeColor(document.getElementById("colorNight").value, 1.0);
+
+    document.getElementById("colorNight").style.backgroundColor = document.getElementById("colorNight").value;
+
+    changeSettingColor("colorNight", colorNight);
+}
+
+function changeSettingDisplayTerminator() {
+    var bDisplayTerminator = document.getElementById("displayTerminator").checked;
+
+    changeSettingInteger("bDisplayTerminator", bDisplayTerminator);
+}
+
+function changeSettingColorTerminator() {
+    var colorTerminator = makeColor(document.getElementById("colorTerminator").value, document.getElementById("alphaTerminator").value);
+
+    document.getElementById("colorTerminator").style.backgroundColor = document.getElementById("colorTerminator").value;
+
+    changeSettingColor("colorTerminator", colorTerminator);
+}
+
+function changeSettingDisplayLatLongGrid() {
+    var bDisplayLatLongGrid = document.getElementById("displayLatLongGrid").checked;
+
+    changeSettingInteger("bDisplayLongitudeLatitudeGrid", bDisplayLatLongGrid);
+}
+
+function changeSettingColorLatLongGrid() {
+    var colorLatLongGrid = makeColor(document.getElementById("colorLatLongGrid").value, document.getElementById("alphaLatLongGrid").value);
+
+    document.getElementById("colorLatLongGrid").style.backgroundColor = document.getElementById("colorLatLongGrid").value;
+
+    changeSettingColor("colorLongitudeLatitudeGrid", colorLatLongGrid);
+}
+
+function changeSettingDisplayBoundaries() {
+    var bDisplayBoundaries = document.getElementById("displayBoundaries").checked;
+
+    changeSettingInteger("bDisplayBoundaries", bDisplayBoundaries);
+}
+
+function changeSettingDisplayBoundariesCoastline() {
+    var bDisplayBoundariesCoastline = document.getElementById("displayBoundariesCoastline").checked;
+
+    changeSettingInteger("bDisplayBoundariesCoastlines", bDisplayBoundariesCoastline);
+}
+
+function changeSettingDisplayBoundariesInternal() {
+    var bDisplayBoundariesInternal = document.getElementById("displayBoundariesInternal").checked;
+
+    changeSettingInteger("bDisplayBoundariesInternal", bDisplayBoundariesInternal);
+}
+
+function changeSettingColorBoundaries() {
+    var colorBoundaries = makeColor(document.getElementById("colorBoundaries").value, document.getElementById("alphaBoundaries").value);
+
+    document.getElementById("colorBoundaries").style.backgroundColor = document.getElementById("colorBoundaries").value;
+
+    changeSettingColor("colorBoundaries", colorBoundaries);
+}
+
+function changeSettingDisplayLand() {
+    var bDisplayLand = document.getElementById("displayFillLand").checked;
+
+    changeSettingInteger("bFillLand", bDisplayLand);
+}
+
+function changeSettingColorLand() {
+    var colorLand = makeColor(document.getElementById("colorLand").value, document.getElementById("alphaFillLand").value);
+
+    document.getElementById("colorLand").style.backgroundColor = document.getElementById("colorLand").value;
+
+    changeSettingColor("colorLand", colorLand);
+}
+
+function changeSettingDisplaySeas() {
+    var bDisplaySeas = document.getElementById("displayFillSeas").checked;
+
+    changeSettingInteger("bFillSeas", bDisplaySeas);
+}
+
+function changeSettingColorSeas() {
+    var colorSeas = makeColor(document.getElementById("colorSeas").value, document.getElementById("alphaFillSeas").value);
+
+    document.getElementById("colorSeas").style.backgroundColor = document.getElementById("colorSeas").value;
+
+    changeSettingColor("colorSeas", colorSeas);
+}
+
+function changeSettingRadarDisplayStars() {
+    radarDisplayStars = document.getElementById("displayStars").checked;
+}
+
+function changeSettingRadarColorStarsValue(radarColorStars) {
+    var gradient = [];
+    var constant = [];
+    var index;
+
+    gl.useProgram(shaderProgramStars);
+
+    for (index = 0; index < 3; index++) {
+        gradient[index] = (radarColorStars[index] - colorBackground[index]) / (radarBrightestMagnitude - radarLimitingMagnitude);
+        constant[index] = radarColorStars[index] - (gradient[index] * radarBrightestMagnitude);
+    }
+
+    gl.uniform3f(shaderProgramStars.colorGradients, gradient[0], gradient[1], gradient[2]);
+    gl.uniform3f(shaderProgramStars.colorConstants, constant[0], constant[1], constant[2]);
+}
+
+function changeSettingRadarColorStars() {
+    var radarColorStars = makeColor(document.getElementById("colorStars").value, 1.0);
+
+    document.getElementById("colorStars").style.backgroundColor = document.getElementById("colorStars").value;
+
+    changeSettingRadarColorStarsValue(radarColorStars);
+}
+
+function changeSettingRadarLimitingMagnitude() {
+    radarLimitingMagnitude = document.getElementById("limitingMagnitude").value;
+
+    gl.useProgram(shaderProgramStars);
+    gl.uniform1f(shaderProgramStars.limitingMagnitude, radarLimitingMagnitude);
+}
+
+function changeSettingRadarDisplayConstellations() {
+    bShowConstellationShapes = document.getElementById("displayConstellations").checked;
+}
+
+function changeSettingRadarColorConstellations() {
+    radarColorConstellationShapes = makeColor(document.getElementById("colorConstellations").value, 1.0);  
+
+    document.getElementById("colorConstellations").style.backgroundColor = document.getElementById("colorConstellations").value;
+}
+
+function changeSettingRadarDisplayConstellationBoundaries() {
+    bShowConstellationBoundaries = document.getElementById("includeConstellationBoundaries").checked;
+}
+
+function changeSettingRadarColorConstellationBoundaries() {
+    radarColorConstellationBoundaries = makeColor(document.getElementById("colorConstellationBoundaries").value, 1.0);  
+
+    document.getElementById("colorConstellationBoundaries").style.backgroundColor = document.getElementById("colorConstellationBoundaries").value;
+}
+
+function changeSettingRadarDisplayConstellationNames() {
+    bShowConstellationNames = document.getElementById("includeConstellationNames").checked;
+}
+
+function changeSettingRadarColorConstellationNamesValue(color) {
+    var labels = document.getElementById("constellationLabels");
+    
+    if (labels) {
+        labels.style.color = color;
+    }
+}
+
+function changeSettingRadarColorConstellationNames() {
+    var color = document.getElementById("colorConstellationNames").value;
+
+    document.getElementById("colorConstellationNames").style.backgroundColor = document.getElementById("colorConstellationNames").value;
+
+    changeSettingRadarColorConstellationNamesValue(color);
+}
+
+function changeSettingRadarDisplayAzElGrid() {
+    var labels = document.getElementById("radarLabels");
+
+    radarDisplayAzElGrid = document.getElementById("displayAzElGrid").checked;
+
+    if (labels) {
+        if (radarDisplayAzElGrid) {
+            labels.style.visibility = "visible";
+        } else {
+            labels.style.visibility = "hidden";
+        }
+    }
+}
+
+function changeSettingRadarColorAzElGrid() {
+    radarColorAzElGrid = makeColor(document.getElementById("colorAzElGrid").value, 1.0);
+
+    document.getElementById("colorAzElGrid").style.backgroundColor = document.getElementById("colorAzElGrid").value;
+
+    gl.useProgram(shaderProgramXY);
+    gl.uniform4f(shaderProgramXY.color, radarColorAzElGrid[0], radarColorAzElGrid[1], radarColorAzElGrid[2], 1.0);
+}
+
+function changeSettingRadarDisplayRADecGrid() {
+    radarDisplayRADecGrid = document.getElementById("displayRADecGrid").checked;
+}
+
+function changeSettingRadarColorRADecGrid() {
+    radarColorRADecGrid = makeColor(document.getElementById("colorRADecGrid").value, 1.0);
+
+    document.getElementById("colorRADecGrid").style.backgroundColor = document.getElementById("colorRADecGrid").value;
+
+    gl.useProgram(shaderProgramRADec);
+    gl.uniform4f(shaderProgramRADec.color, radarColorRADecGrid[0], radarColorRADecGrid[1], radarColorRADecGrid[2], 0.5);
+}
+
+function changeSettingRadarDisplayCentralPosition() {
+    var label = document.getElementById("radarCenter");
+
+    if (label) {
+        radarShowCentralPosition = document.getElementById("displayCentralPosition").checked;
+
+        if (radarShowCentralPosition) {
+            label.style.visibility = "visible";
+        } else {
+            label.style.visibility = "hidden";
+        }
+    }
+}
+
+function changeSettingRadarColorCentralPosition() {
+    var label = document.getElementById("radarCenter"); 
+
+    if (label) {
+        radarColorCentralPosition = makeColor(document.getElementById("colorCentralPosition").value, 1.0);
+
+        document.getElementById("colorCentralPosition").style.backgroundColor = document.getElementById("colorCentralPosition").value;
+
+        var colorContrast = getColorContrast(radarColorCentralPosition);
+        var textShadow = "-1px -1px 5px " + colorContrast + ", 1px -1px 5px " + colorContrast + ", -1px 1px 5px " + colorContrast + ", 1px 1px 5px " + colorContrast;
+
+        label.style.color = document.getElementById("colorCentralPosition").value;
+        label.style.textShadow = textShadow;
+    }
+}
+
+function changeTimeZoneUTC() {
+    timeZoneUTC = document.getElementById("timeZoneUTC").checked;
+
+    updateTimeDisplay();
+}
+
+function changeRefractionCorrection() {
+    refractionCorrection = document.getElementById("refractionCorrection").checked;
+}
+
+function deleteFromView() {
+    if (objectReport) {
+        if (objectReport.tracking) {
+            removeDisplayedSatellite(objectReport.id);
+
+            //
+            // we update the scene, but set updateFootprintsOnly to true,
+            //  so we don't incur the penalty of updating all the satellites...
+            //
+
+            updateScene(true);
+        }
+    }    
+}
+
+function expandReport() {
+    if (objectReport) {
+        if (objectReport.tracking) {
+            reportLevelSatellite++;
+        
+            if (reportLevelSatellite > MAX_REPORT_LEVEL_SATELLITE) {
+                reportLevelSatellite = 0;
+            }
+        } else {
+            reportLevelObserver++;
+
+            if (reportLevelObserver > MAX_REPORT_LEVEL_OBSERVER) {
+                reportLevelObserver = 0;
+            }
+        }
+    
+        updateObjectReport();
+    }
+}
+
+function updateTimeDisplay() {
+    if (timeZoneUTC) {
+        document.getElementById("dateandtimeyear").innerHTML = dateNow.getUTCFullYear();
+        document.getElementById("dateandtimemonth").innerHTML = (dateNow.getUTCMonth() + 1).toString().padStart(2, "0");
+        document.getElementById("dateandtimeday").innerHTML = dateNow.getUTCDate( ).toString().padStart(2, "0");
+        document.getElementById("dateandtimehour").innerHTML = dateNow.getUTCHours().toString().padStart(2, "0");
+        document.getElementById("dateandtimeminute").innerHTML = dateNow.getUTCMinutes().toString().padStart(2, "0");
+        document.getElementById("dateandtimesecond").innerHTML = dateNow.getUTCSeconds( ).toString().padStart(2, "0");
+    } else {
+        document.getElementById("dateandtimeyear").innerHTML = dateNow.getFullYear();
+        document.getElementById("dateandtimemonth").innerHTML = (dateNow.getMonth() + 1).toString().padStart(2, "0");
+        document.getElementById("dateandtimeday").innerHTML = dateNow.getDate( ).toString().padStart(2, "0");
+        document.getElementById("dateandtimehour").innerHTML = dateNow.getHours().toString().padStart(2, "0");
+        document.getElementById("dateandtimeminute").innerHTML = dateNow.getMinutes().toString().padStart(2, "0");
+        document.getElementById("dateandtimesecond").innerHTML = dateNow.getSeconds( ).toString().padStart(2, "0");
+    }
+}
+
+function updateTime() {
+    if (!paused) {
+        dateBase = new Date();
+    }
+
+    dateNow = new Date((dateBase * 1) + (1000 * offsetSeconds));
+    jdNow = julianDate(dateNow);
+    solarPosition = subSolarPoint(jdNow);
+  
+//
+//  the following is now obsolete, but can be used to display the current 
+//  date and time in UTC or the local time zone, based on the current locale...
+//
+//    if (timeZoneUTC) {
+//        document.getElementById("dateandtime").innerHTML = date.toLocaleString([], { timeZone: 'UTC', hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short'});
+//    } else {
+//        document.getElementById("dateandtime").innerHTML = date.toLocaleString([], {                  hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short'});
+//    }
+//
+
+    updateTimeDisplay();
+
+    updateScene(false);
+}
+
+function updateFromTimer() {
+    if (!paused) {
+        updateTime();
+    }
+}
+
+function applyInitialUISettings() {
+    //
+    // set the initial settings values for the projection views...
+    //
+
+    document.getElementById("colorBackground").value = makeHTMLColor(colorBackground);
+    document.getElementById("colorBackground").style.backgroundColor = makeHTMLColor(colorBackground);
+    
+    document.getElementById("displayEarth").checked = bDisplayEarth;
+    document.getElementById("displayImage").checked = bUseSatelliteImage;
+
+    document.getElementById("displayDayNight").checked = bDisplayDayNight;
+    document.getElementById("colorDay").value = makeHTMLColor(colorDay);
+    document.getElementById("colorNight").value = makeHTMLColor(colorNight);
+    document.getElementById("colorDay").style.backgroundColor = makeHTMLColor(colorDay);
+    document.getElementById("colorNight").style.backgroundColor = makeHTMLColor(colorNight);
+
+    document.getElementById("displayTerminator").checked = bDisplayTerminator;
+    document.getElementById("colorTerminator").value = makeHTMLColor(colorTerminator);
+    document.getElementById("colorTerminator").style.backgroundColor = makeHTMLColor(colorTerminator);
+    document.getElementById("alphaTerminator").value = alphaTerminator;
+    document.getElementById("alphaTerminatorValue").value = alphaTerminator;
+
+    document.getElementById("displayLatLongGrid").checked = bDisplayLongitudeLatitudeGrid;
+    document.getElementById("colorLatLongGrid").value = makeHTMLColor(colorLongitudeLatitudeGrid);
+    document.getElementById("colorLatLongGrid").style.backgroundColor = makeHTMLColor(colorLongitudeLatitudeGrid);
+    document.getElementById("alphaLatLongGrid").value = alphaLongitudeLatitudeGrid;
+    document.getElementById("alphaLatLongGridValue").value = alphaLongitudeLatitudeGrid;
+
+    document.getElementById("displayBoundaries").checked = bDisplayBoundaries;
+    document.getElementById("colorBoundaries").value = makeHTMLColor(colorBoundaries);
+    document.getElementById("colorBoundaries").style.backgroundColor = makeHTMLColor(colorBoundaries);
+    document.getElementById("alphaBoundaries").value = alphaBoundaries;
+    document.getElementById("alphaBoundariesValue").value = alphaBoundaries;
+
+    document.getElementById("displayFillLand").checked = bFillLand;
+    document.getElementById("colorLand").value = makeHTMLColor(colorLand);
+    document.getElementById("colorLand").style.backgroundColor = makeHTMLColor(colorLand);
+    document.getElementById("alphaFillLand").value = alphaLand;
+    document.getElementById("alphaFillLandValue").value = alphaLand;
+
+    document.getElementById("displayFillSeas").checked = bFillSeas;
+    document.getElementById("colorSeas").value = makeHTMLColor(colorSeas);
+    document.getElementById("colorSeas").style.backgroundColor = makeHTMLColor(colorSeas);
+    document.getElementById("alphaFillSeas").value = alphaSeas;
+    document.getElementById("alphaFillSeasValue").value = alphaSeas;
+    
+    //
+    // set the initial settings values for the radar view...
+    //
+
+    document.getElementById("displayStars").checked = radarDisplayStars;
+    document.getElementById("colorStars").value = makeHTMLColor(radarColorStars);  
+    document.getElementById("colorStars").style.backgroundColor = makeHTMLColor(radarColorStars);  
+    document.getElementById("limitingMagnitude").value = radarLimitingMagnitude;  
+    document.getElementById("limitingMagnitudeValue").value = radarLimitingMagnitude;
+
+    document.getElementById("displayConstellations").checked = bShowConstellationShapes;
+    document.getElementById("colorConstellations").value = makeHTMLColor(radarColorConstellationShapes);
+    document.getElementById("colorConstellations").style.backgroundColor = makeHTMLColor(radarColorConstellationShapes);
+    document.getElementById("includeConstellationBoundaries").checked = bShowConstellationBoundaries;
+    document.getElementById("colorConstellationBoundaries").value = makeHTMLColor(radarColorConstellationBoundaries);    
+    document.getElementById("colorConstellationBoundaries").style.backgroundColor = makeHTMLColor(radarColorConstellationBoundaries);    
+    document.getElementById("includeConstellationNames").checked = bShowConstellationNames;
+    document.getElementById("colorConstellationNames").value = makeHTMLColor(radarColorConstellationNames);
+    document.getElementById("colorConstellationNames").style.backgroundColor = makeHTMLColor(radarColorConstellationNames);
+
+    document.getElementById("displayAzElGrid").checked = radarDisplayAzElGrid;
+    document.getElementById("colorAzElGrid").value = makeHTMLColor(radarColorAzElGrid);
+    document.getElementById("colorAzElGrid").style.backgroundColor = makeHTMLColor(radarColorAzElGrid);
+
+    document.getElementById("displayRADecGrid").checked = radarDisplayRADecGrid;
+    document.getElementById("colorRADecGrid").value = makeHTMLColor(radarColorRADecGrid);
+    document.getElementById("colorRADecGrid").style.backgroundColor = makeHTMLColor(radarColorRADecGrid);
+
+    document.getElementById("displayCentralPosition").checked = bShowConstellationShapes;
+    document.getElementById("colorCentralPosition").value = makeHTMLColor(radarColorCentralPosition);
+    document.getElementById("colorCentralPosition").style.backgroundColor = makeHTMLColor(radarColorCentralPosition);
+}
+
+function applyShaderSettingsCommon(shader) {
+    gl.useProgram(shader);
+
+    gl.uniform4f(shader["colorSeas"], colorSeas[0], colorSeas[1], colorSeas[2], alphaSeas);
+    gl.uniform4f(shader["colorLand"], colorLand[0], colorLand[1], colorLand[2], alphaLand);
+    gl.uniform1i(shader["bUseSatelliteImage"], bUseSatelliteImage);
+    gl.uniform1i(shader["bFillLand"], bFillLand);
+    gl.uniform1i(shader["bFillSeas"], bFillSeas);
+    gl.uniform1i(shader["bDisplayDayNight"], bDisplayDayNight);
+    gl.uniform4f(shader["colorDay"], colorDay[0], colorDay[1], colorDay[2], 1);
+    gl.uniform4f(shader["colorNight"], colorNight[0], colorNight[1], colorNight[2], 1);
+    gl.uniform4f(shader["colorLongitudeLatitudeGrid"], colorLongitudeLatitudeGrid[0], colorLongitudeLatitudeGrid[1], colorLongitudeLatitudeGrid[2], alphaLongitudeLatitudeGrid);
+    gl.uniform1i(shader["bDisplayLongitudeLatitudeGrid"], bDisplayLongitudeLatitudeGrid);
+    gl.uniform4f(shader["colorTerminator"], colorTerminator[0], colorTerminator[1], colorTerminator[2], alphaTerminator);
+    gl.uniform4f(shader["colorBoundaries"], colorBoundaries[0], colorBoundaries[1], colorBoundaries[2], alphaBoundaries);
+    gl.uniform1i(shader["bDisplayTerminator"], bDisplayTerminator);
+    gl.uniform1i(shader["bDisplayBoundaries"], bDisplayBoundaries);
+    gl.uniform1i(shader["bDisplayBoundariesCoastlines"], bDisplayBoundariesCoastlines);
+    gl.uniform1i(shader["bDisplayBoundariesInternal"], bDisplayBoundariesInternal);
+    gl.uniform1i(shader["numSatellites"], 0);
+}
+
+function applyShaderSettingsRadar() {
+    changeSettingRadarColorStarsValue(radarColorStars);
+    changeSettingRadarColorConstellationNamesValue(makeHTMLColor(radarColorConstellationNames));
+
+    gl.useProgram(shaderProgramStars);
+    gl.uniform1f(shaderProgramStars.limitingMagnitude, radarLimitingMagnitude);    
+
+    gl.useProgram(shaderProgramRADec);
+    gl.uniform4f(shaderProgramRADec.color, radarColorRADecGrid[0], radarColorRADecGrid[1], radarColorRADecGrid[2], 0.5);
+}
+
+function applyShaderSettings() {
+    angleGrazingEarthRadians = Math.asin(1.0 / distanceScale);
+
+    gl.clearColor(colorBackground[0], colorBackground[1], colorBackground[2], 1.0);
+
+    applyShaderSettingsCommon(shaderProgramGlobePerspective);
+    applyShaderSettingsCommon(shaderProgramGlobeCylindrical);
+    applyShaderSettingsCommon(shaderProgramGlobeElliptical);
+    applyShaderSettingsCommon(shaderProgramGlobeSinusoidal);
+    applyShaderSettingsCommon(shaderProgramGlobeRobinson);
+
+    applyShaderSettingsRadar();
+}
+
+function enterConstellationName(event) {
+    event.target.style.fontSize = "150%";
+    event.target.innerHTML = event.target.getAttribute("fullName");
+}
+
+function leaveConstellationName(event) {
+    event.target.style.fontSize = "100%";
+    event.target.innerHTML = event.target.getAttribute("abbr");
+}
+
+function addConstellationListeners(constellations, index) {
+    var label = constellations.children[index];
+
+    label.addEventListener("mouseover", enterConstellationName);
+    label.addEventListener("mouseout", leaveConstellationName);
+}
+
+function setConstellationLabels() {
+    //
+    // set the radar and constellation label settings...
+    //
+
+    var radarLabels = document.getElementById("radarLabels");
+
+    if (radarLabels) {
+        var length = radarLabels.children.length;
+
+        for (var i=0; i<length; i++) {
+            var label = radarLabels.children[i];
+
+            if (label) {
+                label.style.transform = "translate(" + label.getAttribute("xOffset") + "%, " + label.getAttribute("yOffset") + "%)";
+            }
+        }
+    }
+
+    var constellations = document.getElementById("constellationLabels");
+
+    if (constellations) {
+        for (var i=0; i<constellations.children.length; i++) {
+            var label = constellations.children[i];
+
+            if (label) {
+                label.innerHTML = label.getAttribute("abbr");
+            }
+
+            addConstellationListeners(constellations, i);
+        }
+    }
+}
+
+function initiateGoogleMap() {
+    if (google) {
+        var observerPos = {lat: 180.0 * observer.tracking.latitude / Math.PI, lng: 180.0 * observer.tracking.longitude / Math.PI};
+        var mapOptions = {
+            center: new google.maps.LatLng(0.0, 0.0),
+            zoom: 3,
+            streetViewControl: false,
+            mapTypeControl: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControlOptions: {      
+                mapTypeIds: [
+                google.maps.MapTypeId.ROADMAP,
+                google.maps.MapTypeId.SATELLITE
+                ]
+            }
+        }
+
+        observerMap = new google.maps.Map(document.getElementById("mapObserver"), mapOptions);
+        if (observerMap) {
+            document.getElementById("mapObserver").style.display = "block";
+        }   
+
+        observerMarker = new google.maps.Marker({
+            position: observerPos,
+            map: observerMap });
+
+        google.maps.event.addListener(observerMap, 'click', function(event) {
+            updateMarkerPositionOnClick(event.latLng);
+        });
+
+        observerMap.setOptions({draggableCursor:'crosshair'});
+    }
+}
+
+function handleLoadedTexture(texture, image, shader, sampler, index) {
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    try {
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+    }
+    catch (e) {
+        messageError(e.message);
+    }
+
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.generateMipmap(gl.TEXTURE_2D);
+    gl.bindTexture(gl.TEXTURE_2D, null);
+
+    gl.useProgram(shader);
+    gl.uniform1i(sampler, index);
+
+    redrawScene();
+}
+
+//
+// it might be tempting to create a function to remove dupicate code in the following
+//  handleLoadedTexture...( ... ) functions. However, do not do this, as it will not
+//  work well with minification. In particular you would have to use ["..."] notation
+//  to access properties which are elsewhere accessed by . notation.
+//
+
+function handleLoadedTextureDay(image) {
+    handleLoadedTexture(globeTextureDay, image, shaderProgramGlobePerspective, shaderProgramGlobePerspective.samplerUniformDay, TEXTURE_DAY);
+    handleLoadedTexture(globeTextureDay, image, shaderProgramGlobeCylindrical, shaderProgramGlobeCylindrical.samplerUniformDay, TEXTURE_DAY);
+    handleLoadedTexture(globeTextureDay, image, shaderProgramGlobeElliptical, shaderProgramGlobeElliptical.samplerUniformDay, TEXTURE_DAY);
+    handleLoadedTexture(globeTextureDay, image, shaderProgramGlobeSinusoidal, shaderProgramGlobeSinusoidal.samplerUniformDay, TEXTURE_DAY);
+    handleLoadedTexture(globeTextureDay, image, shaderProgramGlobeRobinson, shaderProgramGlobeRobinson.samplerUniformDay, TEXTURE_DAY);
+}
+
+function handleLoadedTextureNight(image) {
+    handleLoadedTexture(globeTextureNight, image, shaderProgramGlobePerspective, shaderProgramGlobePerspective.samplerUniformNight, TEXTURE_NIGHT);
+    handleLoadedTexture(globeTextureNight, image, shaderProgramGlobeCylindrical, shaderProgramGlobeCylindrical.samplerUniformNight, TEXTURE_NIGHT);
+    handleLoadedTexture(globeTextureNight, image, shaderProgramGlobeElliptical, shaderProgramGlobeElliptical.samplerUniformNight, TEXTURE_NIGHT);
+    handleLoadedTexture(globeTextureNight, image, shaderProgramGlobeSinusoidal, shaderProgramGlobeSinusoidal.samplerUniformNight, TEXTURE_NIGHT);
+    handleLoadedTexture(globeTextureNight, image, shaderProgramGlobeRobinson, shaderProgramGlobeRobinson.samplerUniformNight, TEXTURE_NIGHT);
+}
+
+function handleLoadedTextureMask(image) {
+    handleLoadedTexture(globeTextureMask, image, shaderProgramGlobePerspective, shaderProgramGlobePerspective.samplerUniformMask, TEXTURE_MASK);
+    handleLoadedTexture(globeTextureMask, image, shaderProgramGlobeCylindrical, shaderProgramGlobeCylindrical.samplerUniformMask, TEXTURE_MASK);
+    handleLoadedTexture(globeTextureMask, image, shaderProgramGlobeElliptical, shaderProgramGlobeElliptical.samplerUniformMask, TEXTURE_MASK);
+    handleLoadedTexture(globeTextureMask, image, shaderProgramGlobeSinusoidal, shaderProgramGlobeSinusoidal.samplerUniformMask, TEXTURE_MASK);
+    handleLoadedTexture(globeTextureMask, image, shaderProgramGlobeRobinson, shaderProgramGlobeRobinson.samplerUniformMask, TEXTURE_MASK);
+}
+
+function handleLoadedTextureBoundaries(image) {
+    handleLoadedTexture(globeTextureBoundaries, image, shaderProgramGlobePerspective, shaderProgramGlobePerspective.samplerUniformBoundaries, TEXTURE_BOUNDARIES);
+    handleLoadedTexture(globeTextureBoundaries, image, shaderProgramGlobeCylindrical, shaderProgramGlobeCylindrical.samplerUniformBoundaries, TEXTURE_BOUNDARIES);
+    handleLoadedTexture(globeTextureBoundaries, image, shaderProgramGlobeElliptical, shaderProgramGlobeElliptical.samplerUniformBoundaries, TEXTURE_BOUNDARIES);
+    handleLoadedTexture(globeTextureBoundaries, image, shaderProgramGlobeSinusoidal, shaderProgramGlobeSinusoidal.samplerUniformBoundaries, TEXTURE_BOUNDARIES);
+    handleLoadedTexture(globeTextureBoundaries, image, shaderProgramGlobeRobinson, shaderProgramGlobeRobinson.samplerUniformBoundaries, TEXTURE_BOUNDARIES);
+}
+
+function initGL(canvas) {
+    try {
+        canvas.setAttribute('width', window.innerWidth);
+        canvas.setAttribute('height', window.innerHeight);
+
+        gl = canvas.getContext("webgl", { antialias: true }) || canvas.getContext("experimental-webgl", { antialias: true });
+        if (gl) {
+            initShaders();
+            initBuffers();
+            initTexture();
+            initialize();
+
+            gl.enable(gl.DEPTH_TEST);
+            gl.lineWidth(1.0);
+
+            perspective();
+
+            redrawScene();
+        } else {
+            messageError("Browser plugin unable to acquire WebGL context.");
+        }
+    }
+    catch (e) {
+        messageError("Browser plugin does not support WebGL. Check [HKEY_CURRENT_USER|HKEY_LOCAL_MACHINE]\\SOFTWARE\\Microsoft\\Internet Explorer\\MAIN\\FeatureControl\\FEATURE_BROWSER_EMULATION\\Tracker.exe=0x00002af8");
+    }
+}
+
+function loadUtilities() {
+    canvas = document.getElementById("canvas");
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.scroll = "no";
+
+    footprintData = new Uint8Array(SIZE_OF_FLOAT * FOOTPRINTS_ARRAY_NUM_SATELLITES * FOOTPRINTS_ARRAY_NUM_ENTRIES);
+   
+    initGL(canvas);
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
+
+    imageTextureDay = new Image();
+    imageTextureDay.src = "Images/EarthDay.jpg";
+    imageTextureDay.onload = function () {
+        handleLoadedTextureDay(imageTextureDay);
+    }
+
+    imageTextureNight = new Image();
+    imageTextureNight.src = "Images/EarthNight.jpg";
+    imageTextureNight.onload = function () {
+        handleLoadedTextureNight(imageTextureNight);
+    }
+
+    imageTextureMask = new Image();
+    imageTextureMask.src = "Images/EarthMonochrome.bmp";
+    imageTextureMask.onload = function () {
+        handleLoadedTextureMask(imageTextureMask);
+    }
+
+    imageTextureBoundaries = new Image();
+    imageTextureBoundaries.src = "Images/boundaries_combined_4bit.png";
+    imageTextureBoundaries.onload = function () {
+        handleLoadedTextureBoundaries(imageTextureBoundaries);
+    }
+}
+
+function loaded() {
+    var body;
+    var searchFor;
+
+    addHeaderToHeadTableSatellites();
+    addHeaderToHeadTableProjection();
+
+    document.getElementById("buttonSatellite").addEventListener("click", findSatellite);
+    document.getElementById("buttonObserver").addEventListener("click", selectObserver);
+    document.getElementById("buttonProjection").addEventListener("click", selectProjection);
+    document.getElementById("buttonFullscreen").addEventListener("click", toggleFull);
+    document.getElementById("buttonRefresh").addEventListener("click", reload);
+    document.getElementById("buttonInformation").addEventListener("click", showInformation);
+    document.getElementById("buttonSettings").addEventListener("click", showSettings);
+    document.getElementById("imgSatelliteSettings").addEventListener("click", showSatelliteSettings);
+    document.getElementById("resetSatelliteSettings").addEventListener("click", resetSatelliteSettings);
+    document.getElementById("doneSatelliteSettings").addEventListener("click", applyAndHideSatelliteSettings);
+    document.getElementById("setDefaultSatelliteSettings").addEventListener("click", setDefaultSatelliteSettings);
+    document.getElementById("selectAllNone").addEventListener("click", selectAllNone);
+
+    document.getElementById("divSatellitesBody").addEventListener("scroll", scrollSatellitesBody);
+
+    document.getElementById("searchInputEntry").addEventListener("keypress", searchForSatellites);
+
+    document.getElementById("imgObserverSettings").addEventListener("click", showObserverSettings);
+    document.getElementById("resetObserverSettings").addEventListener("click", resetObserverSettings);
+    document.getElementById("doneObserverSettings").addEventListener("click", applyAndHideObserverSettings);
+    document.getElementById("resetObserverPositionSettings").addEventListener("click", resetObserverPositionSettings);
+    document.getElementById("applyObserverPositionSettings").addEventListener("click", applyObserverPositionSettings);
+    document.getElementById("useDeviceLocation").addEventListener("click", useDeviceLocation);
+
+    document.getElementById("addDay").addEventListener("mousedown", addDay);
+    document.getElementById("addDay").addEventListener("mouseup", cancelInterval);
+    document.getElementById("addDay").addEventListener("mouseleave", cancelInterval);
+    document.getElementById("addHour").addEventListener("mousedown", addHour);
+    document.getElementById("addHour").addEventListener("mouseup", cancelInterval);
+    document.getElementById("addHour").addEventListener("mouseleave", cancelInterval);
+    document.getElementById("addMinute").addEventListener("mousedown", addMinute);
+    document.getElementById("addMinute").addEventListener("mouseup", cancelInterval);
+    document.getElementById("addMinute").addEventListener("mouseleave", cancelInterval);
+    document.getElementById("dateandtimeplay").addEventListener("click", play);
+    document.getElementById("dateandtimezero").addEventListener("click", zero);
+
+    document.getElementById("subtractDay").addEventListener("mousedown", subtractDay);
+    document.getElementById("subtractDay").addEventListener("mouseup", cancelInterval);
+    document.getElementById("subtractDay").addEventListener("mouseleave", cancelInterval);
+    document.getElementById("subtractHour").addEventListener("mousedown", subtractHour);
+    document.getElementById("subtractHour").addEventListener("mouseup", cancelInterval);
+    document.getElementById("subtractHour").addEventListener("mouseleave", cancelInterval);
+    document.getElementById("subtractMinute").addEventListener("mousedown", subtractMinute);
+    document.getElementById("subtractMinute").addEventListener("mouseup", cancelInterval);
+    document.getElementById("subtractMinute").addEventListener("mouseleave", cancelInterval);
+
+    //
+    // add change event listeners. These were originally in the html
+    //  file, but we've moved them here to better handle minification...
+    //
+
+    document.getElementById("satelliteLabel").addEventListener("change", changeSatelliteLabel);
+    document.getElementById("satelliteLabelBackground").addEventListener("change", changeSatelliteBackgroundFill);
+    document.getElementById("satelliteShade").addEventListener("change", changeSatelliteFootprintShade);
+    document.getElementById("satelliteOutline").addEventListener("change", changeSatelliteFootprintOutline);
+    document.getElementById("satelliteTrackUnits").addEventListener("change", changeSatelliteTrackUnits);
+    document.getElementById("satelliteTrackStyle").addEventListener("change", changeSatelliteTrackStyle);
+    document.getElementById("colorBackground").addEventListener("change", changeSettingBackgroundColor);
+    document.getElementById("displayEarth").addEventListener("change", changeSettingDisplayEarth);
+    document.getElementById("displayImage").addEventListener("change", changeSettingDisplayImage);
+    document.getElementById("displayDayNight").addEventListener("change", changeSettingDisplayDayNight);
+    document.getElementById("colorDay").addEventListener("change", changeSettingColorDay);
+    document.getElementById("colorNight").addEventListener("change", changeSettingColorNight);
+    document.getElementById("displayTerminator").addEventListener("change", changeSettingDisplayTerminator);
+    document.getElementById("colorTerminator").addEventListener("change", changeSettingColorTerminator);
+    document.getElementById("alphaTerminator").addEventListener("change", changeSettingColorTerminator);
+    document.getElementById("displayLatLongGrid").addEventListener("change", changeSettingDisplayLatLongGrid);
+    document.getElementById("colorLatLongGrid").addEventListener("change", changeSettingColorLatLongGrid);
+    document.getElementById("alphaLatLongGrid").addEventListener("change", changeSettingColorLatLongGrid);
+    document.getElementById("displayBoundaries").addEventListener("change", changeSettingDisplayBoundaries);
+    document.getElementById("colorBoundaries").addEventListener("change", changeSettingColorBoundaries);
+    document.getElementById("alphaBoundaries").addEventListener("change", changeSettingColorBoundaries);
+    document.getElementById("displayBoundariesCoastline").addEventListener("change", changeSettingDisplayBoundariesCoastline);
+    document.getElementById("displayBoundariesInternal").addEventListener("change", changeSettingDisplayBoundariesInternal);
+    document.getElementById("displayFillLand").addEventListener("change", changeSettingDisplayLand);
+    document.getElementById("colorLand").addEventListener("change", changeSettingColorLand);
+    document.getElementById("alphaFillLand").addEventListener("change", changeSettingColorLand);
+    document.getElementById("displayFillSeas").addEventListener("change", changeSettingDisplaySeas);
+    document.getElementById("colorSeas").addEventListener("change", changeSettingColorSeas);
+    document.getElementById("alphaFillSeas").addEventListener("change", changeSettingColorSeas);
+    document.getElementById("displayStars").addEventListener("change", changeSettingRadarDisplayStars);
+    document.getElementById("colorStars").addEventListener("change", changeSettingRadarColorStars);
+    document.getElementById("limitingMagnitude").addEventListener("change", changeSettingRadarLimitingMagnitude);
+    document.getElementById("displayConstellations").addEventListener("change", changeSettingRadarDisplayConstellations);
+    document.getElementById("colorConstellations").addEventListener("change", changeSettingRadarColorConstellations);
+    document.getElementById("includeConstellationBoundaries").addEventListener("change", changeSettingRadarDisplayConstellationBoundaries);
+    document.getElementById("colorConstellationBoundaries").addEventListener("change", changeSettingRadarColorConstellationBoundaries);
+    document.getElementById("includeConstellationNames").addEventListener("change", changeSettingRadarDisplayConstellationNames);
+    document.getElementById("colorConstellationNames").addEventListener("change", changeSettingRadarColorConstellationNames);
+    document.getElementById("displayAzElGrid").addEventListener("change", changeSettingRadarDisplayAzElGrid);
+    document.getElementById("colorAzElGrid").addEventListener("change", changeSettingRadarColorAzElGrid);
+    document.getElementById("displayRADecGrid").addEventListener("change", changeSettingRadarDisplayRADecGrid);
+    document.getElementById("colorRADecGrid").addEventListener("change", changeSettingRadarColorRADecGrid);
+    document.getElementById("displayCentralPosition").addEventListener("change", changeSettingRadarDisplayCentralPosition);
+    document.getElementById("colorCentralPosition").addEventListener("change", changeSettingRadarColorCentralPosition);
+    document.getElementById("timeZoneUTC").addEventListener("change", changeTimeZoneUTC);
+    document.getElementById("refractionCorrection").addEventListener("change", changeRefractionCorrection);
+
+    document.getElementById("colorSatellite").addEventListener("input", changeSatelliteColor);
+    document.getElementById("colorSatelliteLabelBackground").addEventListener("input", changeSatelliteBackgroundColor);
+    document.getElementById("satelliteFootprintAlpha").addEventListener("input", changeSatelliteFootprintAlpha);
+    document.getElementById("satelliteOutlineAngles").addEventListener("input", changeSatelliteFootprintAngles);
+    document.getElementById("satelliteTrackForwardCount").addEventListener("input", changeSatelliteTrackForwardCount);
+    document.getElementById("satelliteTrackBackwardCount").addEventListener("input", changeSatelliteTrackBackwardCount);
+    document.getElementById("colorObserver").addEventListener("input", changeObserverColor);
+    document.getElementById("colorObserverLabelBackground").addEventListener("input", changeObserverBackgroundColor);
+
+    document.getElementById("alphaTerminator").addEventListener("input", function() {document.getElementById("alphaTerminatorValue").value = document.getElementById("alphaTerminator").value});
+    document.getElementById("alphaLatLongGrid").addEventListener("input", function() {document.getElementById("alphaLatLongGridValue").value = document.getElementById("alphaLatLongGrid").value});
+    document.getElementById("alphaBoundaries").addEventListener("input", function() {document.getElementById("alphaBoundariesValue").value = document.getElementById("alphaBoundaries").value});
+    document.getElementById("alphaFillLand").addEventListener("input", function() {document.getElementById("alphaFillLandValue").value = document.getElementById("alphaFillLand").value});
+    document.getElementById("alphaFillSeas").addEventListener("input", function() {document.getElementById("alphaFillSeasValue").value = document.getElementById("alphaFillSeas").value});
+    document.getElementById("limitingMagnitude").addEventListener("input", function() {document.getElementById("limitingMagnitudeValue").value = document.getElementById("limitingMagnitude").value});
+
+    searchFor = document.getElementById("searchFor");
+    if (searchFor) {
+        var entries = [COLUMNS.NAME, COLUMNS.NORAD, COLUMNS.INTERNATIONAL_DESIGNATOR];
+
+        for (var index = 0; index < entries.length; index++) {
+            var option = document.createElement("option");
+
+            option.setAttribute("value", headersSatellite[entries[index]].html);
+            option.innerHTML = headersSatellite[entries[index]].html;
+
+            if (entries[index] === COLUMNS.NAME) {
+                option.selected = true;
+            }
+
+            searchFor.appendChild(option);
+        }
+    }
+
+    document.addEventListener("webkitfullscreenchange", fullScreenToggled);
+    document.addEventListener("mozfullscreenchange", fullScreenToggled);
+    document.addEventListener("fullscreenchange", fullScreenToggled);
+
+    for (var index = 0; index < projections.length; index++) {
+        document.getElementById(projections[index]).addEventListener("click", projectionSwitch);
+    }
+
+    switchedProjection();
+
+    loadSatellites();
+    loadUtilities();
+
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("pointerdown", handleMouseDown);
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("pointerup", handleMouseUp);
+    document.addEventListener("mousewheel", handleMouseWheel, {passive: true});
+    document.addEventListener("keydown", handleKeyDown);
+
+    applyInitialUISettings();
+
+    //
+    // handle changes to the satellite settings...
+    //
+
+    for (var i=0; i<symbols.length; i++) {
+        document.getElementById(symbols[i]).addEventListener("click", setSatelliteSymbolEvent);
+        document.getElementById(symbols[i] + "Observer").addEventListener("click", setObserverSymbolEvent);
+    }
+    
+    //
+    // now that we have created the observer we can set the initial position...
+    //
+    
+    setObserverPosition(0.0, 0.0, 0.0);
+   
+    setConstellationLabels();
+    updateCenterLabelPosition();
+    changeSettingRadarColorCentralPosition();
+
+    applyShaderSettings();
+
+    updateCentralPosition(false);
+    setObserverPositionInShaders();
+
+    initiateGoogleMap();
+
+    resized();
+
+    updateFromTimer();
+
+    timer = setInterval(updateFromTimer, updatePeriodMS);
+}
+
+function centerSettings(id, frameOuter) {
+    var divSettings = document.getElementById(id);
+
+    if (divSettings) {
+        var left;
+        var top;
+
+        left = Math.max( 0, (frameOuter.getBoundingClientRect().width - divSettings.getBoundingClientRect().width) / 2 );
+        top = Math.max( 0, (frameOuter.getBoundingClientRect().height - divSettings.getBoundingClientRect().height) / 2 );
+        
+        Object.assign(divSettings.style, {left: left + "px", top: top + "px"});
+    }
+}
+
+function setTextualViewTableHeight() {
+    var divTableTextualOuter = document.getElementById("divTableTextualOuter");
+
+    //
+    // if the textual view is not on display then cannot get the size of the various elements...
+    //
+
+    if (divTableTextualOuter && divTableTextualOuter.style.display != "none") {
+        var tableHeadTextual = document.getElementById("tableHeadTextual");
+
+        if (tableHeadTextual) {
+            var divTableBodyTextual = document.getElementById("divTableBodyTextual");
+
+            if (divTableBodyTextual) {
+                var divTableTextual = document.getElementById("divTableTextual");
+
+                if (divTableTextual) {
+                    var height = divTableTextualOuter.getBoundingClientRect().height;
+                    var style = window.getComputedStyle(divTableTextualOuter);
+
+                    height -= parseInt(style.paddingTop, 10);
+                    height -= parseInt(style.paddingBottom, 10);
+                    height -= 2 * parseInt(window.getComputedStyle(divTableTextual).getPropertyValue("border-width"), 10);
+                    height -= tableHeadTextual.getBoundingClientRect().height;
+
+                    divTableBodyTextual.style.height = height + "px";
+                }
+            }
+        }
+    }
+}
+
+function alignButton(alignOn, toAlign) {
+    var rect;
+
+    rect = document.getElementById(alignOn).getBoundingClientRect();
+
+    document.getElementById(toAlign).style.left = rect.left + "px";
+    document.getElementById(toAlign).style.width = rect.width + "px";
+}
+
+function resized() {
+    var categorySatellites = document.getElementById("categorySatellites");
+    var tableHeadSatellites = document.getElementById("tableHeadSatellites");
+    var divBodySatellites = document.getElementById("divSatellitesBody");
+    var frameLeft = document.getElementById("frameleft");
+    var frameRight = document.getElementById("frameright");
+    var frameTable = document.getElementById("frametable");
+ //   var frameInner = document.getElementById("frameinner");
+    var frameOuter = document.getElementById("frameouter");
+    var results = document.getElementById("results");
+    var height;
+    
+    setColumnWidths("tableHeadSatellites", "tableBodySatellites");
+    setColumnWidths("tableHeadTextual", "tableBodyTextual");
+
+    //
+    // note that in general we need to explicitly set the height of the 
+    //  potentially scrolling lists and tables else the scrolling will 
+    //  not work properly...
+    //
+           
+//    height = frameInner.getBoundingClientRect().bottom - frameInner.getBoundingClientRect().top - parseInt(window.getComputedStyle(frameInner).paddingTop, 10) - parseInt(window.getComputedStyle(frameInner).paddingBottom, 10);
+   
+    //
+    // set the heights of the various elements in the satellite settings...
+    //   
+
+    height = frameLeft.getBoundingClientRect().bottom;
+    height -= categorySatellites.getBoundingClientRect().top;
+    height -= parseInt(window.getComputedStyle(categorySatellites).marginBottom, 10);
+    categorySatellites.style.height = height + "px";
+
+    height = frameRight.getBoundingClientRect().bottom - results.getBoundingClientRect().bottom;
+    frameTable.style.height = height + "px";
+
+    height = frameTable.getBoundingClientRect().bottom - tableHeadSatellites.getBoundingClientRect().bottom;
+    if (window.getComputedStyle(frameTable).borderBottom) {
+        height -= parseInt(window.getComputedStyle(frameTable).borderBottom, 10);
+    }
+
+    divBodySatellites.style.height = height + "px";
+
+    //
+    // set the height of the google map and reset the center location...
+    //
+
+    if (observerMap) {
+        var divSelectObserver = document.getElementById("itemSelectObserver");
+        var divSelectObserverInner = document.getElementById("itemSelectObserverInner");
+        var center = observerMap.getCenter();
+        var map = document.getElementById("mapObserver");
+
+        height = divSelectObserver.getBoundingClientRect().bottom - divSelectObserver.getBoundingClientRect().top;
+     //   height -= parseInt(window.getComputedStyle(divSelectObserverInner).paddingBottom, 10);
+     //   height -= parseInt(window.getComputedStyle(divSelectObserverInner).paddingTop, 10);
+        height -= map.getBoundingClientRect().top;
+
+        if (height < 200) {
+            height = 200;
+        }
+
+        map.style.height = Math.floor(height) + "px";
+
+        setTimeout(function() {
+            observerMap.setCenter(center);
+        }, 5);
+    }
+
+    setTextualViewTableHeight();
+    
+    centerSettings("divSatelliteSettings", frameOuter);
+    centerSettings("divObserverSettings", frameOuter);
+
+    //
+    // handle resizing the radar view...
+    //
+
+    if (canvas.width != canvas.clientWidth || canvas.height != canvas.clientHeight) {
+        perspective();
+        updateCenterLabelPosition();
+        updateConstellationLabels();
+    }
+
+    //
+    // handle the add and subtract buttons...
+    //
+
+    alignButton("dateandtimeday", "subtractDay");
+    alignButton("dateandtimehour", "subtractHour");
+    alignButton("dateandtimeminute", "subtractMinute");
+    alignButton("dateandtimeday", "addDay");
+    alignButton("dateandtimehour", "addHour");
+    alignButton("dateandtimeminute", "addMinute");
+
+    perspective();
+
+    redrawScene();
+}
+
+function changeObserverColor() {
+    document.getElementById("colorObserver").style.backgroundColor = document.getElementById("colorObserver").value;
+}
+
+function changeObserverBackgroundColor() {
+    document.getElementById("colorObserverLabelBackground").style.backgroundColor = document.getElementById("colorObserverLabelBackground").value;
+}
+
+function initShaderGlobeCommon(shaderProgramGlobe) {
+    shaderProgramGlobe.vertexPositionAttribute = gl.getAttribLocation(shaderProgramGlobe, "aVertexPosition");
+    shaderProgramGlobe.textureCoordAttribute = gl.getAttribLocation(shaderProgramGlobe, "aTextureCoord");
+    shaderProgramGlobe.samplerUniformDay = gl.getUniformLocation(shaderProgramGlobe, "uSamplerDay");
+    shaderProgramGlobe.samplerUniformNight = gl.getUniformLocation(shaderProgramGlobe, "uSamplerNight");
+    shaderProgramGlobe.samplerUniformMask = gl.getUniformLocation(shaderProgramGlobe, "uSamplerMask");
+    shaderProgramGlobe.samplerUniformBoundaries = gl.getUniformLocation(shaderProgramGlobe, "uSamplerBoundaries");
+    shaderProgramGlobe.samplerUniformFootprints = gl.getUniformLocation(shaderProgramGlobe, "uSamplerFootprints");
+    shaderProgramGlobe.solarLongitude = gl.getUniformLocation(shaderProgramGlobe, "uSolarLongitude");
+    shaderProgramGlobe.solarLatitude = gl.getUniformLocation(shaderProgramGlobe, "uSolarLatitude");
+    shaderProgramGlobe.lineWidth = gl.getUniformLocation(shaderProgramGlobe, "uLineWidth");
+    shaderProgramGlobe.numSatellites = gl.getUniformLocation(shaderProgramGlobe, "uNumSatellites");
+    
+    //
+    // the following are all user definable quantities, and we need to access 
+    //  them as strings in order to efficiently modify them in the script...
+    //
+
+    shaderProgramGlobe["colorSeas"] = gl.getUniformLocation(shaderProgramGlobe, "uColorSeas");
+    shaderProgramGlobe["colorLand"] = gl.getUniformLocation(shaderProgramGlobe, "uColorLand");
+    shaderProgramGlobe["colorLongitudeLatitudeGrid"] = gl.getUniformLocation(shaderProgramGlobe, "uColorLongitudeLatitudeGrid");
+    shaderProgramGlobe["colorTerminator"] = gl.getUniformLocation(shaderProgramGlobe, "uColorTerminator");
+    shaderProgramGlobe["colorBoundaries"] = gl.getUniformLocation(shaderProgramGlobe, "uColorBoundaries");
+    shaderProgramGlobe["bUseSatelliteImage"] = gl.getUniformLocation(shaderProgramGlobe, "bUseSatelliteImage");
+    shaderProgramGlobe["bFillLand"] = gl.getUniformLocation(shaderProgramGlobe, "bFillLand");
+    shaderProgramGlobe["bFillSeas"] = gl.getUniformLocation(shaderProgramGlobe, "bFillSeas");
+    shaderProgramGlobe["colorDay"] = gl.getUniformLocation(shaderProgramGlobe, "uColorDay");
+    shaderProgramGlobe["colorNight"] = gl.getUniformLocation(shaderProgramGlobe, "uColorNight");
+    shaderProgramGlobe["bDisplayDayNight"] = gl.getUniformLocation(shaderProgramGlobe, "bDisplayDayNight");
+    shaderProgramGlobe["bDisplayLongitudeLatitudeGrid"] = gl.getUniformLocation(shaderProgramGlobe, "bDisplayLongitudeLatitudeGrid");
+    shaderProgramGlobe["bDisplayTerminator"] = gl.getUniformLocation(shaderProgramGlobe, "bDisplayTerminator");
+    shaderProgramGlobe["bDisplayBoundaries"] = gl.getUniformLocation(shaderProgramGlobe, "bDisplayBoundaries");
+    shaderProgramGlobe["bDisplayBoundariesCoastlines"] = gl.getUniformLocation(shaderProgramGlobe, "bDisplayBoundariesCoastlines");
+    shaderProgramGlobe["bDisplayBoundariesInternal"] = gl.getUniformLocation(shaderProgramGlobe, "bDisplayBoundariesInternal");
+}
+
+function initShaderProjection(shaderProgram, fs, vs) {
+    if (shaderProgram) {
+        var fragmentShaderGlobe = getShader(gl, fs);
+        var vertexShaderGlobe = getShader(gl, vs);
+
+        gl.attachShader(shaderProgram, vertexShaderGlobe);
+        gl.attachShader(shaderProgram, fragmentShaderGlobe);
+        gl.linkProgram(shaderProgram);
+        if (gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+            initShaderGlobeCommon(shaderProgram);
+            shaderProgram.centralLongitude = gl.getUniformLocation(shaderProgram, "uCentralLongitude");
+            shaderProgram.lineWidthS = gl.getUniformLocation(shaderProgram, "uLineWidthS");
+            shaderProgram.lineWidthT = gl.getUniformLocation(shaderProgram, "uLineWidthT");
+        }
+    }
+}
+
+function initShaderGlobe() {
+    shaderProgramGlobePerspective = gl.createProgram();
+    if (shaderProgramGlobePerspective) {
+        var fragmentShaderGlobe = getShader(gl, "shader-fs-globe-perspective");
+        var vertexShaderGlobe = getShader(gl, "shader-vs-globe-perspective");
+
+        gl.attachShader(shaderProgramGlobePerspective, vertexShaderGlobe);
+        gl.attachShader(shaderProgramGlobePerspective, fragmentShaderGlobe);
+        gl.linkProgram(shaderProgramGlobePerspective);
+        if (gl.getProgramParameter(shaderProgramGlobePerspective, gl.LINK_STATUS)) {
+            initShaderGlobeCommon(shaderProgramGlobePerspective);
+            shaderProgramGlobePerspective.pMatrixUniform = gl.getUniformLocation(shaderProgramGlobePerspective, "uPMatrix");
+            shaderProgramGlobePerspective.mvMatrixUniform = gl.getUniformLocation(shaderProgramGlobePerspective, "uMVMatrix");
+        }
+    }
+
+    shaderProgramGlobeCylindrical = gl.createProgram();
+    initShaderProjection(shaderProgramGlobeCylindrical, "shader-fs-globe-cylindrical", "shader-vs-globe-cylindrical");
+
+    shaderProgramGlobeElliptical = gl.createProgram();    
+    initShaderProjection(shaderProgramGlobeElliptical, "shader-fs-globe-elliptical", "shader-vs-globe-elliptical");
+
+    shaderProgramGlobeSinusoidal = gl.createProgram();
+    initShaderProjection(shaderProgramGlobeSinusoidal, "shader-fs-globe-sinusoidal", "shader-vs-globe-sinusoidal");
+
+    shaderProgramGlobeRobinson = gl.createProgram();
+    initShaderProjection(shaderProgramGlobeRobinson, "shader-fs-globe-robinson", "shader-vs-globe-robinson");
+}
+
+function initShaders() {
+    initShaderSymbol();
+    initShaderGlobe();
+    initShaderTrack();
+    initShaderXY();
+    initShaderRADec();
+    initShaderStars();
+}
+
+function deleteSatellite(identifier) {
+    var satellite;
+
+    satellite = jsonSatellites["S" + identifier];
+
+    if (satellite) {
+        try {
+            document.getElementById("labelContainer").removeChild( document.getElementById( satellite.elementShape ) );
+        } catch(err) {
+
+        }
+               
+        try {
+            document.getElementById("labelContainer").removeChild( document.getElementById( satellite.element ) );
+        } catch(err) {
+
+        }
+
+        try {
+            document.getElementById("tableBodyTextualBody").removeChild(satellite.tracking.rowLabel);  
+        } catch(err) {
+
+        }
+          
+        //
+        // remove all the tracking information...
+        //
+
+        delete satellite.tracking;
+
+        //
+        // uncheck the satellite in the Results satellite list, if it is present...
+        //
+
+        var row = document.getElementById(identifier);
+
+        if (row) {
+            var checkbox = row.firstChild.firstChild;
+
+            if (checkbox) {
+                checkbox.checked = false;
+
+                setSelectedSatellitesAllNone();
+            }
+        }
+
+        //
+        // reset the object centered on if necessary...
+        //
+
+        if (satellite === objectCenter) {
+            objectCenter = null;
+        }
+
+        //
+        // reset the object being reported on if necessary...
+        //
+        
+        if (satellite === objectReport) {
+            objectReport = null;
+
+            updateObjectReport();
+        }
+    }
+}
+
+function deleteObjectReport() {
+    if (objectReport) {
+        try {
+            var id = objectReport.id;
+
+            removeDisplayedSatellite(objectReport.id);
+            
+            //
+            // we update the scene, but set updateFootprintsOnly to true,
+            //  so we don't incur the penalty of updating all the satellites...
+            //
+
+            updateScene(true);
+        } catch (error) {
+            
+        }
+    }
+}
+
+function updateSatellite(satellite, identifier, index) {
+    var retVal = false;
+
+    try {
+        var timeBase = (jdNow - satellite.tracking.satrec.jdsatepoch) * 60.0 * 24.0;
+        var timeBaseStep = Math.floor((timeBase - satellite.tracking.trackBackwardMinutes) / satellite.tracking.timeStep) * satellite.tracking.timeStep;
+        var dataPrevNext = [];
+        var data = [];
+        var time;
+        var step;
+
+        satellite.tracking.pos = satellitePosition(satellite, timeBase);
+        if (satellite.tracking.pos) {
+            fromCartesianECEF(satellite.tracking, satellite.tracking.pos);
+
+            satellite.tracking.azel = satelliteAzElDegrees(satellite, observer);
+            satellite.tracking.range = satelliteRangeAndRangeRate(satellite, observer);
+            satellite.tracking.eclipse = eclipseState(satellite);
+
+            while (satellite.tracking.longitude < 0.0) {
+                satellite.tracking.longitude += 2.0 * Math.PI;
+            }
+
+            //
+            // the satellite track array is arranged as follows:
+            //
+            //  1: loop value (contains a copy of the last value in the following circular buffer)
+            //  satellite.tracking.trackBackwardSteps + satellite.tracking.trackForwardSteps + 1: a circular buffer, 
+            //                  with the start point indicated by satellite.tracking.circularBufferIndexStart 
+            //  3: satellite position at current time rounded down to nearest satellite.timeStep
+            //     satellite position at current time
+            //     satellite position at current time rounded up to nearest satellite.timeStep
+            //
+
+            if (satellite.tracking.recalculate || timeBase < satellite.tracking.timeBase ||
+                timeBaseStep >= satellite.tracking.timeBaseStep + (satellite.tracking.trackStepsActual * satellite.tracking.timeStep)) {
+                var posPrev = [];
+                var posNext = [];
+
+                //
+                // recalculate all of the satellite track, as the
+                //  tle has changed, the length of forward or backward
+                //  track has been modified, or the satellite track
+                //  needs to be completely recalculated...
+                //
+
+                satellite.tracking.recalculate = false;
+                satellite.tracking.timeBase = timeBase;
+                satellite.tracking.timeBaseStep = timeBaseStep;
+                satellite.tracking.trackStepsMaximum = Math.ceil((satellite.tracking.trackForwardMinutes + satellite.tracking.trackBackwardMinutes) / satellite.tracking.timeStep);
+                satellite.tracking.trackStepsActual = Math.floor((timeBase - timeBaseStep + satellite.tracking.trackForwardMinutes) / satellite.tracking.timeStep);
+                satellite.tracking.trackStepIndexCurrent = Math.floor((timeBase - timeBaseStep) / satellite.tracking.timeStep);
+                satellite.tracking.stepBack = 1;
+
+                if (satellite.tracking.trackStepsMaximum > 0) {
+                    //
+                    // this is the loop value, which simply replicates the last value in the circular buffer...
+                    //
+
+                    posNext = addToSatelliteTrack(data, satellite, timeBase + satellite.tracking.trackForwardMinutes, true);
+                    if (posNext) {
+                        addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, true);
+                    
+                        //
+                        // this is the first value of the satellite track:
+                        //  the current time minus the length of the backward track...
+                        //
+
+                        posNext = addToSatelliteTrack(data, satellite, timeBase - satellite.tracking.trackBackwardMinutes, true);
+                        if (posNext) {
+                            addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, false);
+
+                            //
+                            // these are the other values of the satellite track...
+                            //
+
+                            for (step = 0; step < satellite.tracking.trackStepsActual; step++) {
+                                posPrev = posNext;
+                                posNext = addToSatelliteTrack(data, satellite, satellite.tracking.timeBaseStep + ((step + 1) * satellite.tracking.timeStep), true);
+
+                                if (posNext) {
+                                    addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, false);
+                                    addToSatelliteTrackPos(dataPrevNext, posPrev.pos, posPrev.latitude, false);
+                                } else {
+                                    break;
+                                }
+                            }
+
+                            //
+                            // this is the last value of the satellite track:
+                            //  the current time plus the length of the forward track...
+                            //
+
+                            if (posNext) {
+                                posPrev = posNext;
+                                posNext = addToSatelliteTrack(data, satellite, timeBase + satellite.tracking.trackForwardMinutes, true);
+
+                                if (posNext) {
+                                    addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, false);
+                                    addToSatelliteTrackPos(dataPrevNext, posPrev.pos, posPrev.latitude, false);
+                                    addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, false);
+
+                                    if (satellite.tracking.trackStepsActual < satellite.tracking.trackStepsMaximum) {
+                                        //
+                                        // if the track doesn't span trackStepsMaximum gridded times 
+                                        //  then we throw in a placeholder...
+                                        //
+
+                                        posNext = addToSatelliteTrack(data, satellite, timeBase + satellite.tracking.trackForwardMinutes, true);
+                                        addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, true);
+
+                                        satellite.tracking.stepBack = 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                addToSatelliteTrackCurrentPosition(data, dataPrevNext, satellite);
+
+                gl.bindBuffer(gl.ARRAY_BUFFER, satellite.tracking.track);
+                gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.DYNAMIC_DRAW);
+
+                gl.bindBuffer(gl.ARRAY_BUFFER, satellite.tracking.trackPrevNext);
+                gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(dataPrevNext), gl.DYNAMIC_DRAW);
+
+                gl.bindBuffer(gl.ARRAY_BUFFER, null);
+
+                satellite.tracking.recalculate = false;
+                satellite.tracking.track.numItems = data.length / satellite.tracking.track.itemSize;
+                satellite.tracking.circularBufferIndexStart = 1;
+            } else {
+                var stepFirstChange = Math.floor((timeBase - satellite.tracking.trackBackwardMinutes) / satellite.tracking.timeStep) - Math.floor((satellite.tracking.timeBase - satellite.tracking.trackBackwardMinutes) / satellite.tracking.timeStep);
+                var stepLastChange = Math.floor((timeBase + satellite.tracking.trackForwardMinutes) / satellite.tracking.timeStep) - Math.floor((satellite.tracking.timeBase + satellite.tracking.trackForwardMinutes) / satellite.tracking.timeStep);
+                var trackStepsActual = Math.floor((timeBase - timeBaseStep + satellite.tracking.trackForwardMinutes) / satellite.tracking.timeStep);
+                var posPrev = [];
+                var posNext = [];
+                var dummy = [];
+                var stepBack = 1;
+
+                satellite.tracking.trackStepIndexCurrent = Math.floor((timeBase - timeBaseStep) / satellite.tracking.timeStep);
+
+                if (satellite.tracking.trackStepsMaximum > 0) {
+                    if (satellite.tracking.timeBaseStep + (satellite.tracking.trackStepsActual * satellite.tracking.timeStep) > timeBase) {
+                        posNext = addToSatelliteTrack(dummy, satellite, satellite.tracking.timeBaseStep + (satellite.tracking.trackStepsActual * satellite.tracking.timeStep), false);
+                    } else {
+                        posNext = addToSatelliteTrack(dummy, satellite, timeBase, false);
+                    }
+
+                    //
+                    // these are the other values of the satellite track, which are necessary because the value of 
+                    //  Math.floor((timeBase + satellite.tracking.trackForwardMinutes) / satellite.tracking.timeStep) has increased...
+                    //
+
+                    if (posNext) {
+                        for (step = 0; step < stepLastChange; step++) {
+                            posPrev = posNext;
+                            posNext = addToSatelliteTrack(data, satellite, satellite.tracking.timeBaseStep + ((satellite.tracking.trackStepsActual + step + 1) * satellite.tracking.timeStep), true);
+
+                            if (posNext) {
+                                addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, false); 
+                                addToSatelliteTrackPos(dataPrevNext, posPrev.pos, posPrev.latitude, false);
+                            } else {
+                                break;
+                            }
+                        }
+
+                        //
+                        // this is the last value of the satellite track:
+                        //  the current time plus the length of the forward track...
+                        //
+
+                        if (posNext) {
+                            posPrev = posNext;
+                            posNext = addToSatelliteTrack(data, satellite, timeBase + satellite.tracking.trackForwardMinutes, true);
+
+                            if (posNext) {
+                                addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, false);
+                                addToSatelliteTrackPos(dataPrevNext, posPrev.pos, posPrev.latitude, false);
+                                addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, false);
+
+                                if (trackStepsActual < satellite.tracking.trackStepsMaximum) {
+                                    //
+                                    // if the track doesn't span trackStepsMaximum gridded times 
+                                    //  then we throw in a placeholder...
+                                    //
+
+                                    addToSatelliteTrackPos(data, posNext.pos, posNext.latitude, true);
+                                    addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, true);
+                                }
+
+                                if (satellite.tracking.trackStepsActual < satellite.tracking.trackStepsMaximum) {
+                                    //
+                                    // if the previous track dooesn't span trackStepsMaximum, but the updated track
+                                    //  does span trackStepsMaximum then we need to increase stepBack by 1 to write
+                                    //  over the previous placeholder...
+                                    //
+
+                                    stepBack += 1;
+                                }
+
+                                //
+                                // this is the first value of the satellite track:
+                                //  the current time minus the length of the backward track...
+                                //
+
+                                if (timeBaseStep + satellite.tracking.timeStep < timeBase) {
+                                    posNext = addToSatelliteTrack(dummy, satellite, timeBaseStep + satellite.tracking.timeStep, false);
+                                } else {
+                                    posNext = addToSatelliteTrack(dummy, satellite, timeBase, false);
+                                }
+
+                                if (posNext) {
+                                    posPrev = addToSatelliteTrack(data, satellite, timeBase - satellite.tracking.trackBackwardMinutes, true);
+
+                                    addToSatelliteTrackPos(dataPrevNext, posPrev.pos, posPrev.latitude, false);
+                                    addToSatelliteTrackPos(dataPrevNext, posNext.pos, posNext.latitude, false);
+
+                                    //
+                                    // finally we need to change the 'previous' entry for the slot following the final slot modified...
+                                    //
+
+                                    addToSatelliteTrackPos(dataPrevNext, posPrev.pos, posPrev.latitude, false);
+
+                                    addToCircularBuffer(data, dataPrevNext, satellite, stepBack);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                satellite.tracking.timeBase = timeBase;
+                satellite.tracking.timeBaseStep = timeBaseStep;
+                satellite.tracking.trackStepsActual = trackStepsActual;
+
+                //
+                // update the satellite position...
+                //
+
+                data.length = 0;
+                dataPrevNext.length = 0;
+
+                addToSatelliteTrackCurrentPosition(data, dataPrevNext, satellite);
+
+                gl.bindBuffer(gl.ARRAY_BUFFER, satellite.tracking.track);
+                gl.bufferSubData(gl.ARRAY_BUFFER, SIZE_OF_FLOAT * satellite.tracking.track.itemSize * (satellite.tracking.track.numItems - 6), new Float32Array(data));
+
+                gl.bindBuffer(gl.ARRAY_BUFFER, satellite.tracking.trackPrevNext);
+                gl.bufferSubData(gl.ARRAY_BUFFER, SIZE_OF_FLOAT * satellite.tracking.trackPrevNext.itemSize * (satellite.tracking.track.numItems - 6), new Float32Array(dataPrevNext));
+
+                gl.bindBuffer(gl.ARRAY_BUFFER, null);
+            }
+
+            if (satellite.setting.trackStyle === "joined") {
+                var posNormalized = vec3.create();
+                var dataConnect = [];
+
+                vec3.normalize(posNormalized, satellite.tracking.pos);
+                dataConnect.push(satellite.tracking.pos[0], satellite.tracking.pos[1], satellite.tracking.pos[2], 0.0, posNormalized[0], posNormalized[1], posNormalized[2], 0.0);
+
+                gl.bindBuffer(gl.ARRAY_BUFFER, satellite.tracking.connect);
+                gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(dataConnect), gl.DYNAMIC_DRAW);
+            }
+
+            retVal = true;
+        } else {
+            //
+            // couldn't determine the satellite position, so probably best
+            //  to delete it from the list of satellites being tracked...
+            //
+
+            removeDisplayedSatellite(identifier);
+        }        
+    } catch (error) {
+        
+    }
+
+    return retVal;
+}
