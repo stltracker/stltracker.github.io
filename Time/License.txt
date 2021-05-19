@@ -1,0 +1,13 @@
+https://fonts.google.com/icons
+   
+* round_pause_black_48.png
+* round_play_arrow_black_48.png
+* round_undo_black_48.png
+
+https://www.apache.org/licenses/LICENSE-2.0.html
+
+https://developers.google.com/fonts/docs/material_icons:
+
+Licensing
+
+"We have made these icons available for you to incorporate them into your products under the Apache License Version 2.0. Feel free to remix and re-share these icons and documentation in your products. We'd love attribution in your app's about screen, but it's not required. The only thing we ask is that you not re-sell the icons themselves."
