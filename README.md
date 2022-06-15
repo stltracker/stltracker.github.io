@@ -16,10 +16,10 @@ The purpose of each of the buttons located at the top-left of the display are de
 
 The Satellites configuration screen is broadly split into the left (or top in a vertically oriented screen) side of the screen, which is used to select the satellites of interest, and the right (or bottom) side of the screen, which displays the selected satellites and provides sorting, display, and configuration options.
 
-*   Search all satellites: Search all satellites by Name, [NORAD Id/Catalog number](https://en.wikipedia.org/wiki/Satellite_Catalog_Number), or [International designator](https://en.wikipedia.org/wiki/International_Designator). You can also restrict the search results to satellites that are:
+*   Search all satellites: Search all satellites by Name, [NORAD Id/Catalog number](https://en.wikipedia.org/wiki/Satellite_Catalog_Number), or [International designator](https://en.wikipedia.org/wiki/International_Designator). Enter the text you want to search for and hit the 'Enter' key. The search results will be displayed in the Results table. You can also restrict the search results to satellites that are:
     *   on orbit - if checked excludes objects that have decayed or are no longer in orbit around the Earth
     *   payload - if checked excludes debris, rocket boosters, _etc._
-    *   active - if checked excludes non-functional objectsEnter the text you want to search for and hit the 'Enter' key. The search results will be displayed in the Results table.
+    *   active - if checked excludes non-functional objects
 *   Browse orbiting satellites: Select one the categories to display the satellites within that category in the Results table. 'Displayed' will give all the satellites currently being displayed on-screen. 'All' displays all the satellites currently in orbit. Underneath 'All' are hierarchically arranged sub-categories.
 *   Results: Displays the results from the Search or Browse.
     *   The results can be sorted by any column by clicking on the associated sort indicator, ![](Sort/UpDown_md.png).
