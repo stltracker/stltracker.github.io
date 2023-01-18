@@ -134,5 +134,5 @@ These settings are applied to the view. Not all settings are applicable in all p
 
 ![](Buttons/Copyright.png) Copyright:
 
-*   © Copyright Sumus Technology Limited 2017-2022
+*   © Copyright Sumus Technology Limited 2017-2023
 *   All rights reserved
